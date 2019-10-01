@@ -1,4 +1,5 @@
-from datetime import date
+import date
+from datetime import datetime, timedelta
 import telebot
 from telebot import types
 
