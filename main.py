@@ -20,7 +20,7 @@ def predefined_commands(message):
 	else:
 		weekorder = False
 		week = "тёмная"
-	if "какая" in message.text and "неделя" in message.text:
+	if "какая сейчас неделя" in message.text:
 		bot.send_message(message.chat.id, "сейчас " + week + " неделя", reply_to_message_id = message.message_id)
 	for name, identifier in all_students.items():
 		if identifier == message.from_user.id:
@@ -42,7 +42,7 @@ def predefined_commands(message):
 			bot.send_message(message.chat.id, "сегодня светлый четверг", reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 4 and "какой" in message.text and "день" in message.text:
 			bot.send_message(message.chat.id, "сегодня светлая пятница", reply_to_message_id = message.message_id)
-		if "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
+		elif "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
 			if "пары" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0:
@@ -68,7 +68,7 @@ def predefined_commands(message):
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (на сегодня)\n\nкомпьютерная схемотехника (08:30 / 025 каб.)\nкомпьютерная схемотехника (10:00 / 106 каб.)", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
-		if "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
+		elif "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
 			if "пары" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() + 1 == 7:
@@ -130,9 +130,9 @@ def predefined_commands(message):
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 			elif "парам на неделю" or "парам на неделе" in message.text or "расписание на неделю" in message.text or "расписание на неделе" in message.text or "расписанию на неделю" in message.text or "предметы на неделе" in message.text or "предметам на неделе" in message.text or "предметам на неделю" in message.text or "/schedule" in message.text or "/schedule@IIKTBot" in message.text:
 				if message.from_user.id in first_group.values():
-					bot.send_message(message.chat.id, student_group + " группа" + " (на неделю)\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ПЕРВОЙ ГРУППЫ")
+					bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ПЕРВОЙ ГРУППЫ")
 				elif message.from_user.id in second_group.values():
-					bot.send_message(message.chat.id, student_group + " группа" + " (на неделю)\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ВТОРОЙ ГРУППЫ")
+					bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ВТОРОЙ ГРУППЫ")
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 	elif weekorder == False:
@@ -146,7 +146,7 @@ def predefined_commands(message):
 			bot.send_message(message.chat.id, "сегодня тёмный четверг", reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 4 and "какой" in message.text and "день" in message.text:
 			bot.send_message(message.chat.id, "сегодня тёмная пятница", reply_to_message_id = message.message_id)
-		if "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
+		elif "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
 			if "пары" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0:
@@ -172,7 +172,7 @@ def predefined_commands(message):
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (на сегодня)\n\nкомпьютерная схемотехника (08:30 / 025 каб.)\nкомпьютерная схемотехника (10:00 / 106 каб.)", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
-		if "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
+		elif "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
 			if "пары" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() + 1 == 7:
@@ -234,9 +234,9 @@ def predefined_commands(message):
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 			elif "парам на неделю" or "парам на неделе" in message.text or "расписание на неделю" in message.text or "расписание на неделе" in message.text or "расписанию на неделю" in message.text or "предметы на неделе" in message.text or "предметам на неделе" in message.text or "предметам на неделю" in message.text or "/schedule" in message.text or "/schedule@IIKTBot" in message.text:
 				if message.from_user.id in first_group.values():
-					bot.send_message(message.chat.id, student_group + " группа" + " (на неделю)\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ПЕРВОЙ ГРУППЫ")
+					bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ПЕРВОЙ ГРУППЫ")
 				elif message.from_user.id in second_group.values():
-					bot.send_message(message.chat.id, student_group + " группа" + " (на неделю)\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ВТОРОЙ ГРУППЫ")
+					bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ВТОРОЙ ГРУППЫ")
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 bot.polling()
