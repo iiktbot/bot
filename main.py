@@ -20,7 +20,7 @@ def predefined_commands(message):
 	else:
 		weekorder = False
 		week = "тёмная"
-	if "какая сейчас неделя" in message.text:
+	if "какая" message.text and "неделя" in message.text:
 		bot.send_message(message.chat.id, "сейчас " + week + " неделя", reply_to_message_id = message.message_id)
 	for name, identifier in all_students.items():
 		if identifier == message.from_user.id:
@@ -128,7 +128,7 @@ def predefined_commands(message):
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (на сегодня)\n\nкомпьютерная схемотехника (08:30 / 025 каб.)\nкомпьютерная схемотехника (10:00 / 106 каб.)", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
-		elif "/schedule" in message.text or "/schedule@IIKTBot" in message.text:
+		if "/schedule" in message.text or "/schedule@IIKTBot" in message.text:
 			if message.from_user.id in first_group.values():
 				bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ПЕРВОЙ ГРУППЫ")
 			elif message.from_user.id in second_group.values():
@@ -232,7 +232,7 @@ def predefined_commands(message):
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (на сегодня)\n\nкомпьютерная схемотехника (08:30 / 025 каб.)\nкомпьютерная схемотехника (10:00 / 106 каб.)", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
-		elif "/schedule" in message.text or "/schedule@IIKTBot" in message.text:
+		if "/schedule" in message.text or "/schedule@IIKTBot" in message.text:
 			if message.from_user.id in first_group.values():
 				bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nРАСПИСАНИЕ НА НЕДЕЛЮ ДЛЯ ПЕРВОЙ ГРУППЫ")
 			elif message.from_user.id in second_group.values():
