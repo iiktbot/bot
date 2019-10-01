@@ -20,7 +20,7 @@ def predefined_commands(message):
 	else:
 		weekorder = False
 		week = "тёмная"
-	if "какая" message.text and "неделя" in message.text:
+	if "какая" in message.text and "неделя" in message.text:
 		bot.send_message(message.chat.id, "сейчас " + week + " неделя", reply_to_message_id = message.message_id)
 	for name, identifier in all_students.items():
 		if identifier == message.from_user.id:
