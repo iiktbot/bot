@@ -22,6 +22,34 @@ def predefined_commands(message):
 	else:
 		weekorder = False
 		week = "тёмная"
+	if date.today().weekday() == 0:
+		today = "понедельник"
+		tomorrow = "вторник"
+		yesterday = "воскресенье"
+	elif date.today().weekday() == 1:
+		today = "вторник"
+		tomorrow = "среда"
+		yesterday = "понедельник"
+	elif date.today().weekday() == 2:
+		today = "среда"
+		tomorrow = "четверг"
+		yesterday = "вторник"
+	elif date.today().weekday() == 3:
+		today = "четверг"
+		tomorrow = "пятница"
+		yesterday = "среда"
+	elif date.today().weekday() == 4:
+		today = "пятница"
+		tomorrow = "суббота"
+		yesterday = "четверг"
+	elif date.today().weekday() == 5:
+		today = "суббота"
+		tomorrow = "воскресенье"
+		yesterday = "пятница"
+	elif date.today().weekday() == 6:
+		today = "воскресенье"
+		tomorrow = "понедельник"
+		yesterday = "суббота"
 	if "какая" in message.text and "неделя" in message.text:
 		bot.send_message(message.chat.id, "сейчас " + week + " неделя", reply_to_message_id = message.message_id)
 	for name, identifier in all_students.items():
@@ -35,160 +63,198 @@ def predefined_commands(message):
 			student_group = "вторая"
 	if weekorder == True:
 		if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня светлый понедельник", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 1 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня светлый вторник", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 2 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня светлая среда", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня светлая " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 3 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня светлый четверг", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 4 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня светлая пятница", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня светлая " + today, reply_to_message_id = message.message_id)
+		elif date.today().weekday() == 5 and "какой" in message.text and "день" in message.text:
+			bot.send_message(message.chat.id, "сегодня светлая " + today, reply_to_message_id = message.message_id)
+		elif date.today().weekday() == 6 and "какой" in message.text and "день" in message.text:
+			bot.send_message(message.chat.id, "сегодня светлое " + today, reply_to_message_id = message.message_id)
 		if "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() + 1 == 7:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() + 1 == 7:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "вчера" in message.text and "завтра" not in message.text and "сегодня" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() - 1 == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() - 1 == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "сегодня" not in message.text and "вчера" not in message.text and "завтра" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+					if "понедельник" in message.text:
+						if message.from_user.id in first_group_eng.values():
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+						elif message.from_user.id in second_group_eng.values():
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+					elif "вторник" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вторник)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+					elif "среда" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+					elif "четверг" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+					elif "пятница" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+					elif "суббота" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (суббота)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+					elif "воскресенье" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (воскресенье)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+					if "понедельник" in message.text:
+						if message.from_user.id in first_group_eng.values():
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+						elif message.from_user.id in second_group_eng.values():
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+					elif "вторник" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вторник)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+					elif "среда" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+					elif "четверг" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+					elif "пятница" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n10:00 - 11:20 - компьютерная схемотехника\n13:05 - 14:25 - компьютерная схемотехника", reply_to_message_id = message.message_id)
+					elif "суббота" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (суббота)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+					elif "воскресенье" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (воскресенье)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
-		if "/schedule" in message.text or "/schedule@IIKTBot" in message.text:
+		if "schedule" in message.text:
 			if message.from_user.id in first_group.values():
 				bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nпонедельник\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык\n\nвторник\nпар нет\n\nсреда\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей\n\nчетверг\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование\n\nпятница\n08:30 - 09:50 - компьютерная схемотехника\n10:00 - 11:20 - компьютерная схемотехника")
 			elif message.from_user.id in second_group.values():
@@ -197,45 +263,49 @@ def predefined_commands(message):
 				bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 	elif weekorder == False:
 		if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня тёмный понедельник", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня тёмный " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 1 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня тёмный вторник", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня тёмный " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 2 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня тёмная среда", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня тёмная " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 3 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня тёмный четверг", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня тёмный " + today, reply_to_message_id = message.message_id)
 		elif date.today().weekday() == 4 and "какой" in message.text and "день" in message.text:
-			bot.send_message(message.chat.id, "сегодня тёмная пятница", reply_to_message_id = message.message_id)
+			bot.send_message(message.chat.id, "сегодня тёмная " + today, reply_to_message_id = message.message_id)
+		elif date.today().weekday() == 5 and "какой" in message.text and "день" in message.text:
+			bot.send_message(message.chat.id, "сегодня тёмная " + today, reply_to_message_id = message.message_id)
+		elif date.today().weekday() == 6 and "какой" in message.text and "день" in message.text:
+			bot.send_message(message.chat.id, "сегодня тёмное " + today, reply_to_message_id = message.message_id)
 		if "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
 			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nпятница, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nпятница, пар нет", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
@@ -243,39 +313,39 @@ def predefined_commands(message):
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() + 1 == 7:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nпятница, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nпятница, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() + 1 == 7:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() + 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (завтра)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "вчера" in message.text and "завтра" not in message.text and "сегодня" not in message.text:
@@ -283,39 +353,39 @@ def predefined_commands(message):
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() - 1 == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nпятница, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nпятница, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() - 1 == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 5:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() - 1 == 6:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вчера)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "сегодня" not in message.text and "вчера" not in message.text and "завтра" not in message.text:
@@ -323,31 +393,65 @@ def predefined_commands(message):
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nпятница, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nпятница, пар нет", reply_to_message_id = message.message_id)
+				elif "понедельник" in message.text:
+					if message.from_user.id in first_group_eng.values():
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+					elif message.from_user.id in second_group_eng.values():
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+				elif "вторник" in message.text:
+					bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вторник)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+				elif "среда" in message.text:
+					bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+				elif "четверг" in message.text:
+					bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40 - 13:00 - объектно-ориентированное программирование\n13:05 - 14:25 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+				elif "пятница" in message.text:
+					bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\nпятница, пар нет", reply_to_message_id = message.message_id)
+				elif "суббота" in message.text:
+					bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (суббота)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+				elif "воскресенье" in message.text:
+					bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (воскресенье)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				elif message.from_user.id in second_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
 						elif message.from_user.id in second_group_eng.values():
-							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 1:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\nвторник, пар нет", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 2:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 3:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
 					elif date.today().weekday() == 4:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (сегодня)\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" "\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+					if "понедельник" in message.text:
+						if message.from_user.id in first_group_eng.values():
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n11:40 - 13:00 - английский язык", reply_to_message_id = message.message_id)
+						elif message.from_user.id in second_group_eng.values():
+							bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n10:00 - 11:20 - вычислительная математика\n13:05 - 14:25 - английский язык", reply_to_message_id = message.message_id)
+					elif "вторник" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (вторник)\n\nвторник, пар нет", reply_to_message_id = message.message_id)
+					elif "среда" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40 - 13:00 - теория вероятностей\n13:05 - 14:25 - теория вероятностей", reply_to_message_id = message.message_id)
+					elif "четверг" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40 - 13:00 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+					elif "пятница" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n13:05 - 14:25 - объектно-ориентированное программирование\n14:30 - 15:50 - объектно-ориентированное программирование", reply_to_message_id = message.message_id)
+					elif "суббота" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (суббота)\n\nсуббота, пар нет", reply_to_message_id = message.message_id)
+					elif "воскресенье" in message.text:
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (воскресенье)\n\nвоскресенье, пар нет", reply_to_message_id = message.message_id)
 				else:
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		if "schedule" in message.text:
