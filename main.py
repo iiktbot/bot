@@ -1,7 +1,8 @@
-from datetime import date, timedelta
 import telebot
-from telebot import types
+import time
 import random
+from telebot import types
+from datetime import date, timedelta
 from random import randrange
 
 bot = telebot.TeleBot('642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8')
@@ -252,7 +253,7 @@ def predefined_commands(message):
 					elif "среда" in message.text or "среду" in message.text or "ср" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id = message.message_id)
 					elif "четверг" in message.text or "чт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n13:05-14:25 — ООП", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", 1 + stude40_group 3 00группа" + " (четверг)\n\n13:05-14:25 — ООП", reply_to_message_id = message.message_id)
 					elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "субботу" not in message.text:
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ.", reply_to_message_id = message.message_id)
 					elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text:
@@ -458,7 +459,7 @@ def predefined_commands(message):
 					elif "среда" in message.text or "среду" in message.text or "ср" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id = message.message_id)
 					elif "четверг" in message.text or "чт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n13:05-14:25 — ООП", reply_to_message_id = message.message_id)
+						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40-13:00 — ООП", reply_to_message_id = message.message_id)
 					elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "субботу" not in message.text:
 						bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП", reply_to_message_id = message.message_id)
 					elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text:
@@ -480,4 +481,9 @@ def predefined_commands(message):
 					bot.send_message(message.chat.id, student_group + " группа" + " / " + week + " неделя" + "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП")
 			elif message.from_user.id not in all_students.values():
 				bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
-bot.polling(none_stop = True)
+while True:
+	try:
+		bot.polling(none_stop=True)
+	except Exception as e:
+		logger.error(e)
+		time.sleep(15)
