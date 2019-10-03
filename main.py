@@ -71,7 +71,7 @@ def predefined_commands(message):
 		if "случайный мем" in message.text or "рандомный мем" in message.text or "дай мем" in message.text or "meme" in message.text:
 			bot.send_photo(message.chat.id, meme_url)
 	else:
-		bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
+		bot.send_message(message.chat.id, "ты мне не нравишься", reply_to_message_id = message.message_id)
 	if weekorder == True:
 		if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
 			bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id = message.message_id)
