@@ -477,7 +477,7 @@ def predefined_commands(message):
 			elif message.from_user.id not in all_students.values():
 				bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 	current_post_count = 4635
-	url = str("https://t.me/mnekovtoroi/" + str(random.randint(7, current_post_count)))
+	meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(7, current_post_count)))
 	if "случайный мем" in message.text or "рандомный мем" in message.text or "дай мем" in message.text or "randommeme" in message.text:
-		bot.send_photo(message.chat.id, url)
+		bot.send_photo(message.chat.id, meme_url)
 bot.polling()
