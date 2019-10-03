@@ -68,7 +68,7 @@ def predefined_commands(message):
 		if identifier == message.from_user.id:
 			student_group = "вторая"
 	if message.from_user.id in all_students.values():
-		if "случайный мем" in message.text or "рандомный мем" in message.text or "кинь мем" in message.text or "дай мем" in message.text or "meme" in message.text:
+		if "мем" in message.text or "meme" in message.text:
 			bot.send_photo(message.chat.id, meme_url)
 	if weekorder == True:
 		if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
