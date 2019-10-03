@@ -486,4 +486,4 @@ while True:
 		bot.polling(none_stop=True)
 	except Exception as e:
 		logger.error(e)
-		time.sleep(15)
+		time.sleep(.01)
