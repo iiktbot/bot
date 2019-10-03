@@ -1,7 +1,6 @@
 import telebot
 import time
 import random
-import logging
 from telebot import types
 from datetime import date, timedelta
 from random import randrange
