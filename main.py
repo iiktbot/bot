@@ -22,7 +22,7 @@ def predefined_commands(message):
 	message.text = message.text.lower()
 	current_post_count = 4635
 	meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(7, current_post_count)))
-	if "случайный мем" in message.text or "рандомный мем" in message.text or "дай мем" in message.text or "randommeme" in message.text:
+	if "случайный мем" in message.text or "рандомный мем" in message.text or "дай мем" in message.text or "meme" in message.text:
 		bot.send_photo(message.chat.id, meme_url)
 	if (weeknum % 2) == 0:
 		weekorder = True
