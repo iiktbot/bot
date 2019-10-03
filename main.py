@@ -1,6 +1,7 @@
 import telebot
 import time
 import random
+import logging
 from telebot import types
 from datetime import date, timedelta
 from random import randrange
@@ -21,8 +22,6 @@ def predefined_commands(message):
 	weeknum = date.today().isocalendar()[1]
 	message.text = message.text.lower()
 	meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(7, 4635)))
-	if "случайный мем" in message.text or "рандомный мем" in message.text or "дай мем" in message.text or "meme" in message.text:
-		bot.send_photo(message.chat.id, meme_url)
 	if (weeknum % 2) == 0:
 		weekorder = True
 		week = "светлая"
@@ -68,6 +67,11 @@ def predefined_commands(message):
 	for name, identifier in second_group.items():
 		if identifier == message.from_user.id:
 			student_group = "вторая"
+	if message.from_user.id in all_students.values():
+		if "случайный мем" in message.text or "рандомный мем" in message.text or "дай мем" in message.text or "meme" in message.text:
+			bot.send_photo(message.chat.id, meme_url)
+	else:
+		bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 	if weekorder == True:
 		if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
 			bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id = message.message_id)
