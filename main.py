@@ -69,8 +69,6 @@ def predefined_commands(message):
 	if message.from_user.id in all_students.values():
 		if "мем" in message.text or "meme" in message.text:
 			bot.send_photo(message.chat.id, meme_url)
-	else:
-		bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 	if weekorder == True:
 		if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
 			bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id = message.message_id)
@@ -87,7 +85,7 @@ def predefined_commands(message):
 		elif date.today().weekday() == 6 and "какой" in message.text and "день" in message.text:
 			bot.send_message(message.chat.id, "сегодня светлое " + today, reply_to_message_id = message.message_id)
 		if "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0:
 						if message.from_user.id in first_group_eng.values():
@@ -119,7 +117,7 @@ def predefined_commands(message):
 				elif message.from_user.id not in all_students.values():
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() + 1 == 7:
 						if message.from_user.id in first_group_eng.values():
@@ -159,7 +157,7 @@ def predefined_commands(message):
 				elif message.from_user.id not in all_students.values():
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "вчера" in message.text and "завтра" not in message.text and "сегодня" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() - 1 == 0:
 						if message.from_user.id in first_group_eng.values():
@@ -199,7 +197,7 @@ def predefined_commands(message):
 				elif message.from_user.id not in all_students.values():
 					bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id = message.message_id)
 		elif "сегодня" not in message.text and "вчера" not in message.text and "завтра" not in message.text:
-			if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
+			if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
 				if message.from_user.id in first_group.values():
 					if date.today().weekday() == 0 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
 						if message.from_user.id in first_group_eng.values():
