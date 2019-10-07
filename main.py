@@ -22,7 +22,6 @@ logger = telebot.logger
 telebot.logger.setLevel(logging.INFO)
 bot = telebot.TeleBot(API_TOKEN)
 app = flask.Flask(__name__)
-updater = Updater(TOKEN)
 
 @app.route('/', methods=['GET', 'HEAD'])
 def index():
