@@ -15,6 +15,8 @@ API_TOKEN = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
 WEBHOOK_HOST = 'https://iiktbot.herokuapp.com/'
 WEBHOOK_PORT = 8443
 WEBHOOK_LISTEN = '0.0.0.0'
+WEBHOOK_SSL_CERT = './webhook_cert.pem'
+WEBHOOK_SSL_PRIV = './webhook_pkey.pem'
 WEBHOOK_URL_BASE = "https://%s:%s" % (WEBHOOK_HOST, WEBHOOK_PORT)
 WEBHOOK_URL_PATH = "/%s/" % (API_TOKEN)
 
@@ -516,5 +518,5 @@ def predefined_commands(message):
 
 bot.remove_webhook()
 time.sleep(0.1)
-bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
-app.run(host=WEBHOOK_LISTEN, port=WEBHOOK_PORT, debug=True)
+bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH, certificate=open(WEBHOOK_SSL_CERT, 'r'))
+app.run(host=WEBHOOK_LISTEN, port=WEBHOOK_PORT, ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV), debug=True)
