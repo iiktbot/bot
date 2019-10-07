@@ -23,7 +23,7 @@ pycares==3.0.0
 pycparser==2.19
 pyTelegramBotAPI==3.6.6
 pytz==2019.2
-requests==2.7.0
+requests==2.20.0
 six==1.12.0
 soupsieve==1.9.4
 supervisor==4.0.4
