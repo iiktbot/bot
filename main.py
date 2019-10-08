@@ -489,7 +489,7 @@ def predefined_commands(message):
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
 
-@server.route("/bot", methods=['POST'])
+@server.route("/bot", methods=['GET', 'POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
