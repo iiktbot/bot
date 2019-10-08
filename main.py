@@ -15,7 +15,12 @@ if "HEROKU" in list(os.environ.keys()):
     logger = telebot.logger
     telebot.logger.setLevel(logging.INFO)
     server = Flask(__name__)
-    
+
+    @server.route("/bot", methods=['POST'])
+    def getMessage():
+        bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+        return "!", 200
+
     @bot.message_handler(commands=['start'])
     def start_message(message):
         bot.send_message(message.chat.id, "привет, чем могу быть полезен?")
@@ -498,6 +503,7 @@ if "HEROKU" in list(os.environ.keys()):
         bot.remove_webhook()
         bot.set_webhook(url="https://iiktbot.herokuapp.com")
         return "!", 200
+        
     server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
 else:
     bot.remove_webhook()
