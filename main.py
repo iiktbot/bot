@@ -9,8 +9,7 @@ from telebot import types
 from datetime import date, timedelta
 from random import randrange
 
-token = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
-bot = telebot.TeleBot(token, threaded=False)
+bot = telebot.TeleBot('642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8', threaded=False)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -489,18 +488,20 @@ def predefined_commands(message):
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
 
-@server.route('/' + token, methods=['POST'])
-def get_message():
-    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "!", 200
-
-@server.route("/")
-def webhook():
+if "HEROKU" in list(os.environ.keys()):
+    logger = telebot.logger
+    telebot.logger.setLevel(logging.INFO)
+    server = Flask(__name__)
+    @server.route("/bot", methods=['POST'])
+    def getMessage():
+        bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+        return "!", 200
+    @server.route("/")
+    def webhook():
+        bot.remove_webhook()
+        bot.set_webhook(url="https://iiktbot.herokuapp.com" + token)
+        return "!", 200
+    server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
+else:
     bot.remove_webhook()
-    bot.set_webhook(url="https://iiktbot.herokuapp.com" + token)
-    return "!", 200
-
-
-if __name__ == '__main__':
-    server.debug = True
-    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+    bot.polling(none_stop=True)
