@@ -9,7 +9,8 @@ from telebot import types
 from datetime import date, timedelta
 from random import randrange
 
-bot = telebot.TeleBot('642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8', threaded=False)
+token = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
+bot = telebot.TeleBot(token, threaded=False)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -496,11 +497,13 @@ if "HEROKU" in list(os.environ.keys()):
     def getMessage():
         bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
         return "!", 200
+
     @server.route("/", methods=['POST'])
     def webhook():
         bot.remove_webhook()
-        bot.set_webhook(url="https://iiktbot.herokuapp.com" + token)
+        bot.set_webhook(url="https://iiktbot.herokuapp.com")
         return "!", 200
+
     server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
 else:
     bot.remove_webhook()
