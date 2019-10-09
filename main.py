@@ -142,10 +142,12 @@ def predefined_commands(message):
     for name, identifier in second_group.items():
         if identifier == message.from_user.id:
             student_group = "вторая"
-            
+
     if message.from_user.id in all_students.values():
         if "мем" in message.text or "meme" in message.text:
             bot.send_photo(message.chat.id, meme_url)
+    else:
+        bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
 
     if weekorder == True:
         if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
