@@ -1,9 +1,4 @@
-import flask
-import os
-import telebot
-import time
-import logging
-import random
+import flask, os, telebot, time, logging, random
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -46,7 +41,7 @@ def predefined_commands(message):
         ('Денис'): 780853105
     }
     first_group_eng = {
-        ('Виталий'): 405299021,
+        ('Виталий'): 548116631,
         ('Влад'): 643705130,
         ('Андрей'): 416924459,
         ('Денис'): 542413243,
@@ -76,6 +71,15 @@ def predefined_commands(message):
         ** first_group,
         ** second_group
     }
+
+    SCHEDULE_MONDAY_DAYOFF = " (понедельник)\n\nПАР НЕТ"
+    SCHEDULE_TUESDAY_DAYOFF = " (вторник)\n\nПАР НЕТ"
+    SCHEDULE_WEDNESDAY_DAYOFF = " (среда)\n\nПАР НЕТ"
+    SCHEDULE_THURSDAY_DAYOFF = " (четверг)\n\nПАР НЕТ"
+    SCHEDULE_FRIDAY_DAYOFF = " (пятница)\n\nПАР НЕТ"
+    SCHEDULE_SATURDAY_DAYOFF = " (суббота)\n\nПАР НЕТ"
+    SCHEDULE_SUNDAY_DAYOFF = " (воскресенье)\n\nПАР НЕТ"
+
     CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
     CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
     CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
@@ -83,17 +87,12 @@ def predefined_commands(message):
     CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
     CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
     CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
-    CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"    SCHEDULE_MONDAY_DAYOFF = " (понедельник)\n\nпонедельник, ПАР НЕТ"
-    SCHEDULE_TUESDAY_DAYOFF = " (вторник)\n\nвторник, ПАР НЕТ"
-    SCHEDULE_WEDNESDAY_DAYOFF = " (среда)\n\nсреда, ПАР НЕТ"
-    SCHEDULE_THURSDAY_DAYOFF = " (четверг)\n\nчетверг, ПАР НЕТ"
-    SCHEDULE_FRIDAY_DAYOFF = " (пятница)\n\nпятница, ПАР НЕТ"
-    SCHEDULE_SATURDAY_DAYOFF = " (суббота)\n\nсуббота, ПАР НЕТ"
-    SCHEDULE_SUNDAY_DAYOFF = " (воскресенье)\n\nвоскресенье, ПАР НЕТ"
-    week_template = " группа" + " / " + week + " неделя"
+    CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    weeknum = date.today().isocalendar()[1]
     message.text = message.text.lower()
     meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(7, 4687)))
-    weeknum = date.today().isocalendar()[1]
+
     if (weeknum % 2) == 0:
         weekorder = True
         week = "светлая"
@@ -128,8 +127,12 @@ def predefined_commands(message):
         today = "воскресенье"
         tomorrow = "понедельник"
         yesterday = "суббота"
+
     if "какая" in message.text and "неделя" in message.text:
         bot.send_message(message.chat.id, "сейчас " + week + " неделя", reply_to_message_id=message.message_id)
+
+    week_template = " группа" + " / " + week + " неделя"
+
     for name, identifier in all_students.items():
         if identifier == message.from_user.id:
             student_name = name.lower()
@@ -139,11 +142,11 @@ def predefined_commands(message):
     for name, identifier in second_group.items():
         if identifier == message.from_user.id:
             student_group = "вторая"
+            
     if message.from_user.id in all_students.values():
         if "мем" in message.text or "meme" in message.text:
             bot.send_photo(message.chat.id, meme_url)
-    else:
-        bot.send_message(message.chat.id, student_name + ", пошёл нахуй", reply_to_message_id=message.message_id)
+
     if weekorder == True:
         if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
             bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id=message.message_id)
@@ -556,6 +559,5 @@ def predefined_commands(message):
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-while True:
-    try:
-        bot.polling(none_stop=True)
+
+bot.polling(none_stop=True)
