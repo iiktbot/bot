@@ -1,4 +1,7 @@
-import flask, os, telebot, time, logging, random
+# BOT_ID = '642122532'
+# CHAT_ID = '1001221677869'
+
+import flask, os, telebot, urllib.request, time, logging, random
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -130,7 +133,6 @@ def predefined_commands(message):
 
     weeknum = date.today().isocalendar()[1]
     message.text = message.text.lower()
-    meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(7, 4687)))
 
     if (weeknum % 2) == 0:
         weekorder = True
@@ -176,9 +178,14 @@ def predefined_commands(message):
     for name, identifier in second_group.items():
         if identifier == message.from_user.id:
             student_group = "вторая"
+
+    meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(7, 4687)))
+    meme_res = urllib.request.urlopen(meme_url).getcode()
     if message.from_user.id in all_students.values():
         if "мем" in message.text or "meme" in message.text:
             bot.send_photo(message.chat.id, meme_url)
+            while meme_res != 200:
+                bot.send_photo(message.chat.id, meme_url)
     else:
         bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
 
@@ -240,7 +247,7 @@ def predefined_commands(message):
                 elif message.from_user.id in second_group_eng.values():
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
-                bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
         elif any(words in message.text for words in classes_tuple):
             if not any(words in message.text for words in days_tuple) and not any(words in message.text for words in weekdays_tuple):
                 if message.from_user.id in first_group.values():
@@ -272,7 +279,7 @@ def predefined_commands(message):
                     elif date.today().weekday() == 4:
                         bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             elif "сегодня" in message.text and not any(words in message.text for words in today_tuple):
                 if message.from_user.id in first_group.values():
                     if date.today().weekday() == 0:
@@ -303,7 +310,7 @@ def predefined_commands(message):
                     elif date.today().weekday() == 4:
                         bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             elif "вчера" in message.text and not any(words in message.text for words in yesterday_tuple):
                 if message.from_user.id in first_group.values():
                     if date.today().weekday() - 1 == 0:
@@ -342,7 +349,7 @@ def predefined_commands(message):
                     elif date.today().weekday() - 1 == 6:
                         bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             elif "завтра" in message.text and not any(words in message.text for words in tomorrow_tuple):
                 if message.from_user.id in first_group.values():
                     if date.today().weekday() + 1 == 7:
@@ -381,7 +388,7 @@ def predefined_commands(message):
                     elif date.today().weekday() + 1 == 6:
                         bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             elif not any(words in message.text for words in days_tuple):
                 if message.from_user.id in first_group.values():
                     if "понедельник" in message.text or "пн" in message.text and not any(words in message.text for words in monday_tuple):
@@ -420,7 +427,7 @@ def predefined_commands(message):
                     elif "воскресенье" in message.text or "вс" in message.text and not any(words in message.text for words in sunday_tuple):
                         bot.send_message(message.chat.id, sunday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
     elif weekorder == False:
         if date.today().weekday() == 0 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмный " + today, reply_to_message_id=message.message_id)
@@ -448,7 +455,7 @@ def predefined_commands(message):
                 elif message.from_user.id in second_group_eng.values():
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
-                bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
         if any(words in message.text for words in classes_tuple):
             if not any(words in message.text for words in days_tuple) and not any(words in message.text for words in weekdays_tuple):
                 if message.from_user.id in first_group.values():
@@ -480,7 +487,7 @@ def predefined_commands(message):
                     elif date.today().weekday() == 4 and not any(words in message.text for words in day_tuple):
                         bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             elif "сегодня" in message.text and not any(words in message.text for words in today_tuple):
                 if message.from_user.id in first_group.values():
                     if date.today().weekday() == 0:
@@ -511,7 +518,7 @@ def predefined_commands(message):
                     elif date.today().weekday() == 4:
                         bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             if "вчера" in message.text and not any(words in message.text for words in yesterday_tuple):
                 if message.from_user.id in first_group.values():
                     if date.today().weekday() - 1 == 0:
@@ -550,7 +557,7 @@ def predefined_commands(message):
                     elif date.today().weekday() - 1 == 6:
                         bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             elif "завтра" in message.text and not any(words in message.text for words in tomorrow_tuple):
                 if message.from_user.id in first_group.values():
                     if date.today().weekday() + 1 == 7:
@@ -589,7 +596,7 @@ def predefined_commands(message):
                     elif date.today().weekday() + 1 == 6:
                         bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
             elif not any(words in message.text for words in days_tuple):
                 if message.from_user.id in first_group.values():
                     if "понедельник" in message.text or "пн" in message.text and not any(words in message.text for words in monday_tuple):
@@ -628,6 +635,6 @@ def predefined_commands(message):
                     elif "воскресенье" in message.text or "вс" in message.text and not any(words in message.text for words in sunday_tuple):
                         bot.send_message(message.chat.id, sunday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
                 elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+                    bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
 
 bot.polling(none_stop=True)
