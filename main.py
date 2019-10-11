@@ -72,13 +72,13 @@ def predefined_commands(message):
         ** second_group
     }
 
-    SCHEDULE_MONDAY_DAYOFF = " (понедельник)\n\nПАР НЕТ"
-    SCHEDULE_TUESDAY_DAYOFF = " (вторник)\n\nПАР НЕТ"
-    SCHEDULE_WEDNESDAY_DAYOFF = " (среда)\n\nПАР НЕТ"
-    SCHEDULE_THURSDAY_DAYOFF = " (четверг)\n\nПАР НЕТ"
-    SCHEDULE_FRIDAY_DAYOFF = " (пятница)\n\nПАР НЕТ"
-    SCHEDULE_SATURDAY_DAYOFF = " (суббота)\n\nПАР НЕТ"
-    SCHEDULE_SUNDAY_DAYOFF = " (воскресенье)\n\nПАР НЕТ"
+    SCHEDULE_MONDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_TUESDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_WEDNESDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_THURSDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_FRIDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_SATURDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_SUNDAY_DAYOFF = "\n\nПАР НЕТ"
 
     CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
     CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
@@ -88,6 +88,45 @@ def predefined_commands(message):
     CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
     CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
     CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY = "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП"
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY = "\n\n13:05-14:25 — ООП"
+    CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY = "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП"
+    CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY = "\n\n13:05-14:25 — ООП"
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY = "\n\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY = "\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY = SCHEDULE_FRIDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY = "\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
     weeknum = date.today().isocalendar()[1]
     message.text = message.text.lower()
@@ -128,11 +167,6 @@ def predefined_commands(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    if "какая" in message.text and "неделя" in message.text:
-        bot.send_message(message.chat.id, "сейчас " + week + " неделя", reply_to_message_id=message.message_id)
-
-    week_template = " группа" + " / " + week + " неделя"
-
     for name, identifier in all_students.items():
         if identifier == message.from_user.id:
             student_name = name.lower()
@@ -142,207 +176,59 @@ def predefined_commands(message):
     for name, identifier in second_group.items():
         if identifier == message.from_user.id:
             student_group = "вторая"
-
     if message.from_user.id in all_students.values():
         if "мем" in message.text or "meme" in message.text:
             bot.send_photo(message.chat.id, meme_url)
     else:
         bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
 
+    week_template = " группа" + " / " + week + " неделя"
+    today_template = student_name + ", " + student_group + " группа" + " (" + today + ")"
+    yesterday_template = student_name + ", " + student_group + " группа" + " (" + yesterday + ")"
+    tomorrow_template = student_name + ", " + student_group + " группа" + " (" + tomorrow + ")"
+    monday_template = student_name + ", " + student_group + " группа" + " (понедельник)"
+    tuesday_template = student_name + ", " + student_group + " группа" + " (вторник)"
+    wednesday_template = student_name + ", " + student_group + " группа" + " (среда)"
+    thursday_template = student_name + ", " + student_group + " группа" + " (четверг)"
+    friday_template = student_name + ", " + student_group + " группа" + " (пятница)"
+    saturday_template = student_name + ", " + student_group + " группа" + " (суббота)"
+    sunday_template = student_name + ", " + student_group + " группа" + " (воскресенье)"
+
+    classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
+    day_tuple = "какой день", "какой сейчас день", "какой сегодня день"
+    days_tuple = "сегодня", "вчера", "завтра"
+    week_tuple = "какая неделя", "какая сейчас неделя", "какая сегодня неделя"
+    weekdays_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
+    today_tuple = "вчера", "завтра"
+    yesterday_tuple = "сегодня", "завтра"
+    tomorrow_tuple = "вчера", "сегодня"
+    monday_tuple = "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
+    tuesday_tuple = "понедельник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "ср", "чт", "пт", "сб", "вс"
+    wednesday_tuple = "понедельник", "вторник", "четверг", "пятница", "суббота", "воскресенье", "пятницу", "субботу", "пн", "вт", "чт", "пт", "сб", "вс"
+    thursday_tuple = "понедельник", "вторник", "среда", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "пт", "сб", "вс"
+    friday_tuple = "понедельник", "вторник", "среда", "четверг", "суббота", "воскресенье", "среду", "субботу", "пн", "вт", "ср", "чт", "сб", "вс"
+    saturday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "воскресенье", "среду", "пятницу", "пн", "вт", "ср", "чт", "пт", "вс"
+    sunday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб"
+
+    if any(words in message.text for words in week_tuple):
+        bot.send_message(message.chat.id, "сейчас " + week + " неделя", reply_to_message_id=message.message_id)
+
     if weekorder == True:
-        if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
+        if date.today().weekday() == 0 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 1 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 1 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 2 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 2 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня светлая " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 3 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 3 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня светлый " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 4 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 4 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня светлая " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 5 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 5 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня светлая " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 6 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 6 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня светлое " + today, reply_to_message_id=message.message_id)
-        if "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-        elif "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() + 1 == 7:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() + 1 == 7:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-        elif "вчера" in message.text and "завтра" not in message.text and "сегодня" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() - 1 == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП.суубота,  СХЕМ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() - 1 == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-        elif "сегодня" not in message.text and "вчера" not in message.text and "завтра" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "на когда" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text and today not in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() == 0 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1  and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2  and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3  and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4  and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                    elif "понедельник" in message.text or "пн" in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif "вторник" in message.text or "вт" in message.text and "понедельник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif "четверг" in message.text or "чт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "воскресенье" in message.text or "вс" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() == 0 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                    elif "понедельник" in message.text or "пн" in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif "вторник" in message.text or "вт" in message.text and "понедельник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif "четверг" in message.text or "чт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", 1 + stude40_group 3 00группа" + " (четверг)\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ.", reply_to_message_id=message.message_id)
-                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "воскресенье" in message.text or "вс" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-        if "schedule" in message.text:
+        elif "schedule" in message.text:
             if message.from_user.id in first_group.values():
                 if message.from_user.id in first_group_eng.values():
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK)
@@ -355,199 +241,201 @@ def predefined_commands(message):
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+        elif any(words in message.text for words in classes_tuple):
+            if not any(words in message.text for words in days_tuple) and not any(words in message.text for words in weekdays_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            elif "сегодня" in message.text and not any(words in message.text for words in today_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            elif "вчера" in message.text and not any(words in message.text for words in yesterday_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() - 1 == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 1:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 2:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 3:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 4:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 5:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 6:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() - 1 == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 1:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 2:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 3:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 4:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 5:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 6:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            elif "завтра" in message.text and not any(words in message.text for words in tomorrow_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() + 1 == 7:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 1:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 2:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 3:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 4:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 5:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 6:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() + 1 == 7:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 1:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 2:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 3:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 4:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 5:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 6:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            elif not any(words in message.text for words in days_tuple):
+                if message.from_user.id in first_group.values():
+                    if "понедельник" in message.text or "пн" in message.text and not any(words in message.text for words in monday_tuple):
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif "вторник" in message.text or "вт" in message.text and not any(words in message.text for words in tuesday_tuple):
+                        bot.send_message(message.chat.id, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and not any(words in message.text for words in wednesday_tuple):
+                        bot.send_message(message.chat.id, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif "четверг" in message.text or "чт" in message.text and not any(words in message.text for words in thursday_tuple):
+                        bot.send_message(message.chat.id, thursday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and not any(words in message.text for words in friday_tuple):
+                        bot.send_message(message.chat.id, friday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and not any(words in message.text for words in saturday_tuple):
+                        bot.send_message(message.chat.id, saturday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif "воскресенье" in message.text or "вс" in message.text and not any(words in message.text for words in sunday_tuple):
+                        bot.send_message(message.chat.id, sunday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if "понедельник" in message.text or "пн" in message.text and not any(words in message.text for words in monday_tuple):
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif "вторник" in message.text or "вт" in message.text and not any(words in message.text for words in tuesday_tuple):
+                        bot.send_message(message.chat.id, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and not any(words in message.text for words in wednesday_tuple):
+                        bot.send_message(message.chat.id, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif "четверг" in message.text or "чт" in message.text and not any(words in message.text for words in thursday_tuple):
+                        bot.send_message(message.chat.id, thursday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and not any(words in message.text for words in friday_tuple):
+                        bot.send_message(message.chat.id, friday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and not any(words in message.text for words in saturday_tuple):
+                        bot.send_message(message.chat.id, saturday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif "воскресенье" in message.text or "вс" in message.text and not any(words in message.text for words in sunday_tuple):
+                        bot.send_message(message.chat.id, sunday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
     elif weekorder == False:
-        if date.today().weekday() == 0 and "какой" in message.text and "день" in message.text:
+        if date.today().weekday() == 0 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмный " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 1 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 1 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмный " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 2 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 2 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмная " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 3 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 3 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмный " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 4 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 4 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмная " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 5 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 5 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмная " + today, reply_to_message_id=message.message_id)
-        elif date.today().weekday() == 6 and "какой" in message.text and "день" in message.text:
+        elif date.today().weekday() == 6 and any(words in message.text for words in day_tuple):
             bot.send_message(message.chat.id, "сегодня тёмное " + today, reply_to_message_id=message.message_id)
-        if "сегодня" in message.text and "вчера" not in message.text and "завтра" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_FRIDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП", reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-        elif "завтра" in message.text and "вчера" not in message.text and "сегодня" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() + 1 == 7:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_FRIDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() + 1 == 7:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + "\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() + 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + tomorrow + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-        elif "вчера" in message.text and "завтра" not in message.text and "сегодня" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() - 1 == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗвторник, .", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_FRIDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() - 1 == 0:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 1:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 2:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 3:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 4:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + "\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 5:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() - 1 == 6:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + yesterday + ")" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-        elif "сегодня" not in message.text and "вчера" not in message.text and "завтра" not in message.text:
-            if "пары" in message.text or "на сколько" in message.text or "парам" in message.text or "расписание" in message.text or "расписанию" in message.text or "предметы" in message.text or "предметам" in message.text or "у нас завтра" in message.text:
-                if message.from_user.id in first_group.values():
-                    if date.today().weekday() == 0 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_FRIDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "понедельник" in message.text or "пн" in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif "вторник" in message.text or "вт" in message.text and "понедельник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif "четверг" in message.text or "чт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_FRIDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "воскресенье" in message.text or "вс" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id in second_group.values():
-                    if date.today().weekday() == 0 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 1 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 2 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 3 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n13:05-14:25 — ООП", reply_to_message_id=message.message_id)
-                    elif date.today().weekday() == 4 and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text and "пн" not in message.text and "вт" not in message.text and "ср" not in message.text and "чт" not in message.text and "пт" not in message.text and "сб" not in message.text and "вс" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (" + today + ")" + "\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП", reply_to_message_id=message.message_id)
-                    elif "понедельник" in message.text or "пн" in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        if message.from_user.id in first_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                        elif message.from_user.id in second_group_eng.values():
-                            bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (понедельник)\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.", reply_to_message_id=message.message_id)
-                    elif "вторник" in message.text or "вт" in message.text and "понедельник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_TUESDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (среда)\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.", reply_to_message_id=message.message_id)
-                    elif "четверг" in message.text or "чт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (четверг)\n\n11:40-13:00 — ООП", reply_to_message_id=message.message_id)
-                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "суббота" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + " (пятница)\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП", reply_to_message_id=message.message_id)
-                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "воскресенье" not in message.text and "среду" not in message.text and "пятницу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SATURDAY_DAYOFF, reply_to_message_id=message.message_id)
-                    elif "воскресенье" in message.text or "вс" in message.text and "понедельник" not in message.text and "вторник" not in message.text and "среда" not in message.text and "четверг" not in message.text and "пятница" not in message.text and "суббота" not in message.text and "среду" not in message.text and "пятницу" not in message.text and "субботу" not in message.text:
-                        bot.send_message(message.chat.id, student_name + ", " + student_group + " группа" + SCHEDULE_SUNDAY_DAYOFF, reply_to_message_id=message.message_id)
-                elif message.from_user.id not in all_students.values():
-                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
         if "schedule" in message.text:
             if message.from_user.id in first_group.values():
                 if message.from_user.id in first_group_eng.values():
@@ -561,5 +449,185 @@ def predefined_commands(message):
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+        if any(words in message.text for words in classes_tuple):
+            if not any(words in message.text for words in days_tuple) and not any(words in message.text for words in weekdays_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() == 0 and not any(words in message.text for words in day_tuple):
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() == 0 and not any(words in message.text for words in day_tuple):
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4 and not any(words in message.text for words in day_tuple):
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            elif "сегодня" in message.text and not any(words in message.text for words in today_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 1:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 2:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 3:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() == 4:
+                        bot.send_message(message.chat.id, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            if "вчера" in message.text and not any(words in message.text for words in yesterday_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() - 1 == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 1:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 2:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 3:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 4:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 5:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 6:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() - 1 == 0:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 1:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 2:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 3:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 4:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 5:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() - 1 == 6:
+                        bot.send_message(message.chat.id, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            elif "завтра" in message.text and not any(words in message.text for words in tomorrow_tuple):
+                if message.from_user.id in first_group.values():
+                    if date.today().weekday() + 1 == 7:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 1:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 2:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 3:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 4:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 5:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 6:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if date.today().weekday() + 1 == 7:
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 1:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 2:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 3:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 4:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 5:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif date.today().weekday() + 1 == 6:
+                        bot.send_message(message.chat.id, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+            elif not any(words in message.text for words in days_tuple):
+                if message.from_user.id in first_group.values():
+                    if "понедельник" in message.text or "пн" in message.text and not any(words in message.text for words in monday_tuple):
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif "вторник" in message.text or "вт" in message.text and not any(words in message.text for words in tuesday_tuple):
+                        bot.send_message(message.chat.id, tuesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and not any(words in message.text for words in wednesday_tuple):
+                        bot.send_message(message.chat.id, wednesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif "четверг" in message.text or "чт" in message.text and not any(words in message.text for words in thursday_tuple):
+                        bot.send_message(message.chat.id, thursday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and not any(words in message.text for words in friday_tuple):
+                        bot.send_message(message.chat.id, friday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and not any(words in message.text for words in saturday_tuple):
+                        bot.send_message(message.chat.id, saturday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif "воскресенье" in message.text or "вс" in message.text and not any(words in message.text for words in sunday_tuple):
+                        bot.send_message(message.chat.id, sunday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id in second_group.values():
+                    if "понедельник" in message.text or "пн" in message.text and not any(words in message.text for words in monday_tuple):
+                        if message.from_user.id in first_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                        elif message.from_user.id in second_group_eng.values():
+                            bot.send_message(message.chat.id, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=message.message_id)
+                    elif "вторник" in message.text or "вт" in message.text and not any(words in message.text for words in tuesday_tuple):
+                        bot.send_message(message.chat.id, tuesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=message.message_id)
+                    elif "среда" in message.text or "среду" in message.text or "ср" in message.text and not any(words in message.text for words in wednesday_tuple):
+                        bot.send_message(message.chat.id, wednesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=message.message_id)
+                    elif "четверг" in message.text or "чт" in message.text and not any(words in message.text for words in thursday_tuple):
+                        bot.send_message(message.chat.id, thursday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=message.message_id)
+                    elif "пятница" in message.text or "пятницу" in message.text or "пт" in message.text and not any(words in message.text for words in friday_tuple):
+                        bot.send_message(message.chat.id, friday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=message.message_id)
+                    elif "суббота" in message.text or "субботу" in message.text or "сб" in message.text and not any(words in message.text for words in saturday_tuple):
+                        bot.send_message(message.chat.id, saturday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=message.message_id)
+                    elif "воскресенье" in message.text or "вс" in message.text and not any(words in message.text for words in sunday_tuple):
+                        bot.send_message(message.chat.id, sunday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=message.message_id)
+                elif message.from_user.id not in all_students.values():
+                    bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
 
 bot.polling(none_stop=True)
