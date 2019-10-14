@@ -1070,9 +1070,6 @@ def predefined_messages(message):
                 bot.send_chat_action(mcid, "typing")
                 time.sleep(0.3)
                 bot.send_message(mcid, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-
-@bot.message_handler(content_types=['text'])
-def ai_messages(bot, update):
     if "бот" in msg and not any(words in msg for words in messages_tuple):
         bot.send_message(mcid, "сам ат")
 
