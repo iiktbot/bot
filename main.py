@@ -683,7 +683,7 @@ def get_message():
 def process_webhook():
     bot.remove_webhook()
     time.sleep(0.1)
-    bot.set_webhook(url="https://iiktbot.herokuapp.com/bot" + token)
+    bot.set_webhook(url="https://iiktbot.herokuapp.com/" + token)
     return "", 200
 
 if __name__ == "__main__":
