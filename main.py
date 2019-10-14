@@ -228,42 +228,42 @@ def predefined_messages(message):
         else:
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+            bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
 
     if any(words in msg for words in week_tuple):
         bot.send_chat_action(mcid, "typing")
         time.sleep(0.3)
-        bot.send_message(mcid, "сейчас " + week + " неделя", mid)
+        bot.send_message(mcid, "сейчас " + week + " неделя", reply_to_message_id=mid)
 
     if weekorder == True:
         if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня светлый " + today, mid)
+            bot.send_message(mcid, "сегодня светлый " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 1 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня светлый " + today, mid)
+            bot.send_message(mcid, "сегодня светлый " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 2 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня светлая " + today, mid)
+            bot.send_message(mcid, "сегодня светлая " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 3 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня светлый " + today, mid)
+            bot.send_message(mcid, "сегодня светлый " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 4 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня светлая " + today, mid)
+            bot.send_message(mcid, "сегодня светлая " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 5 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня светлая " + today, mid)
+            bot.send_message(mcid, "сегодня светлая " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 6 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня светлое " + today, mid)
+            bot.send_message(mcid, "сегодня светлое " + today, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple):
                 if muid in first_group.values():
@@ -271,365 +271,365 @@ def predefined_messages(message):
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             elif "сегодня" in msg and not any(words in msg for words in today_tuple):
                 if muid in first_group.values():
                     if date.today().weekday() == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             elif "вчера" in msg and not any(words in msg for words in yesterday_tuple):
                 if muid in first_group.values():
                     if date.today().weekday() - 1 == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() - 1 == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple):
                 if muid in first_group.values():
                     if date.today().weekday() + 1 == 7:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() + 1 == 7:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             elif not any(words in msg for words in days_tuple):
                 if muid in first_group.values():
                     if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
         if "schedule" in msg:
             if muid in first_group.values():
                 if muid in first_group_eng.values():
@@ -652,36 +652,36 @@ def predefined_messages(message):
             elif muid not in all_students.values():
                 bot.send_chat_action(mcid, "typing")
                 time.sleep(0.3)
-                bot.send_message(mcid, "вряд ли ты здесь учишься", mid)
+                bot.send_message(mcid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
     elif weekorder == False:
         if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня тёмный " + today, mid)
+            bot.send_message(mcid, "сегодня тёмный " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 1 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня тёмный " + today, mid)
+            bot.send_message(mcid, "сегодня тёмный " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 2 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня тёмная " + today, mid)
+            bot.send_message(mcid, "сегодня тёмная " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 3 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня тёмный " + today, mid)
+            bot.send_message(mcid, "сегодня тёмный " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 4 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня тёмная " + today, mid)
+            bot.send_message(mcid, "сегодня тёмная " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 5 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня тёмная " + today, mid)
+            bot.send_message(mcid, "сегодня тёмная " + today, reply_to_message_id=mid)
         elif date.today().weekday() == 6 and any(words in msg for words in day_tuple):
             bot.send_chat_action(mcid, "typing")
             time.sleep(0.3)
-            bot.send_message(mcid, "сегодня тёмное " + today, mid)
+            bot.send_message(mcid, "сегодня тёмное " + today, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple):
                 if muid in first_group.values():
@@ -689,365 +689,365 @@ def predefined_messages(message):
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             elif "сегодня" in msg and not any(words in msg for words in today_tuple):
                 if muid in first_group.values():
                     if date.today().weekday() == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             if "вчера" in msg and not any(words in msg for words in yesterday_tuple):
                 if muid in first_group.values():
                     if date.today().weekday() - 1 == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() - 1 == 0:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple):
                 if muid in first_group.values():
                     if date.today().weekday() + 1 == 7:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if date.today().weekday() + 1 == 7:
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 1:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 2:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 3:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 4:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 5:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 6:
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
             elif not any(words in msg for words in days_tuple):
                 if muid in first_group.values():
                     if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
                     elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
                     elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
                     elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
                     elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid in second_group.values():
                     if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
                         if muid in first_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif muid in second_group_eng.values():
                             bot.send_chat_action(mcid, "typing")
                             time.sleep(0.3)
-                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, mid)
+                            bot.send_message(mcid, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
                     elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, mid)
+                        bot.send_message(mcid, tuesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
                     elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, mid)
+                        bot.send_message(mcid, wednesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
                     elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, mid)
+                        bot.send_message(mcid, thursday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
                     elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, mid)
+                        bot.send_message(mcid, friday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
                     elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, mid)
+                        bot.send_message(mcid, saturday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
                         bot.send_chat_action(mcid, "typing")
                         time.sleep(0.3)
-                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, mid)
+                        bot.send_message(mcid, sunday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif muid not in all_students.values():
                     bot.send_chat_action(mcid, "typing")
                     time.sleep(0.3)
-                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", mid)
+                    bot.send_message(mcid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
         if "schedule" in msg:
             if muid in first_group.values():
                 if muid in first_group_eng.values():
@@ -1070,7 +1070,7 @@ def predefined_messages(message):
             elif muid not in all_students.values():
                 bot.send_chat_action(mcid, "typing")
                 time.sleep(0.3)
-                bot.send_message(mcid, "вряд ли ты здесь учишься", mid)
+                bot.send_message(mcid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
 """
 def ai_message(bot, update):
     if "бот" in msg and not any(words in msg for words in messages_tuple):
