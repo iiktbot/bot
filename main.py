@@ -211,7 +211,7 @@ def predefined_commands(message):
     saturday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "воскресенье", "среду", "пятницу", "пн", "вт", "ср", "чт", "пт", "вс"
     sunday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб"
 
-    meme_url = str("https://t.me/LaQeque/" + str(random.randint(4, 5)))
+    meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
     meme_req = requests.get(meme_url)
 
     if "мем" in message.text or "meme" in message.text:
@@ -683,7 +683,7 @@ def get_message():
 def process_webhook():
     bot.remove_webhook()
     time.sleep(0.1)
-    bot.set_webhook(url="https://iiktbot.herokuapp.com/" + token)
+    bot.set_webhook(url="https://iiktbot.herokuapp.com/bot" + token)
     return "!", 200
 
 if __name__ == "__main__":
