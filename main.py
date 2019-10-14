@@ -16,7 +16,7 @@ def handle_text(message):
     bot.send_message(chat_id=1154965888, text=start_text, parse_mode='Markdown')
 
 
-@server.route('/' + tokenBot.TOKEN, methods=['POST'])
+@server.route('/' + bot, methods=['POST'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
@@ -24,7 +24,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url="https://iiktbot.herokuapp.com" + tokenBot.TOKEN)
+    bot.set_webhook(url="https://iiktbot.herokuapp.com" + bot)
     return "!", 200
 
 
