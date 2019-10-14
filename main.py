@@ -677,14 +677,14 @@ def predefined_commands(message):
 @app.route('/' + token, methods=['POST'])
 def get_message():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "", 200
+    return "!", 200
 
 @app.route('/')
 def process_webhook():
     bot.remove_webhook()
     time.sleep(0.1)
     bot.set_webhook(url="https://iiktbot.herokuapp.com/" + token)
-    return "", 200
+    return "!", 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
