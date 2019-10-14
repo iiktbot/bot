@@ -3,7 +3,7 @@ import os
 from flask import Flask, request
 
 
-bot = telebot.TeleBot("593642481:AAEuoLHI.....")
+bot = telebot.TeleBot('642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8')
 
 server = Flask(__name__)
 
@@ -24,7 +24,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://test-new-new.herokuapp.com/' + tokenBot.TOKEN)
+    bot.set_webhook(url="https://iiktbot.herokuapp.com" + tokenBot.TOKEN)
     return "!", 200
 
 
