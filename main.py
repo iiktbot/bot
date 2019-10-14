@@ -7,34 +7,20 @@ from telebot import types
 from datetime import date, timedelta
 from random import randrange
 
-API_TOKEN = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
+token = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
+secret = '05f6b51a6e22d6e7d47f1235f26590b5dee83ece1b8da0719569a4b5a09b1ea2'
+bot = telebot.TeleBot(token, threaded=False)
 
-WEBHOOK_HOST = 'https://iiktbot.herokuapp.com/'
-WEBHOOK_PORT = 8443
-WEBHOOK_LISTEN = '0.0.0.0'
+bot.remove_webhook()
+time.sleep(1)
+bot.set_webhook(url="https://iiktbot.herokuapp.com{}".format(secret))
 
-WEBHOOK_URL_BASE = "https://%s:%s" % (WEBHOOK_HOST, WEBHOOK_PORT)
-WEBHOOK_URL_PATH = "/%s/" % (API_TOKEN)
+app = Flask(__name__)
 
-logger = telebot.logger
-telebot.logger.setLevel(logging.INFO)
-
-bot = telebot.TeleBot(API_TOKEN, threaded=False)
-app = flask.Flask(__name__)
-
-@app.route('/', methods=['GET', 'HEAD'])
-def index():
-    return ''
-
-@app.route(WEBHOOK_URL_PATH, methods=['POST'])
+@app.route('/{}'.format(secret), methods=["POST"])
 def webhook():
-    if flask.request.headers.get('content-type') == 'application/json':
-        json_string = flask.request.get_data().decode('utf-8')
-        update = telebot.types.Update.de_json(json_string)
-        bot.process_new_updates([update])
-        return ''
-    else:
-        flask.abort(403)
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "ok", 200
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
