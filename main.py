@@ -7,28 +7,9 @@ from telebot import types
 from datetime import date, timedelta
 from random import randrange
 
-secret = "F4c3Gb53Ur103dHn"
 token = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
 bot = telebot.TeleBot(token, threaded=False)
-
-bot.remove_webhook()
-time.sleep(0.1)
-bot.set_webhook(url="https://iiktbot.herokuapp.com//{}".format(secret), max_connections=1)
-app = Flask(__name__)
-
-@app.route('/', methods=['GET', 'HEAD'])
-def index():
-    return ''
-
-@app.route(WEBHOOK_URL_PATH, methods=['POST'])
-def webhook():
-    if flask.request.headers.get('content-type') == 'application/json':
-        json_string = flask.request.get_data().decode('utf-8')
-        update = telebot.types.Update.de_json(json_string)
-        bot.process_new_updates([update])
-        return ''
-    else:
-        flask.abort(403)
+server = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -690,3 +671,18 @@ def predefined_commands(message):
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
+
+@server.route('/' + tokenBot.TOKEN, methods=['POST'])
+def getMessage():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://iiktbot.herokuapp.com/' + tokenBot.TOKEN)
+    return "!", 200
+
+if __name__ == '__main__':
+    server.debug = True
+    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
