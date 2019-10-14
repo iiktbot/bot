@@ -10,6 +10,7 @@ from random import randrange
 token = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
 secret = '05f6b51a6e22d6e7d47f1235f26590b5dee83ece1b8da0719569a4b5a09b1ea2'
 bot = telebot.TeleBot(token, threaded=False)
+app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -674,6 +675,24 @@ def predefined_messages(message):
                     bot.send_message(cid, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif uid not in all_students.values():
                 bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
+"""
+def ai_message(bot, update):
+    if "бот" in msg and not any(words in msg for words in messages_tuple):
+        bot.send_message(cid, dialogflow_response)
+    else:
+        bot.send_message(cid, unexpected_phrase)
+"""
+@app.route('/' + token, methods=['POST'])
+def get_messages():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "", 200
 
-bot.delete_webhook()
-bot.polling(non_stop=True)
+@app.route('/')
+def process_webhook():
+    bot.remove_webhook()
+    time.sleep(0.1)
+    bot.set_webhook(url="https://iiktbot.herokuapp.com/" + token)
+    return "", 200
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
