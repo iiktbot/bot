@@ -16,17 +16,16 @@ def handle_text(message):
     bot.send_message(chat_id=1154965888, text=start_text, parse_mode='Markdown')
 
 
-@server.route('/' + token, methods=['POST'])
-def getMessage():
+@server.route('/', methods=['POST'])
+def get_message():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
 @server.route("/")
-def webhook():
+def process_webhook():
     bot.remove_webhook()
     bot.set_webhook(url="https://iiktbot.herokuapp.com/" + token)
     return "!", 200
-
 
 if __name__ == '__main__':
     server.debug = True
