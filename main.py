@@ -217,6 +217,8 @@ def predefined_commands(message):
     if "мем" in message.text or "meme" in message.text:
         if message.from_user.id in all_students.values():
             bot.send_photo(message.chat.id, meme_url)
+            if meme_req.status_code == 400:
+                bot.send_message(message.chat.id, "error 400, try to repeat request")
         else:
             bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
 
@@ -681,7 +683,7 @@ def get_message():
 def process_webhook():
     bot.remove_webhook()
     time.sleep(0.1)
-    bot.set_webhook(url="https://iiktbot.herokuapp.com/bot" + token)
+    bot.set_webhook(url="https://iiktbot.herokuapp.com/" + token)
     return "", 200
 
 if __name__ == "__main__":
