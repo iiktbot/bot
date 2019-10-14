@@ -682,8 +682,3 @@ def predefined_commands(message):
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-
-bot.remove_webhook()
-time.sleep(0.1)
-bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
-app.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
