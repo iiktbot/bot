@@ -211,7 +211,7 @@ def predefined_commands(message):
     saturday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "воскресенье", "среду", "пятницу", "пн", "вт", "ср", "чт", "пт", "вс"
     sunday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб"
 
-    meme_url = "https://t.me/LaQeque/2.jpg"
+    meme_url = str("https://t.me/LaQeque/" + str(random.randint(4, 5)))
     meme_req = requests.get(meme_url)
 
     if "мем" in message.text or "meme" in message.text:
@@ -678,7 +678,6 @@ def predefined_commands(message):
 def get_message():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
-
 
 @app.route('/')
 def process_webhook():
