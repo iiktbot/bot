@@ -17,7 +17,7 @@ def start_message(message):
     bot.send_message(cid, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
-def predefined_messages(message):
+def predefined_messages(message, update):
     first_group = {
         ('Виталий'): 405299021,
         ('Юля'): 393708492,
