@@ -685,5 +685,6 @@ def set_webhook():
     time.sleep(0.1)
     bot.set_webhook(url="https://iiktbot.herokuapp.com{}".format(secret))
     return "!", 200
-
-app.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
+    
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
