@@ -1070,23 +1070,14 @@ def predefined_messages(message):
                 bot.send_chat_action(mcid, "typing")
                 time.sleep(0.3)
                 bot.send_message(mcid, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-    if "бот" in msg and not any(words in msg for words in messages_tuple):
-        ai_mode = 1
-    else:
-        ai_mode = 0
+if "бот" in msg and not any(words in msg for words in messages_tuple):
+    ai_mode = 1
+else:
+    ai_mode = 0
 
-def textMessage(bot, update):
-    request = apiai.ApiAI('b6af8ffef5ad436d8fe743f6557f3945').text_request()
-    request.lang = 'ru'
-    request.session_id = 'iiktbot-c72e8'
-    request.query = update.message.text
-    responseJson = json.loads(request.getresponse().read().decode('utf-8'))
-    response = responseJson['result']['fulfillment']['speech']
+def ai_message(bot, update):
     if ai_mode == 1:
-        if response:
-            bot.send_message(mcid, response)
-        else:
-            bot.send_message(mcid, "я дебил, фраза не прописана")
+        bot.send_message(mcid, "response")
     else:
         pass
 
