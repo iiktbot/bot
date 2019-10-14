@@ -11,11 +11,11 @@ token = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
 secret = '05f6b51a6e22d6e7d47f1235f26590b5dee83ece1b8da0719569a4b5a09b1ea2'
 bot = telebot.TeleBot(token, threaded=False)
 
+app = Flask(__name__)
+
 bot.remove_webhook()
 time.sleep(1)
 bot.set_webhook(url="https://iiktbot.herokuapp.com{}".format(secret))
-
-app = Flask(__name__)
 
 @app.route('/{}'.format(secret), methods=["POST"])
 def webhook():
@@ -682,7 +682,3 @@ def predefined_commands(message):
                     bot.send_message(message.chat.id, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif message.from_user.id not in all_students.values():
                 bot.send_message(message.chat.id, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-
-if "HEROKU" not in list(os.environ.keys()):
-    while True:
-        bot.polling(none_stop=True)
