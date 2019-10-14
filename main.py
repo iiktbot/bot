@@ -1070,13 +1070,9 @@ def predefined_messages(message):
                 bot.send_chat_action(mcid, "typing")
                 time.sleep(0.3)
                 bot.send_message(mcid, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-    if "бот" in msg and not any(words in msg for words in messages_tuple):
-        ai_mode = 1
-    else:
-        ai_mode = 0
 
-def ai_message(bot, update):
-    if ai_mode == 1:
+def ai_message(bot, update, message):
+    if "бот" in msg and not any(words in msg for words in messages_tuple):
         bot.send_message(mcid, "response")
     else:
         pass
