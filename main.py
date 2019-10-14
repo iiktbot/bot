@@ -674,4 +674,6 @@ def predefined_messages(message):
                     bot.send_message(cid, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             elif uid not in all_students.values():
                 bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
+
+bot.delete_webhook()
 bot.polling(non_stop=True)
