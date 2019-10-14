@@ -134,8 +134,8 @@ def predefined_messages(message):
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
     msg = message.text.lower()
-    mid = update.message.message_id
-    cid = update.message.chat.id
+    mid = message.message_id
+    cid = message.chat.id
     uid = update.message.from_user.id
 
     weeknum = date.today().isocalendar()[1]
