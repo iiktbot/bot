@@ -1070,11 +1070,11 @@ def predefined_messages(message):
                 bot.send_chat_action(mcid, "typing")
                 time.sleep(0.3)
                 bot.send_message(mcid, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
-@bot.message_handler(text=['бот'])
-def ai_messages():
-    if not any(words in msg for words in all_default_messages_tuple):
-        bot.send_message(mcid, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
 
+@bot.message_handler(content_types=['text'])
+def ai_messages(bot, update):
+    if not any(words in msg for words in all_default_messages_tuple) and msg.startswith("бот"):
+        bot.send_message(mcid, "сам такой")
 
 @app.route('/' + token, methods=['POST'])
 def get_messages():
