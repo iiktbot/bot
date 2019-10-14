@@ -1071,9 +1071,10 @@ def predefined_messages(message):
                 time.sleep(0.3)
                 bot.send_message(mcid, "вряд ли ты здесь учишься", reply_to_message_id=message.message_id)
 
-def ai_messages():
-    if not any(words in msg for words in messages_tuple) and msg.startswith("бот"):
-        bot.send_message(mcid, "сам такой")
+@bot.message_handler(content_types=['text'])
+def ai_messages(bot, update):
+    if "бот" in msg and not any(words in msg for words in messages_tuple):
+        bot.send_message(mcid, "сам ат")
 
 @app.route('/' + token, methods=['POST'])
 def get_messages():
