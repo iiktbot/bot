@@ -676,4 +676,4 @@ def predefined_messages(message):
                 bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
 
 bot.delete_webhook()
-bot.polling()
+bot.polling(non_stop=True)
