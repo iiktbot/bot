@@ -683,7 +683,7 @@ def get_messages():
 def set_webhook():
     bot.remove_webhook()
     time.sleep(0.1)
-    bot.set_webhook(url="https://iiktbot.herokuapp.com{}".format(secret))
+    bot.set_webhook(url="https://iiktbot.herokuapp.com")
     return "!", 200
 
 app = Flask(__name__)
