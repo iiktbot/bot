@@ -216,11 +216,9 @@ def predefined_commands(message):
 
     if "мем" in message.text or "meme" in message.text:
         if message.from_user.id in all_students.values():
+            bot.send_chat_action(message.chat.id, "upload photo")
+            time.sleep(0.5)
             bot.send_photo(message.chat.id, meme_url)
-            if meme_req.status_code == 400:
-                bot.send_chat_action(message.chat.id, "upload photo")
-                time.sleep(0.5)
-                bot.send_message(message.chat.id, "error 400, try to repeat request")
         else:
             bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=message.message_id)
 
