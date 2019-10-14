@@ -24,7 +24,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url="https://iiktbot.herokuapp.com" + bot)
+    bot.set_webhook(url="https://iiktbot.herokuapp.com/" + bot)
     return "!", 200
 
 
