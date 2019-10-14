@@ -17,7 +17,7 @@ def start_message(message):
     bot.send_message(cid, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
-def predefined_messages(message, update):
+def predefined_messages(message):
     first_group = {
         ('Виталий'): 405299021,
         ('Юля'): 393708492,
@@ -136,7 +136,7 @@ def predefined_messages(message, update):
     msg = message.text.lower()
     mid = message.message_id
     cid = message.chat.id
-    uid = update.message.from_user.id
+    uid = message.user.id
 
     weeknum = date.today().isocalendar()[1]
 
