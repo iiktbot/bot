@@ -136,7 +136,7 @@ def predefined_messages(message):
     msg = message.text.lower()
     mid = message.message_id
     cid = str(message.chat.id)
-    uid = str(message.from_user.id)
+    uid = str(message.chat.id)
 
 if (date.today().isocalendar()[1] % 2) == 0:
     weekorder = True
