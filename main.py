@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import flask, apiai, json, telebot, os, requests, urllib, time, random
+import flask, apiai, json, telebot, os, requests, urllib, datetime, time, random
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -135,8 +135,8 @@ def predefined_messages(message):
 
     msg = message.text.lower()
     mid = message.message_id
-    cid = message.chat.id
-    uid = message.from_user.id
+    cid = str(message.chat.id)
+    uid = str(message.from_user.id)
 
     weeknum = date.today().isocalendar()[1]
 
