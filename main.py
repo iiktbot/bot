@@ -136,7 +136,7 @@ def predefined_messages(message):
     msg = message.text.lower()
     mid = message.message_id
     cid = message.chat.id
-    uid = message.chat.id
+    uid = message.from_user.id
 
     weeknum = date.today().isocalendar()[1]
 
