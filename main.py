@@ -135,9 +135,9 @@ def predefined_messages(message):
 
     msg = message.text.lower()
     mid = message.message_id
-    cid = str(message.chat.id)
-    uid = str(message.chat.id)
-
+    cid = message.chat.id
+    uid = message.from_user.id
+    
 if (date.today().isocalendar()[1] % 2) == 0:
     weekorder = True
     week = "светлая"
