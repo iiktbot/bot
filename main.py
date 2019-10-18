@@ -173,13 +173,13 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    for name, identifier in first_group.items():
+    for student_name, identifier in first_group.items():
         if uid == identifier:
             student_group = "первая"
-    for name, identifier in second_group.items():
+    for student_name, identifier in second_group.items():
         if uid == identifier:
             student_group = "вторая"
-    for name, identifier in all_students.items():
+    for student_name, identifier in all_students.items():
         if uid == identifier:
             student_name = list(all_students.keys())[list(all_students.values()).index(identifier)].lower()
             
