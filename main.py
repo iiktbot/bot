@@ -688,7 +688,7 @@ def get_messages():
 @app.route('/')
 def process_webhook():
     bot.remove_webhook()
-    time.sleep(0.1)
+    time.sleep(1)
     bot.set_webhook(url="https://iiktbot.herokuapp.com/" + token)
     return "", 200
 
