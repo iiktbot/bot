@@ -212,6 +212,16 @@ def predefined_messages(message):
     sunday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
 
+    meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
+    meme_req = requests.get(meme_url)
+
+    if "мем" in msg or "meme" in msg:
+        if uid in all_students.values():
+            bot.send_chat_action(cid, "upload_photo")
+            bot.send_photo(cid, meme_url)
+        else:
+            bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
+
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
 
