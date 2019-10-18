@@ -185,7 +185,7 @@ def predefined_messages(message):
         if uid == identifier:
             student_name = list(all_students.keys())[list(all_students.values()).index(identifier)].lower() + ", "
             
-    week_template = " группа" + " / " + week + " неделя"
+    week_template = " группа / " + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
     yesterday_template = student_name + student_group + " (" + yesterday + ")"
     tomorrow_template = student_name + student_group + " (" + tomorrow + ")"
@@ -205,6 +205,7 @@ def predefined_messages(message):
     friday_tuple = "понедельник", "вторник", "среда", "четверг", "суббота", "воскресенье", "среду", "субботу", "пн", "вт", "ср", "чт", "сб", "вс"
     saturday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "воскресенье", "среду", "пятницу", "пн", "вт", "ср", "чт", "пт", "вс"
     sunday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб"
+    exceptions_tuple = "поза", "после"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
 
     meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
@@ -236,7 +237,7 @@ def predefined_messages(message):
         elif date.today().weekday() == 6 and any(words in msg for words in day_tuple):
             bot.send_message(cid, "сегодня светлое " + today, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
-            if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple):
+            if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.values():
@@ -275,7 +276,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "сегодня" in msg and not any(words in msg for words in today_tuple):
+            elif "сегодня" in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.values():
@@ -314,7 +315,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "вчера" in msg and not any(words in msg for words in yesterday_tuple):
+            elif "вчера" in msg and not any(words in msg for words in yesterday_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() - 1 == 0:
                         if uid in first_group_eng.values():
@@ -353,7 +354,7 @@ def predefined_messages(message):
                         bot.send_message(cid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple):
+            elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() + 1 == 7:
                         if uid in first_group_eng.values():
@@ -392,7 +393,7 @@ def predefined_messages(message):
                         bot.send_message(cid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif not any(words in msg for words in days_tuple):
+            elif not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
                         if uid in first_group_eng.values():
@@ -460,7 +461,7 @@ def predefined_messages(message):
         elif date.today().weekday() == 6 and any(words in msg for words in day_tuple):
             bot.send_message(cid, "сегодня тёмное " + today, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
-            if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple):
+            if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.values():
@@ -499,7 +500,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "сегодня" in msg and not any(words in msg for words in today_tuple):
+            elif "сегодня" in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.values():
@@ -538,7 +539,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            if "вчера" in msg and not any(words in msg for words in yesterday_tuple):
+            elif "вчера" in msg and not any(words in msg for words in yesterday_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() - 1 == 0:
                         if uid in first_group_eng.values():
@@ -577,7 +578,7 @@ def predefined_messages(message):
                         bot.send_message(cid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple):
+            elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if date.today().weekday() + 1 == 7:
                         if uid in first_group_eng.values():
@@ -616,7 +617,7 @@ def predefined_messages(message):
                         bot.send_message(cid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid not in all_students.values():
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif not any(words in msg for words in days_tuple):
+            elif not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.values():
                     if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
                         if uid in first_group_eng.values():
