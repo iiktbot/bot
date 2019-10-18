@@ -181,7 +181,7 @@ def predefined_messages(message):
             student_group = "вторая"
     for name, identifier in all_students.items():
         if uid == identifier:
-            name = name.lower()
+            student_name = list(all_students.keys())[list(all_students.values()).index(identifier)].lower()
             
     week_template = " группа" + " / " + week + " неделя"
     today_template = name + ", " + student_group + " группа" + " (" + today + ")"
