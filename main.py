@@ -174,7 +174,8 @@ def predefined_messages(message):
         yesterday = "суббота"
 
     student_name = ""
-
+    student_group = ""
+    
     for name, identifier in first_group.items():
         if uid == identifier:
             student_group = "первая группа"
