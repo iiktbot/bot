@@ -211,7 +211,7 @@ def predefined_messages(message):
     saturday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "воскресенье", "среду", "пятницу", "пн", "вт", "ср", "чт", "пт", "вс"
     sunday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
-
+"""
     meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
     meme_req = requests.get(meme_url)
 
@@ -224,7 +224,7 @@ def predefined_messages(message):
 
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
-
+"""
     if weekorder == True:
         if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
             bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
