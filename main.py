@@ -138,12 +138,12 @@ def predefined_messages(message):
     cid = message.chat.id
     uid = message.from_user.id
     
-if (date.today().isocalendar()[1] % 2) == 0:
-    weekorder = True
-    week = "светлая"
-else:
-    weekorder = False
-    week = "тёмная"
+    if (date.today().isocalendar()[1] % 2) == 0:
+        weekorder = True
+        week = "светлая"
+    else:
+        weekorder = False
+        week = "тёмная"
     if date.today().weekday() == 0:
         today = "понедельник"
         tomorrow = "вторник"
