@@ -12,17 +12,17 @@ secret = '05f6b51a6e22d6e7d47f1235f26590b5dee83ece1b8da0719569a4b5a09b1ea2'
 bot = telebot.TeleBot(token, threaded=False)
 app = Flask(__name__)
 
-msg = message.text.lower()
-mid = message.message_id
-cid = message.chat.id
-uid = message.from_user.id
-    
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(cid, "привет, чем могу быть полезен?")
+    bot.send_message(message.chat.id, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
+    msg = message.text.lower()
+    mid = message.message_id
+    cid = message.chat.id
+    uid = message.from_user.id
+    
     first_group = {
         ('Виталий'): 405299021,
         ('Юля'): 393708492,
