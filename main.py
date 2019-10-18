@@ -173,27 +173,29 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    for student_name, identifier in first_group.items():
+    student_name = ""
+
+    for name, identifier in first_group.items():
         if uid == identifier:
             student_group = "первая"
-    for student_name, identifier in second_group.items():
+    for name, identifier in second_group.items():
         if uid == identifier:
             student_group = "вторая"
-    for student_name, identifier in all_students.items():
+    for name, identifier in all_students.items():
         if uid == identifier:
-            student_name = list(all_students.keys())[list(all_students.values()).index(identifier)].lower()
+            student_name = list(all_students.keys())[list(all_students.values()).index(identifier)].lower() + ", "
             
     week_template = " группа" + " / " + week + " неделя"
-    today_template = student_name + ", " + student_group + " группа" + " (" + today + ")"
-    yesterday_template = student_name + ", " + student_group + " группа" + " (" + yesterday + ")"
-    tomorrow_template = student_name + ", " + student_group + " группа" + " (" + tomorrow + ")"
-    monday_template = student_name + ", " + student_group + " группа" + " (понедельник)"
-    tuesday_template = student_name + ", " + student_group + " группа" + " (вторник)"
-    wednesday_template = student_name + ", " + student_group + " группа" + " (среда)"
-    thursday_template = student_name + ", " + student_group + " группа" + " (четверг)"
-    friday_template = student_name + ", " + student_group + " группа" + " (пятница)"
-    saturday_template = student_name + ", " + student_group + " группа" + " (суббота)"
-    sunday_template = student_name + ", " + student_group + " группа" + " (воскресенье)"
+    today_template = student_name + student_group + " группа" + " (" + today + ")"
+    yesterday_template = student_name + student_group + " группа" + " (" + yesterday + ")"
+    tomorrow_template = student_name + student_group + " группа" + " (" + tomorrow + ")"
+    monday_template = student_name + student_group + " группа" + " (понедельник)"
+    tuesday_template = student_name + student_group + " группа" + " (вторник)"
+    wednesday_template = student_name + student_group + " группа" + " (среда)"
+    thursday_template = student_name + student_group + " группа" + " (четверг)"
+    friday_template = student_name + student_group + " группа" + " (пятница)"
+    saturday_template = student_name + student_group + " группа" + " (суббота)"
+    sunday_template = student_name + student_group + " группа" + " (воскресенье)"
 
     classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
     day_tuple = "какой день", "какой сейчас день", "какой сегодня день"
