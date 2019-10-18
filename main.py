@@ -173,9 +173,9 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    for student_name, identifier in all_students.items():
-        if identifier == uid:
-            student_name = student_name.lower()
+    for name, identifier in all_students.items():
+        if uid == identifier:
+            name = student_name.lower()
     for name, identifier in first_group.items():
         if identifier == uid:
             student_group = "первая"
