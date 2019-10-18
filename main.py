@@ -181,19 +181,19 @@ def predefined_messages(message):
             student_group = "вторая"
     for name, identifier in all_students.items():
         if uid == identifier:
-            student_name = name.lower()
+            name = name.lower()
             
     week_template = " группа" + " / " + week + " неделя"
-    today_template = student_name + ", " + student_group + " группа" + " (" + today + ")"
-    yesterday_template = student_name + ", " + student_group + " группа" + " (" + yesterday + ")"
-    tomorrow_template = student_name + ", " + student_group + " группа" + " (" + tomorrow + ")"
-    monday_template = student_name + ", " + student_group + " группа" + " (понедельник)"
-    tuesday_template = student_name + ", " + student_group + " группа" + " (вторник)"
-    wednesday_template = student_name + ", " + student_group + " группа" + " (среда)"
-    thursday_template = student_name + ", " + student_group + " группа" + " (четверг)"
-    friday_template = student_name + ", " + student_group + " группа" + " (пятница)"
-    saturday_template = student_name + ", " + student_group + " группа" + " (суббота)"
-    sunday_template = student_name + ", " + student_group + " группа" + " (воскресенье)"
+    today_template = name + ", " + student_group + " группа" + " (" + today + ")"
+    yesterday_template = name + ", " + student_group + " группа" + " (" + yesterday + ")"
+    tomorrow_template = name + ", " + student_group + " группа" + " (" + tomorrow + ")"
+    monday_template = name + ", " + student_group + " группа" + " (понедельник)"
+    tuesday_template = name + ", " + student_group + " группа" + " (вторник)"
+    wednesday_template = name + ", " + student_group + " группа" + " (среда)"
+    thursday_template = name + ", " + student_group + " группа" + " (четверг)"
+    friday_template = name + ", " + student_group + " группа" + " (пятница)"
+    saturday_template = name + ", " + student_group + " группа" + " (суббота)"
+    sunday_template = name + ", " + student_group + " группа" + " (воскресенье)"
 
     classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
     day_tuple = "какой день", "какой сейчас день", "какой сегодня день"
