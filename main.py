@@ -173,15 +173,15 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    for student_name, student_identifier in all_students.items():
-        if uid == student_identifier:
-            student_name = student_name.lower()
-    for student_name, student_identifier in first_group.items():
-        if student_identifier == uid:
+    for name, identifier in first_group.items():
+        if uid == identifier:
             student_group = "первая"
-    for student_name, student_identifier in second_group.items():
-        if student_identifier == uid:
+    for name, identifier in second_group.items():
+        if uid == identifier:
             student_group = "вторая"
+    for name, identifier in all_students.items():
+        if uid == identifier:
+            student_name = name.lower()
             
     week_template = " группа" + " / " + week + " неделя"
     today_template = student_name + ", " + student_group + " группа" + " (" + today + ")"
