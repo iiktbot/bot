@@ -16,17 +16,6 @@ app = Flask(__name__)
 def start_message(message):
     bot.send_message(message.chat.id, "привет, чем могу быть полезен?")
 
-@bot.message_handler(commands=['meme'])
-def start_message(message):
-    meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
-    meme_req = requests.get(meme_url)
-    
-    if uid in all_students.values():
-        bot.send_chat_action(message.chat.id, "upload_photo")
-        bot.send_photo(message.chat.id, meme_url)
-    else:
-        bot.send_message(message.chat.id, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
-
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
     msg = message.text.lower()
@@ -184,9 +173,9 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    for name, identifier in all_students.items():
+    for student_name, identifier in all_students.items():
         if identifier == uid:
-            student_name = name.lower()
+            student_name = student_name.lower()
     for name, identifier in first_group.items():
         if identifier == uid:
             student_group = "первая"
@@ -222,6 +211,16 @@ def predefined_messages(message):
     saturday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "воскресенье", "среду", "пятницу", "пн", "вт", "ср", "чт", "пт", "вс"
     sunday_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
+
+    meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
+    meme_req = requests.get(meme_url)
+
+    if "мем" in msg or "meme" in msg:
+        if uid in all_students.values():
+            bot.send_chat_action(cid, "upload_photo")
+            bot.send_photo(cid, meme_url)
+        else:
+            bot.send_message(cid, "мы ещё не знакомы, напиши мне в личку что-нибудь", reply_to_message_id=mid)
 
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
