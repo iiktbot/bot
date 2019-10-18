@@ -221,10 +221,10 @@ def predefined_messages(message):
             bot.send_photo(cid, meme_url)
         else:
             bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-
+"""
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
-"""
+
     if weekorder == True:
         if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
             bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
