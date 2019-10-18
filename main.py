@@ -12,6 +12,11 @@ secret = '05f6b51a6e22d6e7d47f1235f26590b5dee83ece1b8da0719569a4b5a09b1ea2'
 bot = telebot.TeleBot(token, threaded=False)
 app = Flask(__name__)
 
+msg = message.text.lower()
+mid = message.message_id
+cid = message.chat.id
+uid = message.from_user.id
+    
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(cid, "привет, чем могу быть полезен?")
@@ -133,11 +138,6 @@ def predefined_messages(message):
     CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
-    msg = message.text.lower()
-    mid = message.message_id
-    cid = message.chat.id
-    uid = message.from_user.id
-    
     if (date.today().isocalendar()[1] % 2) == 0:
         weekorder = True
         week = "светлая"
