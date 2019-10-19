@@ -16,11 +16,11 @@ def start_message(message):
     bot.send_message(message.message_id, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
-def predefined_messages(message):
+def predefined_messages(message, update):
     msg = message.text.lower()
     mid = message.message_id
     cid = message.chat.id
-    uid = message.from_user.id
+    uid = update.message.from_user.id
 
     first_group = {
         ('Виталий'): 405299021,
@@ -173,11 +173,11 @@ def predefined_messages(message):
     student_group = ""
 
     for name, identifier in first_group.items():
-        if mid == identifier:
+        if uid == identifier:
             student_group = "первая группа"
             student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
     for name, identifier in second_group.items():
-        if mid == identifier:
+        if uid == identifier:
             student_group = "вторая группа"
             student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
             
