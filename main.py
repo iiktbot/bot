@@ -672,13 +672,6 @@ def predefined_messages(message):
                     bot.send_message(cid, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
             else:
                 bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-"""
-def ai_message(bot, update):
-    if "бот" in msg and not any(words in msg for words in messages_tuple):
-        bot.send_message(cid, dialogflow_response)
-    else:
-        bot.send_message(cid, unexpected_phrase)
-"""
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
@@ -736,7 +729,15 @@ def predefined_stickers(message):
     if sticker_rnm == 25:
         sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
 
-    bot.send_sticker(cid, sid)
+    bot.send_sticker(cid, sid, reply_to_message_id=mid)
+
+"""
+def ai_message(bot, update):
+    if "бот" in msg and not any(words in msg for words in messages_tuple):
+        bot.send_message(cid, dialogflow_response)
+    else:
+        bot.send_message(cid, unexpected_phrase)
+"""
 
 @app.route('/' + token, methods=['POST'])
 def get_messages():
