@@ -214,9 +214,6 @@ def predefined_messages(message):
     meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(5, 39946)))
     meme_req = requests.get(meme_url)
 
-    if "я ебучий просто пиздец какой" in msg:
-        bot.send_message(cid, "3354634274" + str(message.from_user.id) + "84736253234759", reply_to_message_id=mid)
-
     if "мем" in msg or "meme" in msg:
         if uid in first_group.values() or uid in second_group.values():
             bot.send_chat_action(cid, "upload_photo")
