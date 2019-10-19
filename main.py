@@ -16,11 +16,11 @@ def start_message(message):
     bot.send_message(message.message_id, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
-def predefined_messages(message, update, bot):
+def predefined_messages(message):
     msg = message.text.lower()
     mid = message.message_id
     cid = message.chat.id
-    uid = update.message.from_user.id
+    uid = message.from_user.id
 
     first_group = {
         ('Виталий'): 405299021,
