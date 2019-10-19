@@ -7,8 +7,7 @@ from telebot import types
 from datetime import date, timedelta
 from random import randrange
 
-token = '642122532:AAGKg4s2_ffJqDNTrqvbI7-qeFRxNEOBPV8'
-secret = '05f6b51a6e22d6e7d47f1235f26590b5dee83ece1b8da0719569a4b5a09b1ea2'
+token = '924107471:AAE3pzrmRZbXTWShfsBw8gwOadxvYUhDDNo'
 bot = telebot.TeleBot(token, threaded=False)
 app = Flask(__name__)
 
