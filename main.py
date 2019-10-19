@@ -211,8 +211,6 @@ def predefined_messages(message):
     exceptions_tuple = "поза", "после"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
 
-    meme_url = str("https://t.me/mnekovtoroi/" + str(random.randint(5, 39946)))
-    meme_req = requests.get(meme_url)
 
     if "мем" in msg or "meme" in msg:
         if uid in first_group.values() or uid in second_group.values():
