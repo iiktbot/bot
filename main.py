@@ -21,6 +21,9 @@ def predefined_messages(message):
     mid = message.message_id
     cid = message.chat.id
     uid = message.from_user.id
+    
+    student_name = ""
+    student_group = ""
 
     first_group = {
         ('Виталий'): 405299021,
