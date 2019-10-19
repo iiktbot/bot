@@ -676,6 +676,7 @@ def predefined_messages(message):
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
     cid = message.chat.id
+    uid = message.from_user.id
     sticker_rnm = random.randint(1, 25)
 
     if sticker_rnm == 1:
@@ -729,7 +730,8 @@ def predefined_stickers(message):
     if sticker_rnm == 25:
         sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
 
-    bot.send_sticker(cid, sid, reply_to_message_id=mid)
+    if uid in first_group.values() or uid in second_group.values():
+        bot.send_sticker(cid, sid, reply_to_message_id=mid)
 
 """
 def ai_message(bot, update):
