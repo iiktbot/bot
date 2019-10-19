@@ -221,6 +221,9 @@ def predefined_messages(message):
         else:
             bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
 
+    if "1" in msg or "11" in msg:
+        bot.send_sticker(message.message_id, "CAADAgADNwADTV8oGAcnDK_zzifQFgQ")
+
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
 
@@ -679,9 +682,6 @@ def ai_message(bot, update):
     else:
         bot.send_message(cid, unexpected_phrase)
 """
-@bot.message_handler(content_types=['sticker'])
-def predefined_stickers(message):
-    bot.send_sticker(message.message_id, "CAADAgADNwADTV8oGAcnDK_zzifQFgQ")
 
 @app.route('/' + token, methods=['POST'])
 def get_messages():
