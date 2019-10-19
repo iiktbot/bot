@@ -11,16 +11,26 @@ token = '924107471:AAE3pzrmRZbXTWShfsBw8gwOadxvYUhDDNo'
 bot = telebot.TeleBot(token, threaded=False)
 app = Flask(__name__)
 
+msg = message.text.lower()
+mid = message.message_id
+cid = message.chat.id
+uid = message.from_user.id
+
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.chat.id, "привет, чем могу быть полезен?")
+    global mid
+    bot.send_message(mid, "привет, чем могу быть полезен?")
 
+@bot.message_handler(content_types=['sticker'])
+def predefined_stickers(message):
+    global mid
+    bot.send_sticker(mid, CAADAgADNwADTV8oGAcnDK_zzifQFgQ)
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-    msg = message.text.lower()
-    mid = message.message_id
-    cid = message.chat.id
-    uid = message.from_user.id
+    global msg
+    global mid
+    global cid
+    global uid
 
     first_group = {
         ('Виталий'): 405299021,
