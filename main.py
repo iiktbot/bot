@@ -221,62 +221,6 @@ def predefined_messages(message):
         else:
             bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
 
-    sticker_rnm = random.randint(1, 25)
-
-    if sticker_rnm == 1:
-        sid = "CAADAgADNwADTV8oGAcnDK_zzifQFgQ"
-    if sticker_rnm == 2:
-        sid = "CAADAgADOAADTV8oGIkHWmw4--6sFgQ"
-    if sticker_rnm == 3:
-        sid = "CAADAgADOQADTV8oGB0jpTwBtJ3qFgQ"
-    if sticker_rnm == 4:
-        sid = "CAADAgADOgADTV8oGMRKEjeYMD-iFgQ"
-    if sticker_rnm == 5:
-        sid = "CAADAgADOwADTV8oGPYpjAugj5MkFgQ"
-    if sticker_rnm == 6:
-        sid = "CAADAgADPAADTV8oGNHRaGn8VRqSFgQ"
-    if sticker_rnm == 7:
-        sid = "CAADAgADPQADTV8oGGv7CE-jUh8EFgQ"
-    if sticker_rnm == 8:
-        sid = "CAADAgADPwADTV8oGGEa15DV51VsFgQ"
-    if sticker_rnm == 9:
-        sid = "CAADAgADQQADTV8oGHxIB3e9wuKQFgQ"
-    if sticker_rnm == 10:
-        sid = "CAADAgADQgADTV8oGOKRYZfYhYJFFgQ"
-    if sticker_rnm == 11:
-        sid = "CAADAgADQwADTV8oGE78wiPH81acFgQ"
-    if sticker_rnm == 12:
-        sid = "CAADAgADRAADTV8oGAtV7hSpVNtaFgQ"
-    if sticker_rnm == 13:
-        sid = "CAADAgADRQADTV8oGFslQVK175XIFgQ"
-    if sticker_rnm == 14:
-        sid = "CAADAgADRgADTV8oGNfQA4YP9hbGFgQ"
-    if sticker_rnm == 15:
-        sid = "CAADAgADRwADTV8oGE_kCZ6bNeYWFgQ"
-    if sticker_rnm == 16:
-        sid = "CAADAgADSAADTV8oGAW7JHvjQFXFFgQ"
-    if sticker_rnm == 17:
-        sid = "CAADAgADSQADTV8oGJ2B3Lds1bOCFgQ"
-    if sticker_rnm == 18:
-        sid = "CAADAgADSgADTV8oGM58vpLz3FuoFgQ"
-    if sticker_rnm == 19:
-        sid = "CAADAgADSwADTV8oGOxJeXJbuuKHFgQ"
-    if sticker_rnm == 20:
-        sid = "CAADAgADTQADTV8oGLiiZvA26ikuFgQ"
-    if sticker_rnm == 21:
-        sid = "CAADAgADTAADTV8oGJhTCjwdw5EYFgQ"
-    if sticker_rnm == 22:
-        sid = "CAADAgADTwADTV8oGJzFxvw-eMa5FgQ"
-    if sticker_rnm == 23:
-        sid = "CAADAgADTgADTV8oGOMvW5CjVqGhFgQ"
-    if sticker_rnm == 24:
-        sid = "CAADAgADUAADTV8oGMB0LsS6SDJtFgQ"
-    if sticker_rnm == 25:
-        sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
-
-    if "стикер" in msg:
-        bot.send_sticker(cid, sid)
-
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
 
@@ -735,6 +679,64 @@ def ai_message(bot, update):
     else:
         bot.send_message(cid, unexpected_phrase)
 """
+
+@bot.message_handler(content_types=['sticker'])
+def predefined_stickers(message):
+    cid = message.chat.id
+    sticker_rnm = random.randint(1, 25)
+
+    if sticker_rnm == 1:
+        sid = "CAADAgADNwADTV8oGAcnDK_zzifQFgQ"
+    if sticker_rnm == 2:
+        sid = "CAADAgADOAADTV8oGIkHWmw4--6sFgQ"
+    if sticker_rnm == 3:
+        sid = "CAADAgADOQADTV8oGB0jpTwBtJ3qFgQ"
+    if sticker_rnm == 4:
+        sid = "CAADAgADOgADTV8oGMRKEjeYMD-iFgQ"
+    if sticker_rnm == 5:
+        sid = "CAADAgADOwADTV8oGPYpjAugj5MkFgQ"
+    if sticker_rnm == 6:
+        sid = "CAADAgADPAADTV8oGNHRaGn8VRqSFgQ"
+    if sticker_rnm == 7:
+        sid = "CAADAgADPQADTV8oGGv7CE-jUh8EFgQ"
+    if sticker_rnm == 8:
+        sid = "CAADAgADPwADTV8oGGEa15DV51VsFgQ"
+    if sticker_rnm == 9:
+        sid = "CAADAgADQQADTV8oGHxIB3e9wuKQFgQ"
+    if sticker_rnm == 10:
+        sid = "CAADAgADQgADTV8oGOKRYZfYhYJFFgQ"
+    if sticker_rnm == 11:
+        sid = "CAADAgADQwADTV8oGE78wiPH81acFgQ"
+    if sticker_rnm == 12:
+        sid = "CAADAgADRAADTV8oGAtV7hSpVNtaFgQ"
+    if sticker_rnm == 13:
+        sid = "CAADAgADRQADTV8oGFslQVK175XIFgQ"
+    if sticker_rnm == 14:
+        sid = "CAADAgADRgADTV8oGNfQA4YP9hbGFgQ"
+    if sticker_rnm == 15:
+        sid = "CAADAgADRwADTV8oGE_kCZ6bNeYWFgQ"
+    if sticker_rnm == 16:
+        sid = "CAADAgADSAADTV8oGAW7JHvjQFXFFgQ"
+    if sticker_rnm == 17:
+        sid = "CAADAgADSQADTV8oGJ2B3Lds1bOCFgQ"
+    if sticker_rnm == 18:
+        sid = "CAADAgADSgADTV8oGM58vpLz3FuoFgQ"
+    if sticker_rnm == 19:
+        sid = "CAADAgADSwADTV8oGOxJeXJbuuKHFgQ"
+    if sticker_rnm == 20:
+        sid = "CAADAgADTQADTV8oGLiiZvA26ikuFgQ"
+    if sticker_rnm == 21:
+        sid = "CAADAgADTAADTV8oGJhTCjwdw5EYFgQ"
+    if sticker_rnm == 22:
+        sid = "CAADAgADTwADTV8oGJzFxvw-eMa5FgQ"
+    if sticker_rnm == 23:
+        sid = "CAADAgADTgADTV8oGOMvW5CjVqGhFgQ"
+    if sticker_rnm == 24:
+        sid = "CAADAgADUAADTV8oGMB0LsS6SDJtFgQ"
+    if sticker_rnm == 25:
+        sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
+
+    bot.send_sticker(cid, sid)
 
 @app.route('/' + token, methods=['POST'])
 def get_messages():
