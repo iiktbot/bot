@@ -21,7 +21,7 @@ def predefined_messages(message):
     mid = message.message_id
     cid = message.chat.id
     uid = message.from_user.id
-    
+
     first_group = {
         ('Виталий'): 405299021,
         ('Юля'): 393708492,
@@ -171,9 +171,6 @@ def predefined_messages(message):
         today = "воскресенье"
         tomorrow = "понедельник"
         yesterday = "суббота"
-
-    student_name = ""
-    student_group = ""
 
     for name, identifier in first_group.items():
         if uid == identifier:
