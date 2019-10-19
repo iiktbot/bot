@@ -11,35 +11,23 @@ token = '924107471:AAE3pzrmRZbXTWShfsBw8gwOadxvYUhDDNo'
 bot = telebot.TeleBot(token, threaded=False)
 app = Flask(__name__)
 
-identifier_1 = 405299021
-identifier_2 = 393708492
-identifier_3 = 416924459
-identifier_4 = 613759219
-identifier_5 = 548116631
-
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-    global identifier_1
-    global identifier_2
-    global identifier_3
-    global identifier_4
-    global identifier_5
-
     msg = message.text.lower()
     mid = message.message_id
     cid = message.chat.id
     uid = message.from_user.id
 
     first_group = {
-        ('Виталий'): identifier_1,
-        ('Юля'): identifier_2,
-        ('Андрей'): identifier_3,
-        ('Влад'): identifier_4,
-        ('Женя'): identifier_5,
+        ('Виталий'): 405299021,
+        ('Юля'): 393708492,
+        ('Андрей'): 416924459,
+        ('Влад'): 613759219,
+        ('Женя'): 548116631,
         ('Карина'): 379537100,
         ('Денис'): 635991556,
         ('Дима'): 349737926,
@@ -62,9 +50,9 @@ def predefined_messages(message):
         ('Денис'): 780853105
     }
     first_group_eng = {
-        ('Виталий'): identifier_1,
+        ('Виталий'): 405299021,
         ('Влад'): 643705130,
-        ('Андрей'): identifier_3,
+        ('Андрей'): 416924459,
         ('Денис'): 542413243,
         ('Денис'): 635991556,
         ('Дима'): 349737926,
@@ -77,20 +65,16 @@ def predefined_messages(message):
         ('Влад'): 655298761
     }
     second_group_eng = {
-        ('Юля'): identifier_2,
+        ('Юля'): 393708492,
         ('Карина'): 379537100,
-        ('Женя'): identifier_5,
-        ('Влад'): identifier_4,
+        ('Женя'): 548116631,
+        ('Влад'): 613759219,
         ('Степан'): 469338261,
         ('Олег'): 384343953,
         ('Илья'): 358734682,
         ('Саша'): 537784508,
         ('Богдан'): 448401733,
         ('Леша'): 605903256
-    }
-    all_students = {
-        ** first_group,
-        ** second_group
     }
 
     SCHEDULE_MONDAY_DAYOFF = "\n\nПАР НЕТ"
@@ -155,6 +139,7 @@ def predefined_messages(message):
     else:
         weekorder = False
         week = "тёмная"
+
     if date.today().weekday() == 0:
         today = "понедельник"
         tomorrow = "вторник"
@@ -190,12 +175,11 @@ def predefined_messages(message):
     for name, identifier in first_group.items():
         if uid == identifier:
             student_group = "первая группа"
+            student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
     for name, identifier in second_group.items():
         if uid == identifier:
             student_group = "вторая группа"
-    for name, identifier in all_students.items():
-        if uid == identifier:
-            student_name = list(all_students.keys())[list(all_students.values()).index(identifier)].lower() + ", "
+            student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
             
     week_template = " группа / " + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
@@ -231,7 +215,7 @@ def predefined_messages(message):
     meme_req = requests.get(meme_url)
 
     if "мем" in msg or "meme" in msg:
-        if uid in all_students.values():
+        if uid in first_group.values() or uid in second_group.values():
             bot.send_chat_action(cid, "upload_photo")
             bot.send_photo(cid, meme_url)
         else:
