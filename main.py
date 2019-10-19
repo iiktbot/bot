@@ -681,7 +681,7 @@ def ai_message(bot, update):
 """
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
-    bot.send_sticker(message.message_id, CAADAgADNwADTV8oGAcnDK_zzifQFgQ)
+    bot.send_sticker(message.message_id, "CAADAgADNwADTV8oGAcnDK_zzifQFgQ")
 
 @app.route('/' + token, methods=['POST'])
 def get_messages():
