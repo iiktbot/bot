@@ -173,11 +173,11 @@ def predefined_messages(message):
     student_group = ""
 
     for name, identifier in first_group.items():
-        if uid == identifier:
+        if mid == identifier:
             student_group = "первая группа"
             student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
     for name, identifier in second_group.items():
-        if uid == identifier:
+        if mid == identifier:
             student_group = "вторая группа"
             student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
             
@@ -737,53 +737,53 @@ def predefined_stickers(message):
 
     if sticker_rnm == 1:
         sid = "CAADAgADNwADTV8oGAcnDK_zzifQFgQ"
-    if sticker_rnm == 2:
+    elif sticker_rnm == 2:
         sid = "CAADAgADOAADTV8oGIkHWmw4--6sFgQ"
-    if sticker_rnm == 3:
+    elif sticker_rnm == 3:
         sid = "CAADAgADOQADTV8oGB0jpTwBtJ3qFgQ"
-    if sticker_rnm == 4:
+    elif sticker_rnm == 4:
         sid = "CAADAgADOgADTV8oGMRKEjeYMD-iFgQ"
-    if sticker_rnm == 5:
+    elif sticker_rnm == 5:
         sid = "CAADAgADOwADTV8oGPYpjAugj5MkFgQ"
-    if sticker_rnm == 6:
+    elif sticker_rnm == 6:
         sid = "CAADAgADPAADTV8oGNHRaGn8VRqSFgQ"
-    if sticker_rnm == 7:
+    elif sticker_rnm == 7:
         sid = "CAADAgADPQADTV8oGGv7CE-jUh8EFgQ"
-    if sticker_rnm == 8:
+    elif sticker_rnm == 8:
         sid = "CAADAgADPwADTV8oGGEa15DV51VsFgQ"
-    if sticker_rnm == 9:
+    elif sticker_rnm == 9:
         sid = "CAADAgADQQADTV8oGHxIB3e9wuKQFgQ"
-    if sticker_rnm == 10:
+    elif sticker_rnm == 10:
         sid = "CAADAgADQgADTV8oGOKRYZfYhYJFFgQ"
-    if sticker_rnm == 11:
+    elif sticker_rnm == 11:
         sid = "CAADAgADQwADTV8oGE78wiPH81acFgQ"
-    if sticker_rnm == 12:
+    elif sticker_rnm == 12:
         sid = "CAADAgADRAADTV8oGAtV7hSpVNtaFgQ"
-    if sticker_rnm == 13:
+    elif sticker_rnm == 13:
         sid = "CAADAgADRQADTV8oGFslQVK175XIFgQ"
-    if sticker_rnm == 14:
+    elif sticker_rnm == 14:
         sid = "CAADAgADRgADTV8oGNfQA4YP9hbGFgQ"
-    if sticker_rnm == 15:
+    elif sticker_rnm == 15:
         sid = "CAADAgADRwADTV8oGE_kCZ6bNeYWFgQ"
-    if sticker_rnm == 16:
+    elif sticker_rnm == 16:
         sid = "CAADAgADSAADTV8oGAW7JHvjQFXFFgQ"
-    if sticker_rnm == 17:
+    elif sticker_rnm == 17:
         sid = "CAADAgADSQADTV8oGJ2B3Lds1bOCFgQ"
-    if sticker_rnm == 18:
+    elif sticker_rnm == 18:
         sid = "CAADAgADSgADTV8oGM58vpLz3FuoFgQ"
-    if sticker_rnm == 19:
+    elif sticker_rnm == 19:
         sid = "CAADAgADSwADTV8oGOxJeXJbuuKHFgQ"
-    if sticker_rnm == 20:
+    elif sticker_rnm == 20:
         sid = "CAADAgADTQADTV8oGLiiZvA26ikuFgQ"
-    if sticker_rnm == 21:
+    elif sticker_rnm == 21:
         sid = "CAADAgADTAADTV8oGJhTCjwdw5EYFgQ"
-    if sticker_rnm == 22:
+    elif sticker_rnm == 22:
         sid = "CAADAgADTwADTV8oGJzFxvw-eMa5FgQ"
-    if sticker_rnm == 23:
+    elif sticker_rnm == 23:
         sid = "CAADAgADTgADTV8oGOMvW5CjVqGhFgQ"
-    if sticker_rnm == 24:
+    elif sticker_rnm == 24:
         sid = "CAADAgADUAADTV8oGMB0LsS6SDJtFgQ"
-    if sticker_rnm == 25:
+    elif sticker_rnm == 25:
         sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
 
     if uid in first_group.values() or uid in second_group.values():
