@@ -274,7 +274,7 @@ def predefined_messages(message):
     if sticker_rnm == 25:
         sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
 
-    if "отправь мне стикер)" in msg:
+    if "стикер" in msg or :
         bot.send_sticker(cid, sid)
 
     if any(words in msg for words in week_tuple):
