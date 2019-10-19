@@ -275,7 +275,7 @@ def predefined_messages(message):
         sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
 
     if "отправь мне стикер)" in msg:
-        bot.send_sticker(сid, sid)
+        bot.send_sticker(uid, sid)
 
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
