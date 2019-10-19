@@ -211,14 +211,6 @@ def predefined_messages(message):
     exceptions_tuple = "поза", "после"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
 
-
-    if "мем" in msg or "meme" in msg:
-        if uid in first_group.values() or uid in second_group.values():
-            bot.send_chat_action(cid, "upload_photo")
-            bot.send_photo(cid, meme_url)
-        else:
-            bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
 
