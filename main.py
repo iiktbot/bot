@@ -16,7 +16,7 @@ def start_message(message):
     bot.send_message(message.message_id, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
-def predefined_messages(message, update):
+def predefined_messages(message, update, bot):
     msg = message.text.lower()
     mid = message.message_id
     cid = message.chat.id
