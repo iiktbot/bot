@@ -174,7 +174,7 @@ def predefined_messages(message):
 
     student_name = ""
     student_group = ""
-    
+
     for name, identifier in first_group.items():
         if uid == identifier:
             student_group = "первая группа"
@@ -189,6 +189,13 @@ def predefined_messages(message):
     today_template = student_name + student_group + " (" + today + ")"
     yesterday_template = student_name + student_group + " (" + yesterday + ")"
     tomorrow_template = student_name + student_group + " (" + tomorrow + ")"
+    monday_template = student_name + student_group + " (понедельник)"
+    tuesday_template = student_name + student_group + " (вторник)"
+    wednesday_template = student_name + student_group + " (среда)"
+    thursday_template = student_name + student_group + " (четверг)"
+    friday_template = student_name + student_group + " (пятница)"
+    saturday_template = student_name + student_group + " (суббота)"
+    sunday_template = student_name + student_group + " (воскресенье)"
 
     classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
     day_tuple = "какой день", "какой сейчас день", "какой сегодня день"
