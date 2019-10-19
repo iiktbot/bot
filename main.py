@@ -79,6 +79,10 @@ def predefined_messages(message):
         ('Богдан'): 448401733,
         ('Леша'): 605903256
     }
+    all_students = {
+        ** first_group,
+        ** second_group
+    }
 
     SCHEDULE_MONDAY_DAYOFF = "\n\nПАР НЕТ"
     SCHEDULE_TUESDAY_DAYOFF = "\n\nПАР НЕТ"
@@ -174,11 +178,12 @@ def predefined_messages(message):
     for name, identifier in first_group.items():
         if uid == identifier:
             student_group = "первая группа"
-            student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
     for name, identifier in second_group.items():
         if uid == identifier:
             student_group = "вторая группа"
-            student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+    for name, identifier in all_students.items():
+        if uid == identifier:
+            student_name = list(all_students.keys())[list(all_students.values()).index(identifier)].lower() + ", "
             
     week_template = " группа / " + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
@@ -207,7 +212,7 @@ def predefined_messages(message):
     meme_req = requests.get(meme_url)
 
     if "мем" in msg or "meme" in msg:
-        if uid in first_group.values() or uid in second_group.values():
+        if uid in all_students.values():
             bot.send_chat_action(cid, "upload_photo")
             bot.send_photo(cid, meme_url)
         else:
