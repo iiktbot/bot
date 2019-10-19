@@ -222,7 +222,8 @@ def predefined_messages(message):
             bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
 
     sticker_rnm = str(random.randint(1, 25))
-
+    sid = ""
+    
     if sticker_rnm == 1:
         sid = "CAADAgADNwADTV8oGAcnDK_zzifQFgQ"
     if sticker_rnm == 2:
