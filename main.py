@@ -173,13 +173,13 @@ def predefined_messages(message):
     student_group = ""
 
     for name, identifier in first_group.items():
-        if identifier == mid:
+        if mid == identifier:
             student_group = "первая группа"
-            student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
+            student_name = list(first_group.keys())[list(first_group.values()).index(mid)].lower() + ", "
     for name, identifier in second_group.items():
-        if identifier == mid:
+        if mid == identifier:
             student_group = "вторая группа"
-            student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+            student_name = list(second_group.keys())[list(second_group.values()).index(mid)].lower() + ", "
             
     week_template = " группа / " + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
