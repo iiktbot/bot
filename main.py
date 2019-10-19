@@ -11,26 +11,16 @@ token = '924107471:AAE3pzrmRZbXTWShfsBw8gwOadxvYUhDDNo'
 bot = telebot.TeleBot(token, threaded=False)
 app = Flask(__name__)
 
-msg = message.text.lower()
-mid = message.message_id
-cid = message.chat.id
-uid = message.from_user.id
-
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    global mid
-    bot.send_message(mid, "привет, чем могу быть полезен?")
+    bot.send_message(message.message_id, "привет, чем могу быть полезен?")
 
-@bot.message_handler(content_types=['sticker'])
-def predefined_stickers(message):
-    global mid
-    bot.send_sticker(mid, CAADAgADNwADTV8oGAcnDK_zzifQFgQ)
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-    global msg
-    global mid
-    global cid
-    global uid
+    msg = message.text.lower()
+    mid = message.message_id
+    cid = message.chat.id
+    uid = message.from_user.id
 
     first_group = {
         ('Виталий'): 405299021,
@@ -689,6 +679,10 @@ def ai_message(bot, update):
     else:
         bot.send_message(cid, unexpected_phrase)
 """
+@bot.message_handler(content_types=['sticker'])
+def predefined_stickers(message):
+    bot.send_sticker(message.message_id, CAADAgADNwADTV8oGAcnDK_zzifQFgQ)
+
 @app.route('/' + token, methods=['POST'])
 def get_messages():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
