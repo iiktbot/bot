@@ -229,9 +229,9 @@ def predefined_messages(message):
             a = bot.get_chat_member(cid, uid)
             bot.send_message(cid, "ok " + str(a), reply_to_message_id=mid)
         elif uid not in first_group.values() and uid not in second_group.values():
-            bot.send_message(cid, "not ok " + str(a), reply_to_message_id=mid)
+            bot.send_message(cid, "not ok " + str(a.id), reply_to_message_id=mid)
         else:
-            bot.send_message(cid, "weird " + str(a), reply_to_message_id=mid)
+            bot.send_message(cid, "weird " + str(a.id), reply_to_message_id=mid)
 
     if weekorder == True:
         if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
