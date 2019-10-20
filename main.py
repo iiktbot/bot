@@ -224,13 +224,13 @@ def predefined_messages(message):
     if any(words in msg for words in week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
 
-    if "12321323123232123232121232123" in msg:
+    if "bugreport" in msg:
         if uid in first_group.values() or uid in second_group.values():
-            bot.send_message(cid, "1\n1\n1", reply_to_message_id=mid)
+            bot.send_message(cid, "ok", reply_to_message_id=mid)
         elif uid not in first_group.values() and uid not in second_group.values():
-            bot.send_message(cid, "2\n2\n2", reply_to_message_id=mid)
+            bot.send_message(cid, "not ok", reply_to_message_id=mid)
         else:
-            bot.send_message(cid, "3\n3\n3", reply_to_message_id=mid)
+            bot.send_message(cid, "weird", reply_to_message_id=mid)
 
     if weekorder == True:
         if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
