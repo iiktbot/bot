@@ -226,11 +226,12 @@ def predefined_messages(message):
 
     if "bugreport" in msg:
         if uid in first_group.values() or uid in second_group.values():
-            bot.send_message(cid, "ok", reply_to_message_id=mid)
+            a = bot.get_chat_member(cid, uid)
+            bot.send_message(cid, "ok " + a, reply_to_message_id=mid)
         elif uid not in first_group.values() and uid not in second_group.values():
-            bot.send_message(cid, "not ok", reply_to_message_id=mid)
+            bot.send_message(cid, "not ok " + a, reply_to_message_id=mid)
         else:
-            bot.send_message(cid, "weird", reply_to_message_id=mid)
+            bot.send_message(cid, "weird " + a, reply_to_message_id=mid)
 
     if weekorder == True:
         if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
