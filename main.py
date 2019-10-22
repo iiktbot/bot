@@ -174,27 +174,27 @@ def predefined_messages(message):
         yesterday = "суббота"
 
     for name, identifier in first_group.items():
-        if uid == identifier:
+        if identifier == uid:
             student_group = "первая группа"
             student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
     for name, identifier in second_group.items():
-        if uid == identifier:
+        if identifier == uid:
             student_group = "вторая группа"
             student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
     for name, identifier in first_group.items():
-        if cid == identifier:
+        if identifier == uid:
             student_group = "первая группа"
             student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
     for name, identifier in second_group.items():
-        if cid == identifier:
+        if identifier == uid:
             student_group = "вторая группа"
             student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
     for name, identifier in first_group.items():
-        if mid == identifier:
+        if identifier == uid:
             student_group = "первая группа"
             student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
     for name, identifier in second_group.items():
-        if mid == identifier:
+        if identifier == uid:
             student_group = "вторая группа"
             student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
             
