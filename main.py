@@ -13,7 +13,10 @@ app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
+    msg = message.text.lower()
+    mid = message.message_id
     cid = message.chat.id
+    uid = message.from_user.id
     bot.send_message(cid, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
@@ -170,12 +173,14 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    if uid in first_group.keys() or cid in first_group.keys() or mid in first_group.keys():
-        student_group = "первая группа"
-        student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
-    elif uid in second_group.keys() or cid in second_group.keys() or mid in second_group.keys():
-        student_group = "вторая группа"
-        student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+    for uid in first_group.keys() or cid in first_group.keys() or mid in first_group.keys():
+        if uid == identifier or cid == identifier or mid == identifier:
+            student_group = "первая группа"
+            student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
+    for uid in second_group.keys() or cid in second_group.keys() or mid in second_group.keys():
+        if uid == identifier or cid == identifier or mid == identifier:
+            student_group = "вторая группа"
+            student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
             
     week_template = " группа / " + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
