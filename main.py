@@ -175,22 +175,22 @@ def predefined_messages(message):
 
     if uid in first_group.values():
         student_group = "первая группа"
-        student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
+        student_name = "%" + ", "
     if uid in second_group.values():
         student_group = "вторая группа"
-        student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+        student_name = "%"
     if cid in first_group.values():
         student_group = "первая группа"
-        student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
+        student_name = "%" + ", "
     if cid in second_group.values():
         student_group = "вторая группа"
-        student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+        student_name = "%"
     if mid in first_group.values():
         student_group = "первая группа"
-        student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
+        student_name = "%" + ", "
     if mid in second_group.values():
         student_group = "вторая группа"
-        student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+        student_name = "%"
             
     week_template = " группа / " + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
