@@ -173,12 +173,28 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    for uid in first_group.keys() or cid in first_group.keys() or mid in first_group.keys():
-        if uid == identifier or cid == identifier or mid == identifier:
+    for name, identifier in first_group.keys():
+        if uid == identifier:
             student_group = "первая группа"
             student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
-    for uid in second_group.keys() or cid in second_group.keys() or mid in second_group.keys():
-        if uid == identifier or cid == identifier or mid == identifier:
+    for name, identifier in second_group.keys():
+        if uid == identifier:
+            student_group = "вторая группа"
+            student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+    for name, identifier in first_group.keys():
+        if cid == identifier:
+            student_group = "первая группа"
+            student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
+    for name, identifier in second_group.keys():
+        if cid == identifier:
+            student_group = "вторая группа"
+            student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
+    for name, identifier in first_group.keys():
+        if mid == identifier:
+            student_group = "первая группа"
+            student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
+    for name, identifier in second_group.keys():
+        if mid == identifier:
             student_group = "вторая группа"
             student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
             
