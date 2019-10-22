@@ -176,10 +176,10 @@ def predefined_messages(message):
     student_name = ""
     student_group = ""
 
-    for uid in first_group.keys():
+    if uid in first_group.keys():
         student_group = "первая группа"
         student_name = list(first_group.keys())[list(first_group.values()).index(identifier)].lower() + ", "
-    for uid in second_group.keys():
+    if uid in second_group.keys():
         student_group = "вторая группа"
         student_name = list(second_group.keys())[list(second_group.values()).index(identifier)].lower() + ", "
             
