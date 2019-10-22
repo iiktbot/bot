@@ -13,7 +13,11 @@ app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.message_id, "привет, чем могу быть полезен?")
+    msg = message.text.lower()
+    mid = message.message_id
+    cid = message.chat.id
+    uid = message.from_user.id
+    bot.send_message(cid, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
@@ -22,7 +26,7 @@ def predefined_messages(message):
     cid = message.chat.id
     uid = message.from_user.id
 
-    first_group = {
+    first_group = (
         'Виталий': 405299021,
         'Юля': 393708492,
         'Андрей': 416924459,
@@ -37,8 +41,8 @@ def predefined_messages(message):
         'Женя': 692445612,
         'Полина': 429045248,
         'Саша': 52960692
-    }
-    second_group = {
+    )
+    second_group = (
         'Илья': 358734682,
         'Саша': 537784508,
         'Богдан': 448401733,
@@ -48,8 +52,8 @@ def predefined_messages(message):
         'Влад': 655298761,
         'Дима': 384173347,
         'Денис': 780853105
-    }
-    first_group_eng = {
+    )
+    first_group_eng = (
         'Виталий': 405299021,
         'Влад': 643705130,
         'Андрей': 416924459,
@@ -63,8 +67,8 @@ def predefined_messages(message):
         'Денис': 780853105,
         'Дима': 384173347,
         'Влад': 655298761
-    }
-    second_group_eng = {
+    )
+    second_group_eng = (
         'Юля': 393708492,
         'Карина': 379537100,
         'Женя': 548116631,
@@ -75,7 +79,7 @@ def predefined_messages(message):
         'Саша': 537784508,
         'Богдан': 448401733,
         'Леша': 605903256
-    }
+    )
 
     SCHEDULE_MONDAY_DAYOFF = "\n\nПАР НЕТ"
     SCHEDULE_TUESDAY_DAYOFF = "\n\nПАР НЕТ"
