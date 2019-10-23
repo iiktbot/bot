@@ -6,7 +6,6 @@ from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
 from random import randrange
-from / import CS18
 
 TOKEN = os.environ["TOKEN"]
 bot = telebot.TeleBot(TOKEN, threaded=False)
@@ -22,71 +21,121 @@ def start_message(message):
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-    global first_group
-    global second_group
-    global first_group_eng
-    global second_group_eng
-
-    global SCHEDULE_MONDAY_DAYOFF
-    global SCHEDULE_TUESDAY_DAYOFF
-    global SCHEDULE_WEDNESDAY_DAYOFF
-    global SCHEDULE_THURSDAY_DAYOFF
-    global SCHEDULE_FRIDAY_DAYOFF
-    global SCHEDULE_SATURDAY_DAYOFF
-    global SCHEDULE_SUNDAY_DAYOFF
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK
-    global SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK
-    global SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK
-    global SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK
-    global SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK
-    global SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK
-    global SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK
-    global SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY
-    global SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY
-    global SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY
-    global SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY
-    global SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY
-    global SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY
-    global SCHEDULE_DARKWEEK_1GROUP_TUESDAY
-    global SCHEDULE_DARKWEEK_2GROUP_TUESDAY
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY
-    global SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY
-    global SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY
-    global SCHEDULE_DARKWEEK_1GROUP_THURSDAY
-    global SCHEDULE_DARKWEEK_2GROUP_THURSDAY
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY
-    global SCHEDULE_DARKWEEK_1GROUP_FRIDAY
-    global SCHEDULE_DARKWEEK_2GROUP_FRIDAY
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY
-    global SCHEDULE_DARKWEEK_1GROUP_SATURDAY
-    global SCHEDULE_DARKWEEK_2GROUP_SATURDAY
-
-    global SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY
-    global SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY
-    global SCHEDULE_DARKWEEK_1GROUP_SUNDAY
-    global SCHEDULE_DARKWEEK_2GROUP_SUNDAY
-
     msg = message.text.lower()
     mid = message.message_id
     cid = message.chat.id
     uid = message.from_user.id
+
+    first_group = {
+        405299021: 'Виталий' ,
+        393708492: 'Юля' ,
+        416924459: 'Андрей' ,
+        613759219: 'Влад' ,
+        548116631: 'Женя' ,
+        379537100: 'Карина' ,
+        635991556: 'Денис' ,
+        349737926: 'Дима' ,
+        451287655: 'Дима' ,
+        469338261: 'Степан' ,
+        542413243: 'Денис' ,
+        692445612: 'Женя' ,
+        429045248: 'Полина' ,
+        52960692: 'Саша' 
+    }
+    second_group = {
+        358734682: 'Илья' ,
+        537784508: 'Саша' ,
+        448401733: 'Богдан' ,
+        643705130: 'Влад' ,
+        605903256: 'Леша' ,
+        384343953: 'Олег' ,
+        655298761: 'Влад' ,
+        384173347: 'Дима' ,
+        780853105: 'Денис' 
+    }
+    first_group_eng = {
+        405299021: 'Виталий' ,
+        643705130: 'Влад' ,
+        416924459: 'Андрей' ,
+        542413243: 'Денис' ,
+        635991556: 'Денис' ,
+        349737926: 'Дима' ,
+        451287655: 'Дима' ,
+        692445612: 'Женя' ,
+        123456789: 'Полина' ,
+        52960692: 'Саша' ,
+        780853105: 'Денис' ,
+        384173347: 'Дима' ,
+        655298761: 'Влад' 
+    }
+    second_group_eng = {
+        393708492: 'Юля' ,
+        379537100: 'Карина' ,
+        548116631: 'Женя' ,
+        613759219: 'Влад' ,
+        469338261: 'Степан' ,
+        384343953: 'Олег' ,
+        358734682: 'Илья' ,
+        537784508: 'Саша' ,
+        448401733: 'Богдан' ,
+        605903256: 'Леша' 
+    }
+
+    SCHEDULE_MONDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_TUESDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_WEDNESDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_THURSDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_FRIDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_SATURDAY_DAYOFF = "\n\nПАР НЕТ"
+    SCHEDULE_SUNDAY_DAYOFF = "\n\nПАР НЕТ"
+
+    SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
+    SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
+    SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
+    SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
+    SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = "\n\nпонедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY = "\n\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+
+    SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    SCHEDULE_DARKWEEK_1GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    SCHEDULE_DARKWEEK_2GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+
+    SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY = "\n\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+
+    SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY = "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП"
+    SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY = "\n\n13:05-14:25 — ООП"
+    SCHEDULE_DARKWEEK_1GROUP_THURSDAY = "\n\n11:40-13:00 — ООП\n13:05-14:25 — ООП"
+    SCHEDULE_DARKWEEK_2GROUP_THURSDAY = "\n\n13:05-14:25 — ООП"
+
+    SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY = "\n\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
+    SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY = "\n\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
+    SCHEDULE_DARKWEEK_1GROUP_FRIDAY = SCHEDULE_FRIDAY_DAYOFF
+    SCHEDULE_DARKWEEK_2GROUP_FRIDAY = "\n\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    SCHEDULE_DARKWEEK_1GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    SCHEDULE_DARKWEEK_2GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+
+    SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
     if (date.today().isocalendar()[1] % 2) == 0:
         weekorder = True
@@ -625,13 +674,63 @@ def predefined_messages(message):
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
-    global first_group
-    global second_group
-    global first_group_eng
-    global second_group_eng
-
     cid = message.chat.id
     uid = message.from_user.id
+
+    first_group = {
+        405299021: 'Виталий' ,
+        393708492: 'Юля' ,
+        416924459: 'Андрей' ,
+        613759219: 'Влад' ,
+        548116631: 'Женя' ,
+        379537100: 'Карина' ,
+        635991556: 'Денис' ,
+        349737926: 'Дима' ,
+        451287655: 'Дима' ,
+        469338261: 'Степан' ,
+        542413243: 'Денис' ,
+        692445612: 'Женя' ,
+        429045248: 'Полина' ,
+        52960692: 'Саша' 
+    }
+    second_group = {
+        358734682: 'Илья' ,
+        537784508: 'Саша' ,
+        448401733: 'Богдан' ,
+        643705130: 'Влад' ,
+        605903256: 'Леша' ,
+        384343953: 'Олег' ,
+        655298761: 'Влад' ,
+        384173347: 'Дима' ,
+        780853105: 'Денис' 
+    }
+    first_group_eng = {
+        405299021: 'Виталий' ,
+        643705130: 'Влад' ,
+        416924459: 'Андрей' ,
+        542413243: 'Денис' ,
+        635991556: 'Денис' ,
+        349737926: 'Дима' ,
+        451287655: 'Дима' ,
+        692445612: 'Женя' ,
+        123456789: 'Полина' ,
+        52960692: 'Саша' ,
+        780853105: 'Денис' ,
+        384173347: 'Дима' ,
+        655298761: 'Влад' 
+    }
+    second_group_eng = {
+        393708492: 'Юля' ,
+        379537100: 'Карина' ,
+        548116631: 'Женя' ,
+        613759219: 'Влад' ,
+        469338261: 'Степан' ,
+        384343953: 'Олег' ,
+        358734682: 'Илья' ,
+        537784508: 'Саша' ,
+        448401733: 'Богдан' ,
+        605903256: 'Леша' 
+    }
 
     sticker_rnm = random.randint(1, 25)
 
