@@ -179,6 +179,7 @@ def predefined_messages(message):
         yesterday = "суббота"
 
     student_name = all_students[uid] + ", "
+    student_group = "ебучая группа"
 
     if uid in first_group.values():
         student_group = "первая группа"
