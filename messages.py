@@ -1,6 +1,9 @@
 import telebot
 from telebot import types
 
+TOKEN = os.environ["TOKEN"]
+bot = telebot.TeleBot(TOKEN, threaded=False)
+
 @bot.message_handler(commands=['start'])
 def start_message(message):
     cid = message.chat.id
