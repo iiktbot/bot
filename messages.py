@@ -1,3 +1,11 @@
+import telebot
+from telebot import types
+
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    cid = message.chat.id
+    bot.send_message(cid, "привет, чем могу быть полезен?")
+
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
     msg = message.text.lower()
