@@ -785,13 +785,15 @@ def predefined_stickers(message):
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_sticker(cid, sid)
 
-"""
-def ai_message(bot, update):
-    if "бот" in msg and not any(words in msg for words in messages_tuple):
-        bot.send_message(cid, dialogflow_response)
-    else:
-        bot.send_message(cid, unexpected_phrase)
-"""
+@bot.message_handler(content_types='text')
+def messages(message):
+    request = apiai.ApiAI('361b7318f91c42c8ba03ddec7dd469a1')
+    request.lang = 'ru'
+    request.session_id = 'sn1'
+    request.query = message.text
+    response = json.loads(request().read().decode('utf-8'))
+    bot.send_message(response['result']['action'])
+    print(message.text)
 
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
