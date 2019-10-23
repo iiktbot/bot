@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import flask, apiai, json, telebot, os, requests, urllib, time, random, CS18
+import flask, apiai, json, telebot, os, requests, urllib, time, random
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
 from random import randrange
+from / import CS18
 
 TOKEN = os.environ["TOKEN"]
 bot = telebot.TeleBot(TOKEN, threaded=False)
