@@ -1,3 +1,6 @@
+import telebot
+from telebot import types
+
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
     global first_group
