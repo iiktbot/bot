@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import flask, apiai, json, telebot, os, requests, urllib, time, random, messages, stickers, schedule, students
+import flask, apiai, json, telebot, os, requests, urllib, time, random, messages, schedule, students
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -10,11 +10,6 @@ from random import randrange
 TOKEN = os.environ["TOKEN"]
 bot = telebot.TeleBot(TOKEN, threaded=False)
 app = Flask(__name__)
-
-@bot.message_handler(commands=['start'])
-def start_message(message):
-    cid = message.chat.id
-    bot.send_message(cid, "привет, чем могу быть полезен?")
 
 """
 def ai_message(bot, update):
