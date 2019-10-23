@@ -81,6 +81,11 @@ def predefined_messages(message):
         605903256: 'Леша'
     }
 
+    all_students = {
+    	** first_group,
+    	** second_group
+    }
+
     SCHEDULE_MONDAY_DAYOFF = "\n\nПАР НЕТ"
     SCHEDULE_TUESDAY_DAYOFF = "\n\nПАР НЕТ"
     SCHEDULE_WEDNESDAY_DAYOFF = "\n\nПАР НЕТ"
@@ -172,6 +177,8 @@ def predefined_messages(message):
         today = "воскресенье"
         tomorrow = "понедельник"
         yesterday = "суббота"
+
+	student_name = all_students[uid] + ", "
 
     if uid in first_group.values():
         student_group = "первая группа"
