@@ -779,7 +779,7 @@ def predefined_stickers(message):
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_sticker(cid, sid)
 
-def messages(bot, update):
+"""def messages(bot, update):
     request = apiai.ApiAI('b9e6b8a6a57743c08f6f528805171964').text_request()
     request.lang = 'ru'
     request.session_id = 'iiktbot'
@@ -792,6 +792,7 @@ def messages(bot, update):
             bot.send_message(chat_id=update.message.chat_id, text=response)
         else:
             bot.send_message(chat_id=update.message.chat_id, text="?")
+"""
 
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
