@@ -659,16 +659,6 @@ def predefined_messages(message):
             else:
                 bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
 
-    meme_url = str("https://t.me/otchislenno" + str(random.randint(3, 100)))
-    meme_req = requests.get(meme_url)
-
-    if "мем" in msg or "meme" in msg:
-        if uid in first_group.keys() or uid in second_group.keys():
-            bot.send_chat_action(cid, "upload_photo")
-            bot.send_photo(cid, meme_url)
-        else:
-            bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
     cid = message.chat.id
