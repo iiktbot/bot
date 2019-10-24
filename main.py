@@ -177,7 +177,7 @@ def predefined_messages(message):
         student_group = "вторая группа"
         student_name = second_group[uid] + ", "
             
-    week_template = " / " + week + " неделя"
+    week_template = "\n" + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
     yesterday_template = student_name + student_group + " (" + yesterday + ")"
     tomorrow_template = student_name + student_group + " (" + tomorrow + ")"
