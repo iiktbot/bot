@@ -785,16 +785,6 @@ def predefined_stickers(message):
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_sticker(cid, sid)
 
-@bot.message_handler(content_types='text')
-def messages(message):
-    request = apiai.ApiAI('361b7318f91c42c8ba03ddec7dd469a1')
-    request.lang = 'ru'
-    request.session_id = 'sn1'
-    request.query = message.text
-    response = json.loads(request().read().decode('utf-8'))
-    bot.send_message(response['result']['action'])
-    print(message.text)
-
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
