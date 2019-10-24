@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import flask, apiai, json, telebot, os, requests, urllib, time, random
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -9,12 +10,15 @@ from random import randrange
 
 TOKEN = os.environ["TOKEN"]
 bot = telebot.TeleBot(TOKEN, threaded=False)
+updater = Updater(token=TOKEN)
+dispatcher = updater.dispatcher
 app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
     cid = message.chat.id
-    bot.send_message(cid, "привет, чем могу быть полезен?")
+    start_msg = bot.send_message(cid, "привет, чем могу быть полезен?")
+    bot.register_next_step_handler(start_msg, messages)
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
@@ -774,6 +778,20 @@ def predefined_stickers(message):
 
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_sticker(cid, sid)
+
+def messages(bot, update):
+    request = apiai.ApiAI('b9e6b8a6a57743c08f6f528805171964').text_request()
+    request.lang = 'ru'
+    request.session_id = 'iiktbot'
+    request.query = update.message.text
+    responseJson = json.loads(request.getresponse().read().decode('utf-8'))
+    response = responseJson['result']['fulfillment']['speech']
+    
+    if message.chat.type == "private":
+        if response:
+            bot.send_message(chat_id=update.message.chat_id, text=response)
+        else:
+            bot.send_message(chat_id=update.message.chat_id, text="?")
 
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
