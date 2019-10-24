@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import flask, apiai, json, telebot, os, requests, urllib, time, random
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -10,15 +9,12 @@ from random import randrange
 
 TOKEN = os.environ["TOKEN"]
 bot = telebot.TeleBot(TOKEN, threaded=False)
-updater = Updater(token=TOKEN)
-dispatcher = updater.dispatcher
 app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
     cid = message.chat.id
-    start_msg = bot.send_message(cid, "привет, чем могу быть полезен?")
-    bot.register_next_step_handler(start_msg, messages)
+    bot.send_message(cid, "привет, чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
@@ -778,7 +774,7 @@ def predefined_stickers(message):
 
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_sticker(cid, sid)
-        
+
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
