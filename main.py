@@ -778,22 +778,7 @@ def predefined_stickers(message):
 
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_sticker(cid, sid)
-
-"""def messages(bot, update):
-    request = apiai.ApiAI('b9e6b8a6a57743c08f6f528805171964').text_request()
-    request.lang = 'ru'
-    request.session_id = 'iiktbot'
-    request.query = update.message.text
-    responseJson = json.loads(request.getresponse().read().decode('utf-8'))
-    response = responseJson['result']['fulfillment']['speech']
-    
-    if message.chat.type == "private":
-        if response:
-            bot.send_message(chat_id=update.message.chat_id, text=response)
-        else:
-            bot.send_message(chat_id=update.message.chat_id, text="?")
-"""
-
+        
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
