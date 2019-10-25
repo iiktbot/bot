@@ -8,7 +8,7 @@ beautifulsoup4==4.8.0
 cchardet==2.1.4
 certifi==2019.9.11
 cffi==1.12.3
-chardet==3.0.2
+chardet==3.0.4
 Click==7.0
 config==0.4.2
 cryptography==2.8
@@ -33,7 +33,7 @@ soupsieve==1.9.4
 supervisor==4.0.4
 telebot==0.0.3
 tornado==6.0.3
-urllib3==1.21.1
+urllib3==1.25.3
 urlopen==1.0.0
 virtualenv==16.7.5
 Werkzeug==0.16.0
