@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import flask, apiai, json, telebot, os, requests, urllib, time, random
+import flask, apiai, json, telebot, os, requests, urllib, time, random, iterpools
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -207,26 +207,26 @@ def predefined_messages(message):
     exceptions_tuple = "поза", "после"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
 
-    if any(words in msg for words in week_tuple):
+    if msg in iterpools.chain(*week_tuple):
         bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
 
     if weekorder == True:
-        if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
+        if date.today().weekday() == 0 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 1 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 1 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 2 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 2 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня светлая " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 3 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 3 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 4 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 4 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня светлая " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 5 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 5 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня светлая " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 6 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 6 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня светлое " + today, reply_to_message_id=mid)
-        if any(words in msg for words in classes_tuple):
-            if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+        if msg in iterpools.chain(*classes_tuple):
+            if not msg in iterpools.chain(*days_tuple) and not msg in iterpools.chain(*weekdays_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.keys():
@@ -263,9 +263,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_message(cid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "сегодня" in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif "сегодня" in msg and not msg in iterpools.chain(*today_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.keys():
@@ -302,9 +300,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_message(cid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "вчера" in msg and not any(words in msg for words in yesterday_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif "вчера" in msg and not msg in iterpools.chain(*yesterday_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() - 1 == 0:
                         if uid in first_group_eng.keys():
@@ -341,9 +337,7 @@ def predefined_messages(message):
                         bot.send_message(cid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 6:
                         bot.send_message(cid, yesterday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif "завтра" in msg and not msg in iterpools.chain(*tomorrow_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() + 1 == 7:
                         if uid in first_group_eng.keys():
@@ -380,47 +374,43 @@ def predefined_messages(message):
                         bot.send_message(cid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 6:
                         bot.send_message(cid, tomorrow_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif not msg in iterpools.chain(*days_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
-                    if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
+                    if "понедельник" in msg or "пн" in msg and not msg in iterpools.chain(*monday_tuple):
                         if uid in first_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif uid in second_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-                    elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
+                    elif "вторник" in msg or "вт" in msg and not msg in iterpools.chain(*tuesday_tuple):
                         bot.send_message(cid, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
-                    elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
+                    elif "среда" in msg or "среду" in msg or "ср" in msg and not msg in iterpools.chain(*wednesday_tuple):
                         bot.send_message(cid, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
-                    elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
+                    elif "четверг" in msg or "чт" in msg and not msg in iterpools.chain(*thursday_tuple):
                         bot.send_message(cid, thursday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
+                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not msg in iterpools.chain(*friday_tuple):
                         bot.send_message(cid, friday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
+                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not msg in iterpools.chain(*saturday_tuple):
                         bot.send_message(cid, saturday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
-                    elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
+                    elif "воскресенье" in msg or "вс" in msg and not msg in iterpools.chain(*sunday_tuple):
                         bot.send_message(cid, sunday_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid in second_group.keys():
-                    if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
+                    if "понедельник" in msg or "пн" in msg and not msg in iterpools.chain(*monday_tuple):
                         if uid in first_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif uid in second_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-                    elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
+                    elif "вторник" in msg or "вт" in msg and not msg in iterpools.chain(*tuesday_tuple):
                         bot.send_message(cid, tuesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
-                    elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
+                    elif "среда" in msg or "среду" in msg or "ср" in msg and not msg in iterpools.chain(*wednesday_tuple):
                         bot.send_message(cid, wednesday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
-                    elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
+                    elif "четверг" in msg or "чт" in msg and not msg in iterpools.chain(*thursday_tuple):
                         bot.send_message(cid, thursday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
+                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not msg in iterpools.chain(*friday_tuple):
                         bot.send_message(cid, friday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
+                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not msg in iterpools.chain(*saturday_tuple):
                         bot.send_message(cid, saturday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
-                    elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
+                    elif "воскресенье" in msg or "вс" in msg and not msg in iterpools.chain(*sunday_tuple):
                         bot.send_message(cid, sunday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
         if "schedule" in msg:
             if uid in first_group.keys():
                 if uid in first_group_eng.keys():
@@ -432,25 +422,23 @@ def predefined_messages(message):
                     bot.send_message(cid, student_group + week_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK)
                 elif uid in second_group_eng.keys():
                     bot.send_message(cid, student_group + week_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK)
-            else:
-                bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
     elif weekorder == False:
-        if date.today().weekday() == 0 and any(words in msg for words in day_tuple):
+        if date.today().weekday() == 0 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня тёмный " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 1 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 1 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня тёмный " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 2 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 2 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня тёмная " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 3 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 3 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня тёмный " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 4 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 4 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня тёмная " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 5 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 5 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня тёмная " + today, reply_to_message_id=mid)
-        elif date.today().weekday() == 6 and any(words in msg for words in day_tuple):
+        elif date.today().weekday() == 6 and msg in iterpools.chain(*day_tuple):
             bot.send_message(cid, "сегодня тёмное " + today, reply_to_message_id=mid)
-        if any(words in msg for words in classes_tuple):
-            if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+        if msg in iterpools.chain(*classes_tuple):
+            if not msg in iterpools.chain(*days_tuple) and not msg in iterpools.chain(*weekdays_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.keys():
@@ -487,9 +475,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_message(cid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "сегодня" in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif "сегодня" in msg and not msg in iterpools.chain(*today_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() == 0:
                         if uid in first_group_eng.keys():
@@ -526,9 +512,7 @@ def predefined_messages(message):
                         bot.send_message(cid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() == 6:
                         bot.send_message(cid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "вчера" in msg and not any(words in msg for words in yesterday_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif "вчера" in msg and not msg in iterpools.chain(*yesterday_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() - 1 == 0:
                         if uid in first_group_eng.keys():
@@ -565,9 +549,7 @@ def predefined_messages(message):
                         bot.send_message(cid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() - 1 == 6:
                         bot.send_message(cid, yesterday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif "завтра" in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif "завтра" in msg and not msg in iterpools.chain(*tomorrow_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
                     if date.today().weekday() + 1 == 7:
                         if uid in first_group_eng.keys():
@@ -604,47 +586,43 @@ def predefined_messages(message):
                         bot.send_message(cid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                     elif date.today().weekday() + 1 == 6:
                         bot.send_message(cid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-            elif not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+            elif not msg in iterpools.chain(*days_tuple) and not msg in iterpools.chain(*exceptions_tuple):
                 if uid in first_group.keys():
-                    if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
+                    if "понедельник" in msg or "пн" in msg and not msg in iterpools.chain(*monday_tuple):
                         if uid in first_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif uid in second_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-                    elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
+                    elif "вторник" in msg or "вт" in msg and not msg in iterpools.chain(*tuesday_tuple):
                         bot.send_message(cid, tuesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
-                    elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
+                    elif "среда" in msg or "среду" in msg or "ср" in msg and not msg in iterpools.chain(*wednesday_tuple):
                         bot.send_message(cid, wednesday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
-                    elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
+                    elif "четверг" in msg or "чт" in msg and not msg in iterpools.chain(*thursday_tuple):
                         bot.send_message(cid, thursday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
+                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not msg in iterpools.chain(*friday_tuple):
                         bot.send_message(cid, friday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
+                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not msg in iterpools.chain(*saturday_tuple):
                         bot.send_message(cid, saturday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
-                    elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
+                    elif "воскресенье" in msg or "вс" in msg and not msg in iterpools.chain(*sunday_tuple):
                         bot.send_message(cid, sunday_template + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
                 elif uid in second_group.keys():
-                    if "понедельник" in msg or "пн" in msg and not any(words in msg for words in monday_tuple):
+                    if "понедельник" in msg or "пн" in msg and not msg in iterpools.chain(*monday_tuple):
                         if uid in first_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
                         elif uid in second_group_eng.keys():
                             bot.send_message(cid, monday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-                    elif "вторник" in msg or "вт" in msg and not any(words in msg for words in tuesday_tuple):
+                    elif "вторник" in msg or "вт" in msg and not msg in iterpools.chain(*tuesday_tuple):
                         bot.send_message(cid, tuesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
-                    elif "среда" in msg or "среду" in msg or "ср" in msg and not any(words in msg for words in wednesday_tuple):
+                    elif "среда" in msg or "среду" in msg or "ср" in msg and not msg in iterpools.chain(*wednesday_tuple):
                         bot.send_message(cid, wednesday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
-                    elif "четверг" in msg or "чт" in msg and not any(words in msg for words in thursday_tuple):
+                    elif "четверг" in msg or "чт" in msg and not msg in iterpools.chain(*thursday_tuple):
                         bot.send_message(cid, thursday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not any(words in msg for words in friday_tuple):
+                    elif "пятница" in msg or "пятницу" in msg or "пт" in msg and not msg in iterpools.chain(*friday_tuple):
                         bot.send_message(cid, friday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not any(words in msg for words in saturday_tuple):
+                    elif "суббота" in msg or "субботу" in msg or "сб" in msg and not msg in iterpools.chain(*saturday_tuple):
                         bot.send_message(cid, saturday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
-                    elif "воскресенье" in msg or "вс" in msg and not any(words in msg for words in sunday_tuple):
+                    elif "воскресенье" in msg or "вс" in msg and not msg in iterpools.chain(*sunday_tuple):
                         bot.send_message(cid, sunday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                else:
-                    bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
         if "schedule" in msg:
             if uid in first_group.keys():
                 if uid in first_group_eng.keys():
@@ -656,8 +634,6 @@ def predefined_messages(message):
                     bot.send_message(cid, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
                 elif uid in second_group_eng.keys():
                     bot.send_message(cid, student_group + week_template + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
-            else:
-                bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
