@@ -173,7 +173,7 @@ def predefined_messages(message):
     if uid in first_group.keys():
         student_group = "первая группа"
         student_name = first_group[uid] + ", "
-    if uid in second_group.keys():
+    elif uid in second_group.keys():
         student_group = "вторая группа"
         student_name = second_group[uid] + ", "
             
