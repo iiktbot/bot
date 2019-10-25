@@ -19,9 +19,9 @@ def start_message(message):
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
     msg = message.text.lower()
-    mid = message.message_id
     cid = message.chat.id
-    uid = message.from_user.id
+    mid = message.message_id[-1]
+    uid = message.from_user.id[-1]
 
     first_group = {
         405299021: 'Виталий',
