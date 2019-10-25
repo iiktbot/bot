@@ -20,8 +20,8 @@ def start_message(message):
 def predefined_messages(message):
     msg = message.text.lower()
     cid = message.chat.id
-    mid = message[-1].message_id
-    uid = message[-1].from_user.id
+    mid = message.message_id
+    uid = message.from_user.id
 
     first_group = {
         405299021: 'Виталий',
@@ -661,8 +661,8 @@ def predefined_messages(message):
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
-    cid = message[-1].chat.id
-    uid = message[-1].from_user.id
+    cid = message.chat.id
+    uid = message.from_user.id
 
     first_group = {
         405299021: 'Виталий',
