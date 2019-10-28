@@ -233,8 +233,8 @@ def predefined_messages(message):
         elif date.today().weekday() == 6 and any(words in msg for words in day_tuple):
             bot.send_message(cid, "сегодня светлое " + today, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
-            if timestamp < endtime:
-                if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+            if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                if timestamp < endtime:
                     if uid in first_group.keys():
                         if date.today().weekday() == 0:
                             if uid in first_group_eng.keys():
