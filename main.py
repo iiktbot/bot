@@ -462,7 +462,7 @@ def predefined_messages(message):
                         bot.send_message(cid, sunday_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 else:
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-        elif (("на" in msg or "во" in msg) and "сколько" in msg) or "когда" in msg and ("пара" in msg or "приходить" in msg or "быть" in msg):
+        elif ("когда" in msg and ("пара" in msg or "приходить" in msg or "быть" in msg)) or (("на" in msg or "во" in msg) and ("сколько" in msg or "который час" in msg)):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.keys():
                     if date_weekday == 0:
@@ -976,7 +976,7 @@ def predefined_messages(message):
                         bot.send_message(cid, sunday_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                 else:
                     bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-        elif (("на" in msg or "во" in msg) and "сколько" in msg) or "когда" in msg and ("пара" in msg or "приходить" in msg or "быть" in msg):
+        elif ("когда" in msg and ("пара" in msg or "приходить" in msg or "быть" in msg)) or (("на" in msg or "во" in msg) and ("сколько" in msg or "который час" in msg)):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if uid in first_group.keys():
                     if date_weekday == 0:
