@@ -827,7 +827,7 @@ def predefined_messages(message):
                     else:
                         bot.send_message(cid, time_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY[0:11], reply_to_message_id=mid)
                 elif date_weekday + 1 == 3:
-                    if CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY = SCHEDULE_THURSDAY_DAYOFF:
+                    if CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY == SCHEDULE_THURSDAY_DAYOFF:
                         bot.send_message(cid, tomorrow_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
                     else:
                         bot.send_message(cid, time_template + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY[0:11], reply_to_message_id=mid)
