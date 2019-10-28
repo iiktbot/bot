@@ -8,7 +8,7 @@ from datetime import date, timedelta
 from random import randrange
 
 TOKEN = os.environ["TOKEN"]
-bot = telebot.TeleBot(TOKEN, threaded=False)
+bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
 app = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
