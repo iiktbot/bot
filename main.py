@@ -175,9 +175,9 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    today_tag = today + " / сегодня"
-    tomorrow_tag = tomorrow + " / завтра"
-    yesterday_tag = yesterday + " / вчера"
+    today_tag = "\n" + today + " / сегодня"
+    tomorrow_tag = "\n" + tomorrow + " / завтра"
+    yesterday_tag = "\n" + yesterday + " / вчера"
 
     if uid in first_group.keys():
         student_group = "первая группа"
