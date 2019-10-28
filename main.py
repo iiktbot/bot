@@ -175,9 +175,9 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    today_tag = "\n" + today + " / сегодня"
-    tomorrow_tag = "\n" + tomorrow + " / завтра"
-    yesterday_tag = "\n" + yesterday + " / вчера"
+    today_tag = today + " / сегодня"
+    tomorrow_tag = tomorrow + " / завтра"
+    yesterday_tag = yesterday + " / вчера"
 
     if uid in first_group.keys():
         student_group = "первая группа"
@@ -194,10 +194,10 @@ def predefined_messages(message):
     light_week_template = "сегодня " + today + "светлой недели"
     dark_week_template = "сегодня " + today + "тёмной недели"
     student_def = student_name + student_group
-    today_template = student_def + " (" + today_tag + ")"
+    today_template = student_def + "\n(" + today_tag + ")"
     time_template = student_def + " на "
-    yesterday_template = student_def + " (" + yesterday_tag + ")"
-    tomorrow_template = student_def + " (" + tomorrow_tag + ")"
+    yesterday_template = student_def + "\n(" + yesterday_tag + ")"
+    tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
     monday_template = student_def + " (понедельник)"
     tuesday_template = student_def + " (вторник)"
     wednesday_template = student_def + " (среда)"
