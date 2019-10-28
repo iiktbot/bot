@@ -136,7 +136,7 @@ def predefined_messages(message):
 
     date_week = date.today().isocalendar()[1]
     date_weekday = date.today().weekday()
-    time_now = datetime.time(23, 59, 59) #datetime.datetime.now()
+    time_now = datetime.datetime.now()
     time_day_beg = datetime.time(00, 00, 00)
     time_uni_end = datetime.time(15, 50, 00)
     time_day_end = datetime.time(23, 59, 59)
