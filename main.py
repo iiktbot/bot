@@ -175,8 +175,6 @@ def predefined_messages(message):
         tomorrow = "понедельник / завтра"
         yesterday = "суббота / вчера"
 
-    time_over = tomorrow + " / " + "завтра"
-
     if uid in first_group.keys():
         student_group = "первая группа"
         student_name = first_group[uid] + ", "
@@ -194,7 +192,7 @@ def predefined_messages(message):
     today_template = student_name + student_group + " (" + today + ")"
     yesterday_template = student_name + student_group + " (" + yesterday + ")"
     tomorrow_template = student_name + student_group + " (" + tomorrow + ")"
-    time_over_template = student_name + student_group + " (" + time_over + ")"
+    time_over_template = student_name + student_group + " (" + tomorrow + ")"
     monday_template = student_name + student_group + " (понедельник)"
     tuesday_template = student_name + student_group + " (вторник)"
     wednesday_template = student_name + student_group + " (среда)"
