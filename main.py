@@ -230,7 +230,7 @@ def predefined_messages(message):
             bot.send_message(cid, light_week_template, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
-                if time_now > time_end:
+                if time_now <= time_end:
                     if uid in first_group.keys():
                         if date_weekday == 0:
                             if uid in first_group_eng.keys():
@@ -269,7 +269,7 @@ def predefined_messages(message):
                             bot.send_message(cid, today_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                     else:
                         bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-                else:
+                if time_now > time_end:
                     if uid in first_group.keys():
                         if date_weekday + 1 == 7:
                             if uid in first_group_eng.keys():
@@ -569,7 +569,7 @@ def predefined_messages(message):
             bot.send_message(cid, dark_week_template, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
-                if time_now > time_end:
+                if time_now <= time_end:
                     if uid in first_group.keys():
                         if date_weekday == 0:
                             if uid in first_group_eng.keys():
@@ -608,7 +608,7 @@ def predefined_messages(message):
                             bot.send_message(cid, today_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                     else:
                         bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
-                else:
+                if time_now > time_end:
                     if uid in first_group.keys():
                         if date_weekday + 1 == 7:
                             if uid in first_group_eng.keys():
