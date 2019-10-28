@@ -176,6 +176,9 @@ def predefined_messages(message):
     elif uid in second_group.keys():
         student_group = "вторая группа"
         student_name = second_group[uid] + ", "
+    else:
+        student_group = ""
+        student_name = ""
             
     week_template = "\n" + week + " неделя"
     today_template = student_name + student_group + " (" + today + ")"
