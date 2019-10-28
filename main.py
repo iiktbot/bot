@@ -186,8 +186,11 @@ def predefined_messages(message):
     else:
         student_group = ""
         student_name = ""
-            
+    
     week_template = "\n" + week + " неделя"
+    current_week_template = "сейчас " + week + " неделя"
+    light_week_template = "сегодня " + today + "светлой недели"
+    dark_week_template = "сегодня " + today + "тёмной недели"
     today_template = student_name + student_group + " (" + today + ")"
     yesterday_template = student_name + student_group + " (" + yesterday + ")"
     tomorrow_template = student_name + student_group + " (" + tomorrow + ")"
@@ -219,23 +222,11 @@ def predefined_messages(message):
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
 
     if any(words in msg for words in week_tuple):
-        bot.send_message(cid, "сейчас " + week + " неделя", reply_to_message_id=mid)
+        bot.send_message(cid, current_week_template, reply_to_message_id=mid)
 
     if weekorder == True:
-        if date_weekday == 0 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
-        elif date_weekday == 1 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
-        elif date_weekday == 2 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня светлая " + today, reply_to_message_id=mid)
-        elif date_weekday == 3 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня светлый " + today, reply_to_message_id=mid)
-        elif date_weekday == 4 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня светлая " + today, reply_to_message_id=mid)
-        elif date_weekday == 5 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня светлая " + today, reply_to_message_id=mid)
-        elif date_weekday == 6 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня светлое " + today, reply_to_message_id=mid)
+        if any(words in msg for words in day_tuple):
+            bot.send_message(cid, light_week_template, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if time_now < time_end:
@@ -486,20 +477,8 @@ def predefined_messages(message):
             else:
                 bot.send_message(cid, "вряд ли ты здесь учишься", reply_to_message_id=mid)
     elif weekorder == False:
-        if date_weekday == 0 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня тёмный " + today, reply_to_message_id=mid)
-        elif date_weekday == 1 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня тёмный " + today, reply_to_message_id=mid)
-        elif date_weekday == 2 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня тёмная " + today, reply_to_message_id=mid)
-        elif date_weekday == 3 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня тёмный " + today, reply_to_message_id=mid)
-        elif date_weekday == 4 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня тёмная " + today, reply_to_message_id=mid)
-        elif date_weekday == 5 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня тёмная " + today, reply_to_message_id=mid)
-        elif date_weekday == 6 and any(words in msg for words in day_tuple):
-            bot.send_message(cid, "сегодня тёмное " + today, reply_to_message_id=mid)
+        if any(words in msg for words in day_tuple):
+            bot.send_message(cid, dark_week_template, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if time_now < time_end:
