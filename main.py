@@ -663,6 +663,7 @@ def predefined_messages(message):
 def predefined_stickers(message):
     cid = message.chat.id
     uid = message.from_user.id
+    mct = message.chat.type
 
     first_group = {
         405299021: 'Виталий',
@@ -772,8 +773,9 @@ def predefined_stickers(message):
     elif sticker_rnm == 25:
         sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
 
-    if uid in first_group.keys() or uid in second_group.keys():
-        bot.send_sticker(cid, sid)
+    if mct == "private":
+        if uid in first_group.keys() or uid in second_group.keys():
+            bot.send_sticker(cid, sid)
 
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
