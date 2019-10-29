@@ -182,8 +182,8 @@ def predefined_messages(message):
         yesterday = "суббота"
 
     today_tag = today + " / " + date
-    tomorrow_tag = tomorrow + " / " + 
-    yesterday_tag = yesterday + " / " + 
+    tomorrow_tag = tomorrow + " / " + date
+    yesterday_tag = yesterday + " / " + date
 
     invalid_user_response = "вряд ли ты здесь учишься"
     student_group = ""
