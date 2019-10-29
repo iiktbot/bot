@@ -135,8 +135,8 @@ def predefined_messages(message):
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
     now = datetime.datetime.now()
-    date_today = date.today()
-    date_day = "{:02d}".format(date_today.day()) + "." + "{:02d}".format(date_today.month())
+    date_today = datetime.date.today()
+    date_day = "%02d" % date_today.month + "." + "%02d" % date_today.day
     date_week = date_today.isocalendar()[1]
     date_weekday = date_today.weekday()
     time_now = now.time()
