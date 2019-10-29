@@ -194,8 +194,8 @@ def predefined_messages(message):
     
     week_template = "\n" + week + " неделя"
     current_week_template = "сейчас " + week + " неделя"
-    light_week_template = "сегодня " + today + "светлой недели"
-    dark_week_template = "сегодня " + today + "тёмной недели"
+    light_week_template = "сегодня " + today + " светлой недели"
+    dark_week_template = "сегодня " + today + " тёмной недели"
     student_def = student_name + student_group
     today_template = student_def + "\n(" + today_tag + ")"
     yesterday_template = student_def + "\n(" + yesterday_tag + ")"
@@ -226,6 +226,8 @@ def predefined_messages(message):
     exceptions_tuple = "поза", "после"
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
     
+    if any(words in msg for words in week_tuple):
+        bot.send_message(cid, current_week_template, reply_to_message_id=mid)
     if weekorder == True:
         if any(words in msg for words in day_tuple):
             bot.send_message(cid, light_week_template, reply_to_message_id=mid)
