@@ -5,6 +5,7 @@ import flask, apiai, json, telebot, os, requests, urllib, datetime, time, random
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
+from dateutil.relativedelta import relativedelta, MO
 from random import randrange
 
 TOKEN = os.environ["TOKEN"]
@@ -134,20 +135,48 @@ def predefined_messages(message):
     CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
+    date_today = datetime.date.today()
+    date_week = date_today.isocalendar()[1]
+    date_weekday = date_today.weekday()
+
     now = datetime.datetime.now()
     delta = datetime.timedelta(days=1)
-    date_today = datetime.date.today()
+
     date_today_day = now.day
     date_today_month = now.month
     date_tomorrow_day = (now + delta).day
     date_tomorrow_month = (now + delta).month
     date_yesterday_day = (now - delta).day
     date_yesterday_month = (now - delta).month
+
+    date_monday_day = date_today + relativedelta(days=+1, weekday=MO(+1))
+    date_monday_month = date_today + relativedelta(days=+1, weekday=MO(+1))
+    date_tuesday_day = date_today + relativedelta(days=+1, weekday=TU(+1))
+    date_tuesday_month = date_today + relativedelta(days=+1, weekday=TU(+1))
+    date_wednesday_day = date_today + relativedelta(days=+1, weekday=WE(+1))
+    date_wednesday_month = date_today + relativedelta(days=+1, weekday=WE(+1))
+    date_thursday_day = date_today + relativedelta(days=+1, weekday=TH(+1))
+    date_thursday_month = date_today + relativedelta(days=+1, weekday=TH(+1))
+    date_friday_day = date_today + relativedelta(days=+1, weekday=FR(+1))
+    date_friday_month = date_today + relativedelta(days=+1, weekday=FR(+1))
+    date_saturday_day = date_today + relativedelta(days=+1, weekday=SA(+1))
+    date_saturday_month = date_today + relativedelta(days=+1, weekday=SA(+1))
+    date_sunday_day = date_today + relativedelta(days=+1, weekday=SU(+1))
+    date_sunday_month = date_today + relativedelta(days=+1, weekday=SU(+1))
+
     date_today_format = "%02d" % date_today_day + "." + "%02d" % date_today_month
     date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
     date_yesterday_format = "%02d" % date_yesterday_day + "." + "%02d" % date_yesterday_month
-    date_week = date_today.isocalendar()[1]
-    date_weekday = date_today.weekday()
+
+    date_monday_format = "%02d" % date_monday_day + "." + "%02d" % date_monday_month
+    date_tuesday_format = "%02d" % date_tuesday_day + "." + "%02d" % date_tuesday_month
+    date_wednesday_format = "%02d" % date_wednesday_day + "." + "%02d" % date_wednesday_month
+    date_thursday_format = "%02d" % date_thursday_day + "." + "%02d" % date_thursday_month
+    date_friday_format = "%02d" % date_friday_day + "." + "%02d" % date_friday_month
+    date_saturday_format = "%02d" % date_saturday_day + "." + "%02d" % date_saturday_month
+    date_sunday_format = "%02d" % date_sunday_day + "." + "%02d" % date_sunday_month
+
+
     time_now = now.time()
     time_day_beg = datetime.time(0, 0, 0)
     time_uni_end = datetime.time(15, 50, 0)
@@ -192,6 +221,13 @@ def predefined_messages(message):
     today_tag = today + " / " + date_today_format
     tomorrow_tag = tomorrow + " / " + date_tomorrow_format
     yesterday_tag = yesterday + " / " + date_yesterday_format
+    monday_template = "понедельник / " + date_monday_format
+    tuesday_template = "вторник / " + date_tuesday_format
+    wednesday_template = "среда / " + date_wednesday_format
+    thursday_template = "четверг / " + date_thursday_format
+    friday_template = "пятница / " + date_friday_format
+    saturday_template = "суббота / " + date_saturday_format
+    sunday_template = "воскресенье / " + date_sunday_format
 
     invalid_user_response = "вряд ли ты здесь учишься"
     student_group = ""
@@ -212,13 +248,13 @@ def predefined_messages(message):
     today_template = student_def + "\n(" + today_tag + ")"
     yesterday_template = student_def + "\n(" + yesterday_tag + ")"
     tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
-    monday_template = student_def + " (понедельник)"
-    tuesday_template = student_def + " (вторник)"
-    wednesday_template = student_def + " (среда)"
-    thursday_template = student_def + " (четверг)"
-    friday_template = student_def + " (пятница)"
-    saturday_template = student_def + " (суббота)"
-    sunday_template = student_def + " (воскресенье)"
+    monday_template = student_def + "\n(" + monday_tag + ")"
+    tuesday_template = student_def + "\n(" + tuesday_tag + ")"
+    wednesday_template = student_def + "\n(" + wednesday_tag + ")"
+    thursday_template = student_def + "\n(" + thursday_tag + ")"
+    friday_template = student_def + "\n(" + friday_tag + ")"
+    saturday_template = student_def + "\n(" + saturday_tag + ")"
+    sunday_template = student_def + "\n(" + sunday_tag + ")"
 
     classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
     day_tuple = "какой день", "какой сейчас день", "какой сегодня день"
