@@ -134,10 +134,9 @@ def predefined_messages(message):
     CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
-    today = datetime.date.today()
     now = datetime.datetime.now()
-    date = "{:02d}".format(today.day) + "." + "{:02d}".format(today.month)
     date_today = date.today()
+    date_day = "{:02d}".format(date_today.day()) + "." + "{:02d}".format(date_today.month())
     date_week = date_today.isocalendar()[1]
     date_weekday = date_today.weekday()
     time_now = now.time()
@@ -181,9 +180,9 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    today_tag = today + " / " + date
-    tomorrow_tag = tomorrow + " / " + date
-    yesterday_tag = yesterday + " / " + date
+    today_tag = today + " / " + date_day
+    tomorrow_tag = tomorrow + " / " + date_day
+    yesterday_tag = yesterday + " / " + date_day
 
     invalid_user_response = "вряд ли ты здесь учишься"
     student_group = ""
