@@ -134,7 +134,7 @@ def predefined_messages(message):
     CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
-    today = datetime.datetime.today()
+    today = datetime.date.today()
     now = datetime.datetime.now()
     date = "{:02d}".format(today.day) + "." + "{:02d}".format(today.month)
     date_today = date.today()
