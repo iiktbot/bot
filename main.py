@@ -227,10 +227,13 @@ def predefined_messages(message):
     messages_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам", "какой день", "какой сейчас день", "какой сегодня день", "какая неделя", "какая сейчас неделя", "какая сегодня неделя", "сегодня", "вчера", "завтра", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
     
     if any(words in msg for words in week_tuple):
-        bot.send_message(cid, current_week_template, reply_to_message_id=mid)
+        if uid in first_group.keys() or uid in second_group.keys():
+            bot.send_message(cid, current_week_template, reply_to_message_id=mid)
+            
     if weekorder == True:
         if any(words in msg for words in day_tuple):
-            bot.send_message(cid, light_week_template, reply_to_message_id=mid)
+            if uid in first_group.keys() or uid in second_group.keys():
+                bot.send_message(cid, light_week_template, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if time_day_beg <= time_now <= time_uni_end:
@@ -832,7 +835,8 @@ def predefined_messages(message):
                 bot.send_message(cid, invalid_user_response, reply_to_message_id=mid)
     elif weekorder == False:
         if any(words in msg for words in day_tuple):
-            bot.send_message(cid, dark_week_template, reply_to_message_id=mid)
+            if uid in first_group.keys() or uid in second_group.keys():
+                bot.send_message(cid, dark_week_template, reply_to_message_id=mid)
         if any(words in msg for words in classes_tuple):
             if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                 if time_day_beg <= time_now <= time_uni_end:
