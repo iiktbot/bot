@@ -142,9 +142,9 @@ def predefined_messages(message):
     date_tomorrow_month = (now + delta).month
     date_yesterday_day = (now - delta).day
     date_yesterday_month = (now - delta).month
-    date_today_format = "%02d" % str(date_today_day) + "." + "%02d" % str(date_today_month)
-    date_tomorrow_format = "%02d" % str(date_tomorrow_day) + "." + "%02d" % str(date_tomorrow_month)
-    date_yesterday_format = "%02d" % str(date_yesterday_day) + "." + "%02d" % str(date_yesterday_month)
+    date_today_format = "%02d" % date_today_day + "." + "%02d" % date_today_month
+    date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
+    date_yesterday_format = "%02d" % date_yesterday_day + "." + "%02d" % date_yesterday_month
     date_week = date_today.isocalendar()[1]
     date_weekday = date_today.weekday()
     time_now = now.time()
