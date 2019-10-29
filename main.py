@@ -137,9 +137,9 @@ def predefined_messages(message):
     date_week = date.today().isocalendar()[1]
     date_weekday = date.today().weekday()
     time_now = datetime.datetime.now().time()
-    time_day_beg = datetime.time(0, 0, 0, 0)
-    time_uni_end = datetime.time(15, 50, 0, 0)
-    time_day_end = datetime.time(23, 59, 59, 999999)
+    time_day_beg = datetime.time(0, 0, 0)
+    time_uni_end = datetime.time(15, 50, 0)
+    time_day_end = datetime.time(23, 59, 59)
 
     if (date_week % 2) == 0:
         weekorder = True
