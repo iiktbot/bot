@@ -138,7 +138,7 @@ def predefined_messages(message):
     delta = datetime.timedelta(days=1)
     date_today = datetime.date.today()
     date_today_day = now.day
-    date_today_month = now.day
+    date_today_month = now.month
     date_tomorrow_day = (now + delta).day
     date_tomorrow_month = (now + delta).month
     date_yesterday_day = (now - delta).day
