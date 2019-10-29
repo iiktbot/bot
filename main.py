@@ -135,16 +135,16 @@ def predefined_messages(message):
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
     now = datetime.datetime.now()
-    date_today = datetime.date.today()
-    date_today_day = date_today.day
-    date_tomorrow_day = date_today_day + datetime.timedelta(days=1)
-    date_yesterday_day = date_today_day - datetime.timedelta(days=1)
-    date_today_month = date_today.month
-    date_tomorrow_month = date_today_month + datetime.timedelta(days=1)
-    date_yesterday_month = date_today_month - datetime.timedelta(days=1)
-    date_today_format = "%02d" % date_today_day + "." + "%02d" % date_today_month
-    date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
-    date_yesterday_format = "%02d" % date_yesterday_day + "." + "%02d" % date_yesterday_month
+    delta = datetime.timedelta(days=1)
+    date_today_day = now.day
+    date_today_month = now.day
+    date_tomorrow_day = (now + delta).day
+    date_tomorrow_month = (now + delta).month
+    date_yesterday_day = (now - delta).day
+    date_yesterday_month = (now - delta).month
+    date_today_format = "%02d" % str(date_today_day) + "." + "%02d" % str(date_today_month)
+    date_tomorrow_format = "%02d" % str(date_tomorrow_day) + "." + "%02d" % str(date_tomorrow_month)
+    date_yesterday_format = "%02d" % str(date_yesterday_day) + "." + "%02d" % str(date_yesterday_month)
     date_week = date_today.isocalendar()[1]
     date_weekday = date_today.weekday()
     time_now = now.time()
