@@ -136,7 +136,15 @@ def predefined_messages(message):
 
     now = datetime.datetime.now()
     date_today = datetime.date.today()
-    date_day = "%02d" % date_today.day + "." + "%02d" % date_today.month
+    date_today_day = date_today.day
+    date_tomorrow_day = date_today_day + datetime.timedelta(days=1)
+    date_yesterday_day = date_today_day - datetime.timedelta(days=1)
+    date_today_month = date_today.month
+    date_tomorrow_month = date_today_month + datetime.timedelta(days=1)
+    date_yesterday_month = date_today_month - datetime.timedelta(days=1)
+    date_today_format = "%02d" % date_today_day + "." + "%02d" % date_today_month
+    date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
+    date_yesterday_format = "%02d" % date_yesterday_day + "." + "%02d" % date_yesterday_month
     date_week = date_today.isocalendar()[1]
     date_weekday = date_today.weekday()
     time_now = now.time()
@@ -180,9 +188,9 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    today_tag = today + " / " + date_day
-    tomorrow_tag = tomorrow + " / " + date_day
-    yesterday_tag = yesterday + " / " + date_day
+    today_tag = today + " / " + date_today_format
+    tomorrow_tag = tomorrow + " / " + date_tomorrow_format
+    yesterday_tag = yesterday + " / " + date_yesterday_format
 
     invalid_user_response = "вряд ли ты здесь учишься"
     student_group = ""
