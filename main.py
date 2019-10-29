@@ -136,6 +136,7 @@ def predefined_messages(message):
 
     now = datetime.datetime.now()
     delta = datetime.timedelta(days=1)
+    date_today = datetime.date.today()
     date_today_day = now.day
     date_today_month = now.day
     date_tomorrow_day = (now + delta).day
@@ -188,9 +189,9 @@ def predefined_messages(message):
         tomorrow = "понедельник"
         yesterday = "суббота"
 
-    today_tag = today + " / " + date_today_format
-    tomorrow_tag = tomorrow + " / " + date_tomorrow_format
-    yesterday_tag = yesterday + " / " + date_yesterday_format
+    today_tag = today + " / " + date_day
+    tomorrow_tag = tomorrow + " / " + date_day
+    yesterday_tag = yesterday + " / " + date_day
 
     invalid_user_response = "вряд ли ты здесь учишься"
     student_group = ""
