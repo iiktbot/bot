@@ -278,13 +278,13 @@ def predefined_messages(message):
     today_tag = today + " / " + date_today_format
     tomorrow_tag = tomorrow + " / " + date_tomorrow_format
     yesterday_tag = yesterday + " / " + date_yesterday_format
-    monday_template = "понедельник / " + date_monday_format
-    tuesday_template = "вторник / " + date_tuesday_format
-    wednesday_template = "среда / " + date_wednesday_format
-    thursday_template = "четверг / " + date_thursday_format
-    friday_template = "пятница / " + date_friday_format
-    saturday_template = "суббота / " + date_saturday_format
-    sunday_template = "воскресенье / " + date_sunday_format
+    monday_tag = "понедельник / " + date_monday_format
+    tuesday_tag = "вторник / " + date_tuesday_format
+    wednesday_tag = "среда / " + date_wednesday_format
+    thursday_tag = "четверг / " + date_thursday_format
+    friday_tag = "пятница / " + date_friday_format
+    saturday_tag = "суббота / " + date_saturday_format
+    sunday_tag = "воскресенье / " + date_sunday_format
 
     invalid_user_response = "вряд ли ты здесь учишься"
     student_group = ""
