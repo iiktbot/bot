@@ -149,21 +149,6 @@ def predefined_messages(message):
     date_yesterday_day = (now - delta).day
     date_yesterday_month = (now - delta).month
 
-    date_monday_day = ""
-    date_monday_month = ""
-    date_tuesday_day = ""
-    date_tuesday_month = ""
-    date_wednesday_day = ""
-    date_wednesday_month = ""
-    date_thursday_day = ""
-    date_thursday_month = ""
-    date_friday_day = ""
-    date_friday_month = ""
-    date_saturday_day = ""
-    date_saturday_month = ""
-    date_sunday_day = ""
-    date_sunday_month = ""
-
     if date_weekday == 0:
         date_monday_day = date_today.day
     else:
@@ -286,9 +271,6 @@ def predefined_messages(message):
     saturday_tag = "суббота / " + date_saturday_format
     sunday_tag = "воскресенье / " + date_sunday_format
 
-    invalid_user_response = "вряд ли ты здесь учишься"
-    student_group = ""
-    student_name = ""
 
     if uid in first_group.keys():
         student_group = "первая группа"
@@ -296,6 +278,8 @@ def predefined_messages(message):
     elif uid in second_group.keys():
         student_group = "вторая группа"
         student_name = second_group[uid] + ", "
+        
+    invalid_user_response = "вряд ли ты здесь учишься"
     
     week_template = "\n" + week + " неделя"
     current_week_template = "сейчас " + week + " неделя"
