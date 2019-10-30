@@ -271,6 +271,8 @@ def predefined_messages(message):
     saturday_tag = "суббота / " + date_saturday_format
     sunday_tag = "воскресенье / " + date_sunday_format
 
+    student_group = ""
+    student_name = ""
 
     if uid in first_group.keys():
         student_group = "первая группа"
