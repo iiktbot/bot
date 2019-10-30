@@ -149,20 +149,77 @@ def predefined_messages(message):
     date_yesterday_day = (now - delta).day
     date_yesterday_month = (now - delta).month
 
-    date_monday_day = date_today + relativedelta(days=+1, weekday=MO(+1))
-    date_monday_month = date_today + relativedelta(days=+1, weekday=MO(+1))
-    date_tuesday_day = date_today + relativedelta(days=+1, weekday=TU(+1))
-    date_tuesday_month = date_today + relativedelta(days=+1, weekday=TU(+1))
-    date_wednesday_day = date_today + relativedelta(days=+1, weekday=WE(+1))
-    date_wednesday_month = date_today + relativedelta(days=+1, weekday=WE(+1))
-    date_thursday_day = date_today + relativedelta(days=+1, weekday=TH(+1))
-    date_thursday_month = date_today + relativedelta(days=+1, weekday=TH(+1))
-    date_friday_day = date_today + relativedelta(days=+1, weekday=FR(+1))
-    date_friday_month = date_today + relativedelta(days=+1, weekday=FR(+1))
-    date_saturday_day = date_today + relativedelta(days=+1, weekday=SA(+1))
-    date_saturday_month = date_today + relativedelta(days=+1, weekday=SA(+1))
-    date_sunday_day = date_today + relativedelta(days=+1, weekday=SU(+1))
-    date_sunday_month = date_today + relativedelta(days=+1, weekday=SU(+1))
+    date_monday_day = ""
+    date_monday_month = ""
+    date_tuesday_day = ""
+    date_tuesday_month = ""
+    date_wednesday_day = ""
+    date_wednesday_month = ""
+    date_thursday_day = ""
+    date_thursday_month = ""
+    date_friday_day = ""
+    date_friday_month = ""
+    date_saturday_day = ""
+    date_saturday_month = ""
+    date_sunday_day = ""
+    date_sunday_month = ""
+
+    if date_weekday == 0:
+        date_monday_day = date_today.day
+    else:
+        date_monday_day = (date_today + relativedelta(days=+1, weekday=MO(+1))).day
+    if date_weekday == 0:
+        date_monday_month = date_today.month
+    else:
+        date_monday_month = (date_today + relativedelta(days=+1, weekday=MO(+1))).month
+    if date_weekday == 1:
+        date_tuesday_day = date_today.day
+    else:
+        date_tuesday_day = (date_today + relativedelta(days=+1, weekday=TU(+1))).day
+    if date_weekday == 1:
+        date_tuesday_month = date_today.month
+    else:
+        date_tuesday_month = (date_today + relativedelta(days=+1, weekday=TU(+1))).month
+    if date_weekday == 2:
+        date_wednesday_day = date_today.day
+    else:
+        date_wednesday_day = (date_today + relativedelta(days=+1, weekday=WE(+1))).day
+    if date_weekday == 2:
+        date_wednesday_month = date_today.month
+    else:
+        date_wednesday_month = (date_today + relativedelta(days=+1, weekday=WE(+1))).month
+    if date_weekday == 3:
+        date_thursday_day = date_today.day
+    else:
+        date_thursday_day = (date_today + relativedelta(days=+1, weekday=TH(+1))).day
+    if date_weekday == 3:
+        date_thursday_month = date_today.month
+    else:
+        date_thursday_month = (date_today + relativedelta(days=+1, weekday=TH(+1))).month
+    if date_weekday == 4:
+        date_friday_day = date_today.day
+    else:
+        date_friday_day = (date_today + relativedelta(days=+1, weekday=FR(+1))).day
+    if date_weekday == 4:
+        date_friday_month = date_today.month
+    else:
+        date_friday_month = (date_today + relativedelta(days=+1, weekday=FR(+1))).month
+    if date_weekday == 5:
+        date_saturday_day = date_today.day
+    else:
+        date_saturday_day = (date_today + relativedelta(days=+1, weekday=SA(+1))).day
+    if date_weekday == 5:
+        date_saturday_month = date_today.month
+    else:
+        date_saturday_month = (date_today + relativedelta(days=+1, weekday=SA(+1))).month
+    if date_weekday == 6:
+        date_sunday_day = date_today.day
+    else:
+        date_sunday_day = (date_today + relativedelta(days=+1, weekday=SU(+1))).day
+    if date_weekday == 6:
+        date_sunday_month = date_today.month
+    else:
+        date_sunday_month = (date_today + relativedelta(days=+1, weekday=SU(+1))).month
 
     date_today_format = "%02d" % date_today_day + "." + "%02d" % date_today_month
     date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
