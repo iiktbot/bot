@@ -144,41 +144,41 @@ else:
     date_monday_day = (date_today + relativedelta(days=+1, weekday=MO(+1))).day
     date_monday_month = (date_today + relativedelta(days=+1, weekday=MO(+1))).month
 if date_weekday == 1:
-    date_monday_day = date_today.day
-    date_monday_month = date_today.month
+    date_tuesday_day = date_today.day
+    date_tuesday_month = date_today.month
 else:
-    date_monday_day = (date_today + relativedelta(days=+1, weekday=TU(+1))).day
-    date_monday_month = (date_today + relativedelta(days=+1, weekday=TU(+1))).month
+    date_tuesday_day = (date_today + relativedelta(days=+1, weekday=TU(+1))).day
+    date_tuesday_month = (date_today + relativedelta(days=+1, weekday=TU(+1))).month
 if date_weekday == 2:
-    date_monday_day = date_today.day
-    date_monday_month = date_today.month
+    date_wednesday_day = date_today.day
+    date_wednesday_month = date_today.month
 else:
-    date_monday_day = (date_today + relativedelta(days=+1, weekday=WE(+1))).day
-    date_monday_month = (date_today + relativedelta(days=+1, weekday=WE(+1))).month
+    date_wednesday_day = (date_today + relativedelta(days=+1, weekday=WE(+1))).day
+    date_wednesday_month = (date_today + relativedelta(days=+1, weekday=WE(+1))).month
 if date_weekday == 3:
-    date_monday_day = date_today.day
-    date_monday_month = date_today.month
+    date_thursday_day = date_today.day
+    date_thursday_month = date_today.month
 else:
-    date_monday_day = (date_today + relativedelta(days=+1, weekday=TH(+1))).day
-    date_monday_month = (date_today + relativedelta(days=+1, weekday=TH(+1))).month
+    date_thursday_day = (date_today + relativedelta(days=+1, weekday=TH(+1))).day
+    date_thursday_month = (date_today + relativedelta(days=+1, weekday=TH(+1))).month
 if date_weekday == 4:
-    date_monday_day = date_today.day
-    date_monday_month = date_today.month
+    date_friday_day = date_today.day
+    date_friday_month = date_today.month
 else:
-    date_monday_day = (date_today + relativedelta(days=+1, weekday=FR(+1))).day
-    date_monday_month = (date_today + relativedelta(days=+1, weekday=FR(+1))).month
+    date_friday_day = (date_today + relativedelta(days=+1, weekday=FR(+1))).day
+    date_friday_month = (date_today + relativedelta(days=+1, weekday=FR(+1))).month
 if date_weekday == 5:
-    date_monday_day = date_today.day
-    date_monday_month = date_today.month
+    date_saturday_day = date_today.day
+    date_saturday_month = date_today.month
 else:
-    date_monday_day = (date_today + relativedelta(days=+1, weekday=SA(+1))).day
-    date_monday_month = (date_today + relativedelta(days=+1, weekday=SA(+1))).month
+    date_saturday_day = (date_today + relativedelta(days=+1, weekday=SA(+1))).day
+    date_saturday_month = (date_today + relativedelta(days=+1, weekday=SA(+1))).month
 if date_weekday == 6:
-    date_monday_day = date_today.day
-    date_monday_month = date_today.month
+    date_sunday_day = date_today.day
+    date_sunday_month = date_today.month
 else:
-    date_monday_day = (date_today + relativedelta(days=+1, weekday=SU(+1))).day
-    date_monday_month = (date_today + relativedelta(days=+1, weekday=SU(+1))).month
+    date_sunday_day = (date_today + relativedelta(days=+1, weekday=SU(+1))).day
+    date_sunday_month = (date_today + relativedelta(days=+1, weekday=SU(+1))).month
 
 date_today_format = "%02d" % date_today_day + "." + "%02d" % date_today_month
 date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
