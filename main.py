@@ -202,12 +202,17 @@ def classes_message(message):
     CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
     CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
+    date_today = datetime.date.today()
+    date_week = date_today.isocalendar()[1]
+
     now = datetime.datetime.now()
     delta = datetime.timedelta(days=1)
 
     date_tomorrow_day = (now + delta).day
     date_tomorrow_month = (now + delta).month
 
+    date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
+    
     if (date_week % 2) == 0:
         weekorder = True
         week = "светлая"
