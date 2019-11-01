@@ -87,125 +87,7 @@ def start_message(message):
         student_name = ""
 
     if uid in first_group.keys() or uid in second_group.keys():
-        bot.send_message(cid, "привет, " + student_name + ", чем могу быть полезен?")
-
-@bot.message_handler(commands=['schedule'])
-def schedule_message(message):
-    cid = message.chat.id
-    uid = message.from_user.id
-
-    first_group = {
-        405299021: 'Виталий Фольварочный',
-        393708492: 'Юля Тищенко',
-        416924459: 'Андрей Благой',
-        613759219: 'Влад Бондарь',
-        548116631: 'Женя Зубрицкий',
-        379537100: 'Карина Краснова',
-        635991556: 'Денис Батраченко',
-        349737926: 'Дима Евтушенко',
-        451287655: 'Дима Василенко',
-        469338261: 'Степан Вега',
-        542413243: 'Денис Спичка',
-        692445612: 'Женя Коваленко',
-        429045248: 'Полина Бондаренко',
-        52960692: 'Саша Лыгина'
-    }
-    second_group = {
-        358734682: 'Илья Журба',
-        537784508: 'Саша Нежинский',
-        448401733: 'Богдан Семенченко',
-        643705130: 'Влад Кучма',
-        605903256: 'Леша Яворский',
-        384343953: 'Олег Абсалямов',
-        655298761: 'Влад Мельник',
-        384173347: 'Дима Маляр',
-        780853105: 'Денис Чернушич',
-        919243633: 'Никита Савчин',
-        397810063: 'Кирилл Дусанский'
-    }
-    first_group_eng = {
-        405299021: 'Виталий Фольварочный',
-        643705130: 'Влад Кучма',
-        416924459: 'Андрей Благой',
-        542413243: 'Денис Спичка',
-        635991556: 'Денис Батраченко',
-        349737926: 'Дима Евтушенко',
-        451287655: 'Дима Василенко',
-        692445612: 'Женя Коваленко',
-        780853105: 'Денис Чернушич',
-        384173347: 'Дима Маляр',
-        655298761: 'Влад Мельник',
-        429045248: 'Полина Бондаренко',
-        52960692: 'Саша Лыгина'
-    }
-    second_group_eng = {
-        393708492: 'Юля Тищенко',
-        379537100: 'Карина Краснова',
-        548116631: 'Женя Зубрицкий',
-        613759219: 'Влад Бондарь',
-        469338261: 'Степан Вега',
-        384343953: 'Олег Абсалямов',
-        358734682: 'Илья Журба',
-        537784508: 'Саша Нежинский',
-        448401733: 'Богдан Семенченко',
-        605903256: 'Леша Яворский',
-        919243633: 'Никита Савчин',
-        397810063: 'Кирилл Дусанский'
-    }
-
-    if uid in first_group.keys():
-        student_group = "первая группа"
-        student_name = first_group[uid].split(' ', 1)[0]
-    elif uid in second_group.keys():
-        student_group = "вторая группа"
-        student_name = second_group[uid].split(' ', 1)[0]
-    else:
-        student_group = ""
-        student_name = ""
-
-    CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
-    CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
-    CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
-    CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
-    CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK = "понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
-    CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = "понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
-    CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
-    CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
-
-    date_today = datetime.date.today()
-    date_week = date_today.isocalendar()[1]
-
-    if (date_week % 2) == 0:
-        weekorder = True
-        week = "светлая"
-    else:
-        weekorder = False
-        week = "тёмная"
-        
-    week_template = "\n" + week + " неделя"
-
-    if weekorder == True:
-        if uid in first_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
-        elif uid in second_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
-    elif weekorder == False:
-        if uid in first_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
-        elif uid in second_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
+        bot.send_message(cid, "привет, " + student_name + "!" + "для общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx")
 
 @bot.message_handler(commands=['classes'])
 def classes_message(message):
@@ -333,6 +215,35 @@ def classes_message(message):
         weekorder = False
         week = "тёмная"
 
+    if date_weekday == 0:
+        today = "понедельник"
+        tomorrow = "вторник"
+        yesterday = "воскресенье"
+    elif date_weekday == 1:
+        today = "вторник"
+        tomorrow = "среда"
+        yesterday = "понедельник"
+    elif date_weekday == 2:
+        today = "среда"
+        tomorrow = "четверг"
+        yesterday = "вторник"
+    elif date_weekday == 3:
+        today = "четверг"
+        tomorrow = "пятница"
+        yesterday = "среда"
+    elif date_weekday == 4:
+        today = "пятница"
+        tomorrow = "суббота"
+        yesterday = "четверг"
+    elif date_weekday == 5:
+        today = "суббота"
+        tomorrow = "воскресенье"
+        yesterday = "пятница"
+    elif date_weekday == 6:
+        today = "воскресенье"
+        tomorrow = "понедельник"
+        yesterday = "суббота"
+
     if uid in first_group.keys():
         student_group = "первая группа"
         student_name = first_group[uid].split(' ', 1)[0] + ", "
@@ -342,6 +253,8 @@ def classes_message(message):
     else:
         student_group = ""
         student_name = ""
+
+    tomorrow_tag = tomorrow + " / " + date_tomorrow_format
 
     student_def = student_name + student_group
     tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
@@ -427,6 +340,125 @@ def classes_message(message):
                     bot.send_message(cid, tomorrow_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                 elif date_weekday + 1 == 6:
                     bot.send_message(cid, tomorrow_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
+
+@bot.message_handler(commands=['schedule'])
+def schedule_message(message):
+    cid = message.chat.id
+    uid = message.from_user.id
+
+    first_group = {
+        405299021: 'Виталий Фольварочный',
+        393708492: 'Юля Тищенко',
+        416924459: 'Андрей Благой',
+        613759219: 'Влад Бондарь',
+        548116631: 'Женя Зубрицкий',
+        379537100: 'Карина Краснова',
+        635991556: 'Денис Батраченко',
+        349737926: 'Дима Евтушенко',
+        451287655: 'Дима Василенко',
+        469338261: 'Степан Вега',
+        542413243: 'Денис Спичка',
+        692445612: 'Женя Коваленко',
+        429045248: 'Полина Бондаренко',
+        52960692: 'Саша Лыгина'
+    }
+    second_group = {
+        358734682: 'Илья Журба',
+        537784508: 'Саша Нежинский',
+        448401733: 'Богдан Семенченко',
+        643705130: 'Влад Кучма',
+        605903256: 'Леша Яворский',
+        384343953: 'Олег Абсалямов',
+        655298761: 'Влад Мельник',
+        384173347: 'Дима Маляр',
+        780853105: 'Денис Чернушич',
+        919243633: 'Никита Савчин',
+        397810063: 'Кирилл Дусанский'
+    }
+    first_group_eng = {
+        405299021: 'Виталий Фольварочный',
+        643705130: 'Влад Кучма',
+        416924459: 'Андрей Благой',
+        542413243: 'Денис Спичка',
+        635991556: 'Денис Батраченко',
+        349737926: 'Дима Евтушенко',
+        451287655: 'Дима Василенко',
+        692445612: 'Женя Коваленко',
+        780853105: 'Денис Чернушич',
+        384173347: 'Дима Маляр',
+        655298761: 'Влад Мельник',
+        429045248: 'Полина Бондаренко',
+        52960692: 'Саша Лыгина'
+    }
+    second_group_eng = {
+        393708492: 'Юля Тищенко',
+        379537100: 'Карина Краснова',
+        548116631: 'Женя Зубрицкий',
+        613759219: 'Влад Бондарь',
+        469338261: 'Степан Вега',
+        384343953: 'Олег Абсалямов',
+        358734682: 'Илья Журба',
+        537784508: 'Саша Нежинский',
+        448401733: 'Богдан Семенченко',
+        605903256: 'Леша Яворский',
+        919243633: 'Никита Савчин',
+        397810063: 'Кирилл Дусанский'
+    }
+
+    if uid in first_group.keys():
+        student_group = "первая группа"
+        student_name = first_group[uid].split(' ', 1)[0]
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+        student_name = second_group[uid].split(' ', 1)[0]
+    else:
+        student_group = ""
+        student_name = ""
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK = "понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
+    CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = "понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
+    CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    date_today = datetime.date.today()
+    date_week = date_today.isocalendar()[1]
+
+    if (date_week % 2) == 0:
+        weekorder = True
+        week = "светлая"
+    else:
+        weekorder = False
+        week = "тёмная"
+        
+    week_template = "\n" + week + " неделя"
+
+    if uid in first_group.keys() or uid in second_group.keys():
+        if weekorder == True:
+            if uid in first_group.keys():
+                if uid in first_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
+                elif uid in second_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
+            elif uid in second_group.keys():
+                if uid in first_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
+                elif uid in second_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
+        elif weekorder == False:
+            if uid in first_group.keys():
+                if uid in first_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
+                elif uid in second_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
+            elif uid in second_group.keys():
+                if uid in first_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
+                elif uid in second_group_eng.keys():
+                    bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
 
 @bot.message_handler(content_types=['text'])
 def response_messages(message):
