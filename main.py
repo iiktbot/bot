@@ -12,12 +12,6 @@ TOKEN = os.environ['TOKEN']
 bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
 app = Flask(__name__)
 
-msg = message.text.lower()
-mid = message.message_id
-cid = message.chat.id
-uid = message.from_user.id
-mct = message.chat.type
-
 first_group = {
     405299021: 'Виталий Фольварочный',
     393708492: 'Юля Тищенко',
@@ -243,15 +237,7 @@ elif date_weekday == 6:
     tomorrow = "понедельник"
     yesterday = "суббота"
 
-if uid in first_group.keys():
-    student_group = "первая группа"
-    student_name = first_group[uid].split(' ', 1)[0] + ", "
-elif uid in second_group.keys():
-    student_group = "вторая группа"
-    student_name = second_group[uid].split(' ', 1)[0] + ", "
-else:
-    student_group = ""
-    student_name = ""
+week_template = "\n" + week + " неделя"
 
 today_tag = today + " / " + date_today_format
 tomorrow_tag = tomorrow + " / " + date_tomorrow_format
@@ -263,22 +249,6 @@ thursday_tag = "четверг / " + date_thursday_format
 friday_tag = "пятница / " + date_friday_format
 saturday_tag = "суббота / " + date_saturday_format
 sunday_tag = "воскресенье / " + date_sunday_format
-    
-week_template = "\n" + week + " неделя"
-current_week_template = "сейчас " + week + " неделя"
-light_week_template = "сегодня " + today + " светлой недели"
-dark_week_template = "сегодня " + today + " тёмной недели"
-student_def = student_name + student_group
-today_template = student_def + "\n(" + today_tag + ")"
-yesterday_template = student_def + "\n(" + yesterday_tag + ")"
-tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
-monday_template = student_def + "\n(" + monday_tag + ")"
-tuesday_template = student_def + "\n(" + tuesday_tag + ")"
-wednesday_template = student_def + "\n(" + wednesday_tag + ")"
-thursday_template = student_def + "\n(" + thursday_tag + ")"
-friday_template = student_def + "\n(" + friday_tag + ")"
-saturday_template = student_def + "\n(" + saturday_tag + ")"
-sunday_template = student_def + "\n(" + sunday_tag + ")"
 
 classes_tuple = "пары", "парам", "предметы", "предметам"
 day_tuple = "какой день", "какой сегодня день"
@@ -294,11 +264,38 @@ sticker_rnm = random.randint(1, 25)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
+    cid = message.chat.id
+    uid = message.from_user.id
+
+    if uid in first_group.keys():
+        student_group = "первая группа"
+        student_name = ", " + first_group[uid].split(' ', 1)[0]
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+        student_name = ", " + second_group[uid].split(' ', 1)[0]
+    else:
+        student_group = ""
+        student_name = ""
+
     if uid in first_group.keys() or uid in second_group.keys():
-        bot.send_message(cid, "привет, " + student_name + "!" + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx")
+        bot.send_message(cid, "привет" + student_name + "!" + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx")
 
 @bot.message_handler(commands=['classes'])
 def classes_message(message):
+    mid = message.message_id
+    cid = message.chat.id
+    uid = message.from_user.id
+
+    if uid in first_group.keys():
+        student_group = "первая группа"
+        student_name = first_group[uid].split(' ', 1)[0] + ", "
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+        student_name = second_group[uid].split(' ', 1)[0] + ", "
+
+    student_def = student_name + student_group
+    tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
+
     if uid in first_group.keys() or uid in second_group.keys():
         if weekorder == True:
             if time_day_beg <= time_now <= time_uni_end:
@@ -453,6 +450,16 @@ def classes_message(message):
 
 @bot.message_handler(commands=['schedule'])
 def schedule_message(message):
+    cid = message.chat.id
+    uid = message.from_user.id
+
+    if uid in first_group.keys():
+        student_group = "первая группа"
+        student_name = first_group[uid].split(' ', 1)[0] + ", "
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+        student_name = second_group[uid].split(' ', 1)[0] + ", "
+
     if uid in first_group.keys() or uid in second_group.keys():
         if weekorder == True:
             if uid in first_group.keys():
@@ -479,6 +486,33 @@ def schedule_message(message):
 
 @bot.message_handler(content_types=['text'])
 def response_messages(message):
+    msg = message.text.lower()
+    mid = message.message_id
+    cid = message.chat.id
+    uid = message.from_user.id
+
+    if uid in first_group.keys():
+        student_group = "первая группа"
+        student_name = first_group[uid].split(' ', 1)[0] + ", "
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+        student_name = second_group[uid].split(' ', 1)[0] + ", "
+
+    current_week_template = "сейчас " + week + " неделя"
+    light_week_template = "сегодня " + today + " светлой недели"
+    dark_week_template = "сегодня " + today + " тёмной недели"
+    student_def = student_name + student_group
+    today_template = student_def + "\n(" + today_tag + ")"
+    yesterday_template = student_def + "\n(" + yesterday_tag + ")"
+    tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
+    monday_template = student_def + "\n(" + monday_tag + ")"
+    tuesday_template = student_def + "\n(" + tuesday_tag + ")"
+    wednesday_template = student_def + "\n(" + wednesday_tag + ")"
+    thursday_template = student_def + "\n(" + thursday_tag + ")"
+    friday_template = student_def + "\n(" + friday_tag + ")"
+    saturday_template = student_def + "\n(" + saturday_tag + ")"
+    sunday_template = student_def + "\n(" + sunday_tag + ")"
+
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
             if uid in first_group.keys() or uid in second_group.keys():
@@ -1626,6 +1660,10 @@ def response_messages(message):
 
 @bot.message_handler(content_types=['sticker'])
 def response_stickers(message):
+    cid = message.chat.id
+    uid = message.from_user.id
+    mct = message.chat.type
+
     if mct == "private":
         if uid in first_group.keys() or uid in second_group.keys():
             if sticker_rnm == 1:
