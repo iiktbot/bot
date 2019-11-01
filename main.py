@@ -373,8 +373,8 @@ def predefined_messages(message):
     sunday_template = student_def + "\n(" + sunday_tag + ")"
 
     classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
-    day_tuple = "какой день", "какой сейчас день", "какой сегодня день"
-    week_tuple = "какая неделя", "какая сейчас неделя", "какая сегодня неделя"
+    day_tuple = "какой день", "какой сегодня день"
+    week_tuple = "какая неделя", "какая сейчас неделя"
     days_tuple = "сегодня", "вчера", "завтра"
     today_tuple = "вчера", "завтра"
     yesterday_tuple = "сегодня", "завтра"
@@ -956,7 +956,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, tomorrow_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                             else:
                                 bot.send_message(cid, tomorrow_template + "\n\nпервая пара на " + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-            if "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
+            elif "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
                 if uid in first_group.keys():
                     if uid in first_group_eng.keys():
                         bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK)
@@ -1537,7 +1537,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, tomorrow_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                             else:
                                 bot.send_message(cid, tomorrow_template + "\n\nпервая пара на " + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-            if "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
+            elif "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
                 if uid in first_group.keys():
                     if uid in first_group_eng.keys():
                         bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
