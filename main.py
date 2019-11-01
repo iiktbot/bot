@@ -381,13 +381,13 @@ def predefined_messages(message):
     tomorrow_tuple = "вчера", "сегодня"
     weekdays_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
     weekdays_list = list(weekdays_tuple)
-    monday_list = weekdays_list.remove("понедельник", "пн")
-    tuesday_list = weekdays_list.remove("вторник", "вт")
-    wednesday_list = weekdays_list.remove("среда", "среду", "ср")
-    thursday_list = weekdays_list.remove("четверг", "чт")
-    friday_list = weekdays_list.remove("пятница", "пятницу", "пт")
-    saturday_list = weekdays_list.remove("суббота", "субботу", "сб")
-    sunday_list = weekdays_list.remove("воскресенье", "вс")
+    monday_list = x for x in weekdays_list if x not in ("понедельник", "пн")
+    tuesday_list = x for x in weekdays_list if x not in ("вторник", "вт")
+    wednesday_list = x for x in weekdays_list if x not in ("среда", "среду", "ср")
+    thursday_list = x for x in weekdays_list if x not in ("четверг", "чт")
+    friday_list = x for x in weekdays_list if x not in ("пятница", "пятницу", "пт")
+    saturday_list = x for x in weekdays_list if x not in ("суббота", "субботу", "сб")
+    sunday_list = x for x in weekdays_list if x not in ("воскресенье", "вс")
     exceptions_tuple = "поза", "после"
     
     invalid_user_response = "вряд ли ты здесь учишься"
