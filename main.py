@@ -1548,10 +1548,7 @@ def predefined_stickers(message):
     uid = message.from_user.id
     mct = message.chat.type
 
-    if uid in second_group.keys():
-        last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
-    elif uid in second_group.keys():
-        last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
+    last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
     if mct == "private":
         if uid in first_group.keys() or uid in second_group.keys():
             bot.send_sticker(cid, sid)
