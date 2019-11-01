@@ -491,13 +491,6 @@ def response_messages(message):
     cid = message.chat.id
     uid = message.from_user.id
 
-    if uid in first_group.keys():
-        student_group = "первая группа"
-        student_name = first_group[uid].split(' ', 1)[0] + ", "
-    elif uid in second_group.keys():
-        student_group = "вторая группа"
-        student_name = second_group[uid].split(' ', 1)[0] + ", "
-
     first_group = {
         405299021: 'Виталий Фольварочный',
         393708492: 'Юля Тищенко',
@@ -556,6 +549,13 @@ def response_messages(message):
         919243633: 'Никита Савчин',
         397810063: 'Кирилл Дусанский'
     }
+
+    if uid in first_group.keys():
+        student_group = "первая группа"
+        student_name = first_group[uid].split(' ', 1)[0] + ", "
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+        student_name = second_group[uid].split(' ', 1)[0] + ", "
 
     SCHEDULE_MONDAY_DAYOFF = "ПАР НЕТ"
     SCHEDULE_TUESDAY_DAYOFF = "ПАР НЕТ"
