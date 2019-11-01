@@ -82,7 +82,7 @@ def start_message(message):
         student_group = ""
         student_name = ""
 
-    bot.send_message(cid, "привет, " + student_name + " чем могу быть полезен?")
+    bot.send_message(cid, "привет, " + student_name + "чем могу быть полезен?")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
@@ -1664,7 +1664,7 @@ def predefined_stickers(message):
                 sid = "CAADAgADUAADTV8oGMB0LsS6SDJtFgQ"
             elif sticker_rnm == 25:
                 sid = "CAADAgADUQADTV8oGM5oZrUGiKN-FgQ"
-                
+
             bot.send_sticker(cid, sid)
 
 @app.route('/'+ TOKEN, methods=['POST'])
