@@ -498,20 +498,255 @@ def response_messages(message):
         student_group = "вторая группа"
         student_name = second_group[uid].split(' ', 1)[0] + ", "
 
-    current_week_template = "сейчас " + week + " неделя"
-    light_week_template = "сегодня " + today + " светлой недели"
-    dark_week_template = "сегодня " + today + " тёмной недели"
-    student_def = student_name + student_group
-    today_template = student_def + "\n(" + today_tag + ")"
-    yesterday_template = student_def + "\n(" + yesterday_tag + ")"
-    tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
-    monday_template = student_def + "\n(" + monday_tag + ")"
-    tuesday_template = student_def + "\n(" + tuesday_tag + ")"
-    wednesday_template = student_def + "\n(" + wednesday_tag + ")"
-    thursday_template = student_def + "\n(" + thursday_tag + ")"
-    friday_template = student_def + "\n(" + friday_tag + ")"
-    saturday_template = student_def + "\n(" + saturday_tag + ")"
-    sunday_template = student_def + "\n(" + sunday_tag + ")"
+    first_group = {
+        405299021: 'Виталий Фольварочный',
+        393708492: 'Юля Тищенко',
+        416924459: 'Андрей Благой',
+        613759219: 'Влад Бондарь',
+        548116631: 'Женя Зубрицкий',
+        379537100: 'Карина Краснова',
+        635991556: 'Денис Батраченко',
+        349737926: 'Дима Евтушенко',
+        451287655: 'Дима Василенко',
+        469338261: 'Степан Вега',
+        542413243: 'Денис Спичка',
+        692445612: 'Женя Коваленко',
+        429045248: 'Полина Бондаренко',
+        52960692: 'Саша Лыгина'
+    }
+    second_group = {
+        358734682: 'Илья Журба',
+        537784508: 'Саша Нежинский',
+        448401733: 'Богдан Семенченко',
+        643705130: 'Влад Кучма',
+        605903256: 'Леша Яворский',
+        384343953: 'Олег Абсалямов',
+        655298761: 'Влад Мельник',
+        384173347: 'Дима Маляр',
+        780853105: 'Денис Чернушич',
+        919243633: 'Никита Савчин',
+        397810063: 'Кирилл Дусанский'
+    }
+    first_group_eng = {
+        405299021: 'Виталий Фольварочный',
+        643705130: 'Влад Кучма',
+        416924459: 'Андрей Благой',
+        542413243: 'Денис Спичка',
+        635991556: 'Денис Батраченко',
+        349737926: 'Дима Евтушенко',
+        451287655: 'Дима Василенко',
+        692445612: 'Женя Коваленко',
+        780853105: 'Денис Чернушич',
+        384173347: 'Дима Маляр',
+        655298761: 'Влад Мельник',
+        429045248: 'Полина Бондаренко',
+        52960692: 'Саша Лыгина'
+    }
+    second_group_eng = {
+        393708492: 'Юля Тищенко',
+        379537100: 'Карина Краснова',
+        548116631: 'Женя Зубрицкий',
+        613759219: 'Влад Бондарь',
+        469338261: 'Степан Вега',
+        384343953: 'Олег Абсалямов',
+        358734682: 'Илья Журба',
+        537784508: 'Саша Нежинский',
+        448401733: 'Богдан Семенченко',
+        605903256: 'Леша Яворский',
+        919243633: 'Никита Савчин',
+        397810063: 'Кирилл Дусанский'
+    }
+
+    SCHEDULE_MONDAY_DAYOFF = "ПАР НЕТ"
+    SCHEDULE_TUESDAY_DAYOFF = "ПАР НЕТ"
+    SCHEDULE_WEDNESDAY_DAYOFF = "ПАР НЕТ"
+    SCHEDULE_THURSDAY_DAYOFF = "ПАР НЕТ"
+    SCHEDULE_FRIDAY_DAYOFF = "ПАР НЕТ"
+    SCHEDULE_SATURDAY_DAYOFF = "ПАР НЕТ"
+    SCHEDULE_SUNDAY_DAYOFF = "ПАР НЕТ"
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK = "понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
+    CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = "понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ"
+    CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+    CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = "понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+    CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY = "08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ."
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY = SCHEDULE_TUESDAY_DAYOFF
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY = "11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY = "11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY = "11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+    CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY = "11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР."
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY = "11:40-13:00 — ООП\n13:05-14:25 — ООП"
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY = "13:05-14:25 — ООП"
+    CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY = "11:40-13:00 — ООП\n13:05-14:25 — ООП"
+    CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY = "13:05-14:25 — ООП"
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY = "08:30-09:50 — КОМП. СХЕМ.\n10:00-11:20 — КОМП. СХЕМ."
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY = "10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ."
+    CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY = SCHEDULE_FRIDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY = "13:05-14:25 — ООП\n14:30-15:50 — ООП"
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY = SCHEDULE_SATURDAY_DAYOFF
+
+    CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+    CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
+
+    date_today = datetime.date.today()
+    date_week = date_today.isocalendar()[1]
+    date_weekday = date_today.weekday()
+
+    now = datetime.datetime.now()
+    delta = datetime.timedelta(days=1)
+
+    date_today_day = now.day
+    date_today_month = now.month
+    date_tomorrow_day = (now + delta).day
+    date_tomorrow_month = (now + delta).month
+    date_yesterday_day = (now - delta).day
+    date_yesterday_month = (now - delta).month
+
+    if date_weekday == 0:
+        date_monday_day = date_today.day
+        date_monday_month = date_today.month
+    else:
+        date_monday_day = (date_today + relativedelta(days=+1, weekday=MO(+1))).day
+        date_monday_month = (date_today + relativedelta(days=+1, weekday=MO(+1))).month
+    if date_weekday == 1:
+        date_tuesday_day = date_today.day
+        date_tuesday_month = date_today.month
+    else:
+        date_tuesday_day = (date_today + relativedelta(days=+1, weekday=TU(+1))).day
+        date_tuesday_month = (date_today + relativedelta(days=+1, weekday=TU(+1))).month
+    if date_weekday == 2:
+        date_wednesday_day = date_today.day
+        date_wednesday_month = date_today.month
+    else:
+        date_wednesday_day = (date_today + relativedelta(days=+1, weekday=WE(+1))).day
+        date_wednesday_month = (date_today + relativedelta(days=+1, weekday=WE(+1))).month
+    if date_weekday == 3:
+        date_thursday_day = date_today.day
+        date_thursday_month = date_today.month
+    else:
+        date_thursday_day = (date_today + relativedelta(days=+1, weekday=TH(+1))).day
+        date_thursday_month = (date_today + relativedelta(days=+1, weekday=TH(+1))).month
+    if date_weekday == 4:
+        date_friday_day = date_today.day
+        date_friday_month = date_today.month
+    else:
+        date_friday_day = (date_today + relativedelta(days=+1, weekday=FR(+1))).day
+        date_friday_month = (date_today + relativedelta(days=+1, weekday=FR(+1))).month
+    if date_weekday == 5:
+        date_saturday_day = date_today.day
+        date_saturday_month = date_today.month
+    else:
+        date_saturday_day = (date_today + relativedelta(days=+1, weekday=SA(+1))).day
+        date_saturday_month = (date_today + relativedelta(days=+1, weekday=SA(+1))).month
+    if date_weekday == 6:
+        date_sunday_day = date_today.day
+        date_sunday_month = date_today.month
+    else:
+        date_sunday_day = (date_today + relativedelta(days=+1, weekday=SU(+1))).day
+        date_sunday_month = (date_today + relativedelta(days=+1, weekday=SU(+1))).month
+
+    date_today_format = "%02d" % date_today_day + "." + "%02d" % date_today_month
+    date_tomorrow_format = "%02d" % date_tomorrow_day + "." + "%02d" % date_tomorrow_month
+    date_yesterday_format = "%02d" % date_yesterday_day + "." + "%02d" % date_yesterday_month
+
+    date_monday_format = "%02d" % date_monday_day + "." + "%02d" % date_monday_month
+    date_tuesday_format = "%02d" % date_tuesday_day + "." + "%02d" % date_tuesday_month
+    date_wednesday_format = "%02d" % date_wednesday_day + "." + "%02d" % date_wednesday_month
+    date_thursday_format = "%02d" % date_thursday_day + "." + "%02d" % date_thursday_month
+    date_friday_format = "%02d" % date_friday_day + "." + "%02d" % date_friday_month
+    date_saturday_format = "%02d" % date_saturday_day + "." + "%02d" % date_saturday_month
+    date_sunday_format = "%02d" % date_sunday_day + "." + "%02d" % date_sunday_month
+
+    time_now = now.time()
+    time_day_beg = datetime.time(0, 0, 0)
+    time_uni_end = datetime.time(15, 50, 0)
+    time_day_end = datetime.time(23, 59, 59)
+
+    if (date_week % 2) == 0:
+        weekorder = True
+        week = "светлая"
+    else:
+        weekorder = False
+        week = "тёмная"
+
+    if date_weekday == 0:
+        today = "понедельник"
+        tomorrow = "вторник"
+        yesterday = "воскресенье"
+    elif date_weekday == 1:
+        today = "вторник"
+        tomorrow = "среда"
+        yesterday = "понедельник"
+    elif date_weekday == 2:
+        today = "среда"
+        tomorrow = "четверг"
+        yesterday = "вторник"
+    elif date_weekday == 3:
+        today = "четверг"
+        tomorrow = "пятница"
+        yesterday = "среда"
+    elif date_weekday == 4:
+        today = "пятница"
+        tomorrow = "суббота"
+        yesterday = "четверг"
+    elif date_weekday == 5:
+        today = "суббота"
+        tomorrow = "воскресенье"
+        yesterday = "пятница"
+    elif date_weekday == 6:
+        today = "воскресенье"
+        tomorrow = "понедельник"
+        yesterday = "суббота"
+
+    week_template = "\n" + week + " неделя"
+
+    today_tag = today + " / " + date_today_format
+    tomorrow_tag = tomorrow + " / " + date_tomorrow_format
+    yesterday_tag = yesterday + " / " + date_yesterday_format
+    monday_tag = "понедельник / " + date_monday_format
+    tuesday_tag = "вторник / " + date_tuesday_format
+    wednesday_tag = "среда / " + date_wednesday_format
+    thursday_tag = "четверг / " + date_thursday_format
+    friday_tag = "пятница / " + date_friday_format
+    saturday_tag = "суббота / " + date_saturday_format
+    sunday_tag = "воскресенье / " + date_sunday_format
+
+    classes_tuple = "пары", "парам", "предметы", "предметам"
+    day_tuple = "какой день", "какой сегодня день"
+    week_tuple = "какая неделя", "какая сейчас неделя"
+    days_tuple = "сегодня", "вчера", "завтра"
+    today_tuple = "вчера", "завтра"
+    yesterday_tuple = "сегодня", "завтра"
+    tomorrow_tuple = "вчера", "сегодня"
+    weekdays_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
+    exceptions_tuple = "поза", "после"
+
+    sticker_rnm = random.randint(1, 25)
 
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
