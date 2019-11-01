@@ -1578,10 +1578,10 @@ def predefined_stickers(message):
             else:
                 last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY[-2:].split() if s.isdigit()])
         if date_weekday == 5:
-            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY == SCHEDULE_SATURDAY_DAYOFF:
+            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY == SCHEDULE_TUESDAY_DAYOFF:
                 last_class_time = ""
             else:
-                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY[-2:].split() if s.isdigit()])
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY[-2:].split() if s.isdigit()])
         if date_weekday == 6:
             if CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY == SCHEDULE_SUNDAY_DAYOFF:
                 last_class_time = ""
@@ -1617,10 +1617,10 @@ def predefined_stickers(message):
             else:
                 last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY[-2:].split() if s.isdigit()])
         if date_weekday == 5:
-            if CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY == SCHEDULE_SATURDAY_DAYOFF:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY == SCHEDULE_TUESDAY_DAYOFF:
                 last_class_time = ""
             else:
-                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY[-2:].split() if s.isdigit()])
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY[-2:].split() if s.isdigit()])
         if date_weekday == 6:
             if CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY == SCHEDULE_SUNDAY_DAYOFF:
                 last_class_time = ""
