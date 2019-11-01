@@ -174,11 +174,15 @@ def schedule_message(message):
 
     date_today = datetime.date.today()
     date_week = date_today.isocalendar()[1]
-    
+
     if (date_week % 2) == 0:
         weekorder = True
+        week = "светлая"
     else:
         weekorder = False
+        week = "тёмная"
+        
+    week_template = "\n" + week + " неделя"
 
     if weekorder == True:
         if uid in first_group.keys():
