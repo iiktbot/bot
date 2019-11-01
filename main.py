@@ -90,7 +90,7 @@ def start_message(message):
         bot.send_message(cid, "привет, " + student_name + ", чем могу быть полезен?")
 
 @bot.message_handler(commands=['schedule'])
-def schedule_message():
+def schedule_message(message):
     cid = message.chat.id
     uid = message.from_user.id
 
