@@ -431,6 +431,7 @@ def schedule_message(message):
 
     date_today = datetime.date.today()
     date_week = date_today.isocalendar()[1]
+    date_weekday = date_today.weekday()
 
     if (date_week % 2) == 0:
         weekorder = True
