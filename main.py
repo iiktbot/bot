@@ -381,13 +381,13 @@ def predefined_messages(message):
     tomorrow_tuple = "вчера", "сегодня"
     weekdays_tuple = "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье", "среду", "пятницу", "субботу", "пн", "вт", "ср", "чт", "пт", "сб", "вс"
     weekdays_list = list(weekdays_tuple)
-    monday_list = x for x in weekdays_list if x not in ("понедельник", "пн")
-    tuesday_list = x for x in weekdays_list if x not in ("вторник", "вт")
-    wednesday_list = x for x in weekdays_list if x not in ("среда", "среду", "ср")
-    thursday_list = x for x in weekdays_list if x not in ("четверг", "чт")
-    friday_list = x for x in weekdays_list if x not in ("пятница", "пятницу", "пт")
-    saturday_list = x for x in weekdays_list if x not in ("суббота", "субботу", "сб")
-    sunday_list = x for x in weekdays_list if x not in ("воскресенье", "вс")
+    monday_list = [e for e in weekdays_list if e not in ("понедельник", "пн")]
+    tuesday_list = [e for e in weekdays_list if e not in ("вторник", "вт")]
+    wednesday_list = [e for e in weekdays_list if e not in ("среда", "среду", "ср")]
+    thursday_list = [e for e in weekdays_list if e not in ("четверг", "чт")]
+    friday_list = [e for e in weekdays_list if e not in ("пятница", "пятницу", "пт")]
+    saturday_list = [e for e in weekdays_list if e not in ("суббота", "субботу", "сб")]
+    sunday_list = [e for e in weekdays_list if e not in ("воскресенье", "вс")]
     exceptions_tuple = "поза", "после"
     
     invalid_user_response = "вряд ли ты здесь учишься"
