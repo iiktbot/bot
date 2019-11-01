@@ -183,7 +183,7 @@ else:
 if CS18_SCHEDULE_DARKWEEK_1GROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
     last_class_time = ""
 else:
-    if date_weekday == 0
+    if date_weekday == 0:
         if uid in second_group_eng.keys():
             last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
         elif uid in second_group_eng.keys():
