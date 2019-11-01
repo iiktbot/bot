@@ -372,7 +372,7 @@ def predefined_messages(message):
     saturday_template = student_def + "\n(" + saturday_tag + ")"
     sunday_template = student_def + "\n(" + sunday_tag + ")"
 
-    classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
+    classes_tuple = "пары", "парам", "предметы", "предметам"
     day_tuple = "какой день", "какой сегодня день"
     week_tuple = "какая неделя", "какая сейчас неделя"
     days_tuple = "сегодня", "вчера", "завтра"
@@ -614,7 +614,7 @@ def predefined_messages(message):
                             bot.send_message(cid, saturday_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif "воскресенье" in msg or "вс" in msg:
                             bot.send_message(cid, sunday_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-            elif ("когда" in msg or (("на" in msg or "во" in msg) and "сколько" in msg) or ("на" in msg and "который" in msg and "час" in msg)) and ("нам" in msg or "мне" in msg or "пара" in msg or "приходить" in msg or "идти" in msg or "быть" in msg):
+            elif ("когда" in msg or (("на" in msg or "во" in msg) and "сколько" in msg) or ("на" in msg and "который" in msg and "час" in msg)) and ("нам" in msg or "мне" in msg or "пары" in msg or "пара" in msg or "приходить" in msg or "идти" in msg or "быть" in msg):
                 if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                     if time_day_beg <= time_now <= time_uni_end:
                         if uid in first_group.keys():
@@ -956,7 +956,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, tomorrow_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                             else:
                                 bot.send_message(cid, tomorrow_template + "\n\nпервая пара на " + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-            elif "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
+            if "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
                 if uid in first_group.keys():
                     if uid in first_group_eng.keys():
                         bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK)
@@ -1195,7 +1195,7 @@ def predefined_messages(message):
                             bot.send_message(cid, saturday_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif "воскресенье" in msg or "вс" in msg:
                             bot.send_message(cid, sunday_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-            elif ("когда" in msg or (("на" in msg or "во" in msg) and "сколько" in msg) or ("на" in msg and "который" in msg and "час" in msg)) and ("нам" in msg or "мне" in msg or "пара" in msg or "приходить" in msg or "идти" in msg or "быть" in msg):
+            elif ("когда" in msg or (("на" in msg or "во" in msg) and "сколько" in msg) or ("на" in msg and "который" in msg and "час" in msg)) and ("нам" in msg or "мне" in msg or "пары" in msg or "пара" in msg or "приходить" in msg or "идти" in msg or "быть" in msg):
                 if not any(words in msg for words in days_tuple) and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
                     if time_day_beg <= time_now <= time_uni_end:
                         if uid in first_group.keys():
@@ -1537,7 +1537,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, tomorrow_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                             else:
                                 bot.send_message(cid, tomorrow_template + "\n\nпервая пара на " + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-            elif "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
+            if "schedule" in msg or ("расписание" and ("неделю" in msg or "все дни" in msg)):
                 if uid in first_group.keys():
                     if uid in first_group_eng.keys():
                         bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
