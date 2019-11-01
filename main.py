@@ -244,29 +244,6 @@ friday_tag = "пятница / " + date_friday_format
 saturday_tag = "суббота / " + date_saturday_format
 sunday_tag = "воскресенье / " + date_sunday_format
 
-if uid in first_group.keys():
-    student_group = "первая группа"
-    student_name = first_group[uid] + ", "
-elif uid in second_group.keys():
-    student_group = "вторая группа"
-    student_name = second_group[uid] + ", "
-    
-week_template = "\n" + week + " неделя"
-current_week_template = "сейчас " + week + " неделя"
-light_week_template = "сегодня " + today + " светлой недели"
-dark_week_template = "сегодня " + today + " тёмной недели"
-student_def = student_name + student_group
-today_template = student_def + "\n(" + today_tag + ")"
-yesterday_template = student_def + "\n(" + yesterday_tag + ")"
-tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
-monday_template = student_def + "\n(" + monday_tag + ")"
-tuesday_template = student_def + "\n(" + tuesday_tag + ")"
-wednesday_template = student_def + "\n(" + wednesday_tag + ")"
-thursday_template = student_def + "\n(" + thursday_tag + ")"
-friday_template = student_def + "\n(" + friday_tag + ")"
-saturday_template = student_def + "\n(" + saturday_tag + ")"
-sunday_template = student_def + "\n(" + sunday_tag + ")"
-
 classes_tuple = "пары", "парам", "расписание", "расписанию", "предметы", "предметам"
 day_tuple = "какой день", "какой сейчас день", "какой сегодня день"
 week_tuple = "какая неделя", "какая сейчас неделя", "какая сегодня неделя"
@@ -307,6 +284,29 @@ def predefined_messages(message):
     cid = message.chat.id
     uid = message.from_user.id
     
+    if uid in first_group.keys():
+        student_group = "первая группа"
+        student_name = first_group[uid] + ", "
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+        student_name = second_group[uid] + ", "
+        
+    week_template = "\n" + week + " неделя"
+    current_week_template = "сейчас " + week + " неделя"
+    light_week_template = "сегодня " + today + " светлой недели"
+    dark_week_template = "сегодня " + today + " тёмной недели"
+    student_def = student_name + student_group
+    today_template = student_def + "\n(" + today_tag + ")"
+    yesterday_template = student_def + "\n(" + yesterday_tag + ")"
+    tomorrow_template = student_def + "\n(" + tomorrow_tag + ")"
+    monday_template = student_def + "\n(" + monday_tag + ")"
+    tuesday_template = student_def + "\n(" + tuesday_tag + ")"
+    wednesday_template = student_def + "\n(" + wednesday_tag + ")"
+    thursday_template = student_def + "\n(" + thursday_tag + ")"
+    friday_template = student_def + "\n(" + friday_tag + ")"
+    saturday_template = student_def + "\n(" + saturday_tag + ")"
+    sunday_template = student_def + "\n(" + sunday_tag + ")"
+
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
             if uid in first_group.keys() or uid in second_group.keys():
