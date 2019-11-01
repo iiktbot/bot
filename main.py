@@ -284,6 +284,39 @@ def start_message(message):
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_message(cid, "привет, " + student_name + "!" + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx")
 
+@bot.message_handler(commands=['schedule'])
+def predefined_stickers(message):
+    cid = message.chat.id
+    uid = message.from_user.id
+
+    if uid in first_group.keys():
+        student_group = "первая группа"
+    elif uid in second_group.keys():
+        student_group = "вторая группа"
+
+    if weekorder == True:
+        if uid in first_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK)
+        elif uid in second_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK)
+    elif weekorder == False:
+        if uid in first_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
+        elif uid in second_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
+
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
     msg = message.text.lower()
@@ -1454,39 +1487,6 @@ def predefined_messages(message):
                                 bot.send_message(cid, tomorrow_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                             else:
                                 bot.send_message(cid, tomorrow_template + "\n\nпервая пара на " + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-
-@bot.message_handler(commands=['schedule'])
-def predefined_stickers(message):
-    cid = message.chat.id
-    uid = message.from_user.id
-
-    if uid in first_group.keys():
-        student_group = "первая группа"
-    elif uid in second_group.keys():
-        student_group = "вторая группа"
-
-    if weekorder == True:
-        if uid in first_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK)
-        elif uid in second_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK)
-    elif weekorder == False:
-        if uid in first_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
-        elif uid in second_group.keys():
-            if uid in first_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
-            elif uid in second_group_eng.keys():
-                bot.send_message(cid, student_group + week_template + "\n\n" + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
