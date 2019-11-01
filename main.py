@@ -233,85 +233,6 @@ elif date_weekday == 6:
     today = "воскресенье"
     tomorrow = "понедельник"
     yesterday = "суббота"
-    
-if weekorder == True:
-    if date_weekday == 0:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            if uid in second_group_eng.keys():
-                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
-            elif uid in second_group_eng.keys():
-                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 1:
-        if CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY == SCHEDULE_TUESDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 2:
-        if CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY == SCHEDULE_WEDNESDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 3:
-        if CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY == SCHEDULE_THURSDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 4:
-        if CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY == SCHEDULE_FRIDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 5:
-        if CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY == SCHEDULE_SATURDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 6:
-        if CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY == SCHEDULE_SUNDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
-elif weekorder == False:
-    if date_weekday == 0:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            if uid in second_group_eng.keys():
-                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
-            elif uid in second_group_eng.keys():
-                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 1:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY == SCHEDULE_TUESDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 2:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY == SCHEDULE_WEDNESDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 3:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY == SCHEDULE_THURSDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 4:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY == SCHEDULE_FRIDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 5:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY == SCHEDULE_SATURDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY[-2:].split() if s.isdigit()])
-    if date_weekday == 6:
-        if CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY == SCHEDULE_SUNDAY_DAYOFF:
-            last_class_time = ""
-        else:
-            last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
 
 week_template = "\n" + week + " неделя"
 current_week_template = "сейчас " + week + " неделя"
@@ -1626,6 +1547,85 @@ def predefined_stickers(message):
     cid = message.chat.id
     uid = message.from_user.id
     mct = message.chat.type
+
+    if weekorder == True:
+        if date_weekday == 0:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                if uid in second_group_eng.keys():
+                    last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
+                elif uid in second_group_eng.keys():
+                    last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 1:
+            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY == SCHEDULE_TUESDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 2:
+            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY == SCHEDULE_WEDNESDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 3:
+            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY == SCHEDULE_THURSDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 4:
+            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY == SCHEDULE_FRIDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 5:
+            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY == SCHEDULE_SATURDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 6:
+            if CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY == SCHEDULE_SUNDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
+    elif weekorder == False:
+        if date_weekday == 0:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                if uid in second_group_eng.keys():
+                    last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
+                elif uid in second_group_eng.keys():
+                    last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 1:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY == SCHEDULE_TUESDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 2:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY == SCHEDULE_WEDNESDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 3:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY == SCHEDULE_THURSDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 4:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY == SCHEDULE_FRIDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 5:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY == SCHEDULE_SATURDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY[-2:].split() if s.isdigit()])
+        if date_weekday == 6:
+            if CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY == SCHEDULE_SUNDAY_DAYOFF:
+                last_class_time = ""
+            else:
+                last_class_time = str([int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY.split() if s.isdigit()][-4:-2] + ":" + [int(s) for s in CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY[-2:].split() if s.isdigit()])
 
     if mct == "private":
         if uid in first_group.keys() or uid in second_group.keys():
