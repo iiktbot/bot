@@ -88,7 +88,6 @@ def start_message(message):
 
     if uid in first_group.keys() or uid in second_group.keys():
         bot.send_message(cid, "привет, " + student_name + "!" + "для общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx")
-start_message()
 
 @bot.message_handler(commands=['classes'])
 def classes_message(message):
