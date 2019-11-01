@@ -282,7 +282,7 @@ def start_message(message):
         student_name = second_group[uid].split(' ', 1)[0]
 
     if uid in first_group.keys() or uid in second_group.keys():
-        bot.send_message(cid, "привет, " + student_name + "!" + "для общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx")
+        bot.send_message(cid, "привет, " + student_name + "!" + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
