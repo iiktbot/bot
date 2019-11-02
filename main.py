@@ -517,18 +517,13 @@ def predefined_messages(message):
     saturday_template = student_def + '\n(' + saturday_tag + ')'
     sunday_template = student_def + '\n(' + sunday_tag + ')'
 
-    days_matches = [a for a in days_tuple if a in msg]
-    weekdays_matches = [a for a in weekdays_tuple if a in msg]
-
-    if uid in first_group.keys():
-        student_name = ', ' + first_group[uid].split(' ', 1)[0]
-    elif uid in second_group.keys():
-        student_name = ', ' + second_group[uid].split(' ', 1)[0]
+    days_matches = sum(x in msg for x in days_tuple)
+    weekdays_matches = sum(x in msg for x in weekdays_tuple)
 
     if any(words in msg for words in days_tuple) or any(words in msg for words in weekdays_tuple):
         if uid in first_group.keys() or uid in second_group.keys():
-            bot.send_message(cid, str(days_matches.len()))
-            bot.send_message(cid, str(weekdays_matches.len()))
+            bot.send_message(cid, days_matches)
+            bot.send_message(cid, weekdays_matches)
 
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
