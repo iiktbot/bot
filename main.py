@@ -1549,9 +1549,9 @@ def predefined_stickers(message):
     mct = message.chat.type
 
     last_class_time = int(''.join(filter(str.isdigit, CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY)))[-4:-2] + ":" + int(''.join(filter(str.isdigit, CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY)))[-2:]
-        if uid in first_group.keys() or uid in second_group.keys():
-            bot.send_sticker(cid, sid)
-            bot.send_message(cid, last_class_time)
+    if uid in first_group.keys() or uid in second_group.keys():
+        bot.send_sticker(cid, sid)
+        bot.send_message(cid, last_class_time)
 
 @app.route('/'+ TOKEN, methods=['POST'])
 def get_messages():
