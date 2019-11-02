@@ -274,6 +274,7 @@ messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_
 def start_message(message):
     cid = message.chat.id
     uid = message.from_user.id
+    mct = message.chat.type
 
     if uid in first_group.keys():
         student_name = ', ' + first_group[uid].split(' ', 1)[0]
@@ -490,6 +491,7 @@ def schedule_message(message):
     mid = message.message_id
     cid = message.chat.id
     uid = message.from_user.id
+    mct = message.chat.type
 
     meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
     meme_req = requests.get(meme_url)
