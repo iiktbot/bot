@@ -278,11 +278,11 @@ def start_message(message):
     elif uid in second_group.keys():
         student_name = ', ' + second_group[uid].split(' ', 1)[0]
 
-    if mct == 'group':
+    if mct == 'private':
         if uid in first_group.keys() or uid in second_group.keys():
             bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
-            bot.send_message(cid, days_matches.len())
-            bot.send_message(cid, weekdays_matches.len())
+            bot.send_message(cid, str(days_matches.len()))
+            bot.send_message(cid, str(weekdays_matches.len()))
             #bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
 
 @bot.message_handler(commands=['classes'])
