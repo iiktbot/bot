@@ -23,7 +23,7 @@ MarkupSafe==1.1.1
 meld3==2.0.0
 multidict==4.5.2
 numpy==1.17.2
-redis==3.3.11
+psycopg2-binary==2.8.4
 pycares==3.0.0
 pycparser==2.19
 pyTelegramBotAPI==3.6.6
