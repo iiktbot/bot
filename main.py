@@ -270,9 +270,6 @@ def start_message(message):
     mct = message.chat.type
     msg = message.text.lower()
 
-    days_matches = [a for a in days_tuple if a in msg]
-    weekdays_matches = [a for a in weekdays_tuple if a in msg]
-
     if uid in first_group.keys():
         student_name = ', ' + first_group[uid].split(' ', 1)[0]
     elif uid in second_group.keys():
@@ -281,8 +278,6 @@ def start_message(message):
     if mct == 'private':
         if uid in first_group.keys() or uid in second_group.keys():
             bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
-            bot.send_message(cid, str(days_matches.len()))
-            bot.send_message(cid, str(weekdays_matches.len()))
             #bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
 
 @bot.message_handler(commands=['classes'])
@@ -293,10 +288,10 @@ def classes_message(message):
     
     if uid in first_group.keys():
         student_group = 'первая группа'
-        student_name = first_group[uid] + ', '
+        student_name = first_group[uid].split(' ', 1)[0] + ', '
     elif uid in second_group.keys():
         student_group = 'вторая группа'
-        student_name = second_group[uid] + ', '
+        student_name = second_group[uid].split(' ', 1)[0] + ', '
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
@@ -505,10 +500,10 @@ def predefined_messages(message):
     
     if uid in first_group.keys():
         student_group = 'первая группа'
-        student_name = first_group[uid] + ', '
+        student_name = first_group[uid].split(' ', 1)[0] + ', '
     elif uid in second_group.keys():
         student_group = 'вторая группа'
-        student_name = second_group[uid] + ', '
+        student_name = second_group[uid].split(' ', 1)[0] + ', '
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
@@ -521,6 +516,19 @@ def predefined_messages(message):
     friday_template = student_def + '\n(' + friday_tag + ')'
     saturday_template = student_def + '\n(' + saturday_tag + ')'
     sunday_template = student_def + '\n(' + sunday_tag + ')'
+
+    days_matches = [a for a in days_tuple if a in msg]
+    weekdays_matches = [a for a in weekdays_tuple if a in msg]
+
+    if uid in first_group.keys():
+        student_name = ', ' + first_group[uid].split(' ', 1)[0]
+    elif uid in second_group.keys():
+        student_name = ', ' + second_group[uid].split(' ', 1)[0]
+
+    if any(words in msg for words in days_tuple) or any(words in msg for words in weekdays_tuple):
+        if uid in first_group.keys() or uid in second_group.keys():
+            bot.send_message(cid, str(days_matches.len()))
+            bot.send_message(cid, str(weekdays_matches.len()))
 
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
