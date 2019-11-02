@@ -270,9 +270,9 @@ def start_message(message):
     mct = message.chat.type
     msg = message.text.lower()
 
-	days_matches = [a for a in days_tuple if a in msg]
-	weekdays_matches = [a for a in weekdays_tuple if a in msg]
-	
+    days_matches = [a for a in days_tuple if a in msg]
+    weekdays_matches = [a for a in weekdays_tuple if a in msg]
+
     if uid in first_group.keys():
         student_name = ', ' + first_group[uid].split(' ', 1)[0]
     elif uid in second_group.keys():
