@@ -9,9 +9,10 @@ from dateutil.relativedelta import relativedelta, MO, TU, WE, TH, FR, SA, SU
 from random import randrange
 
 TOKEN = os.environ['TOKEN']
-r = redis.from_url(os.environ.get('REDIS_URL'))
+DATABASE_URL = os.environ['DATABASE_URL']
 
 bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app = Flask(__name__)
 
 SCHEDULE_MONDAY_DAYOFF = 'ПАР НЕТ'
