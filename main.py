@@ -538,13 +538,13 @@ def predefined_messages(message):
         weekdays_condition = 'ok'
     elif (weekdays_monday_matches == 0 and 0 < weekdays_tuesday_matches < 2 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or ("вторник" in msg and "вт" in msg):
         weekdays_condition = 'ok'
-    elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and 0 < weekdays_wednesday_matches < 2 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or (("среда" in msg and "ср" in msg) or ("среда" in msg and "среду" in msg) or ("среда" in msg and "среду" in msg and "ср" in msg)):
+    elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and 0 < weekdays_wednesday_matches < 2 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or ("среда" in msg and "ср" in msg):
         weekdays_condition = 'ok'
     elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and 0 < weekdays_thursday_matches < 2 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or ("четверг" in msg and "чт" in msg):
         weekdays_condition = 'ok'
-    elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and 0 < weekdays_friday_matches < 2 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or (("пятница" in msg and "пт" in msg) or ("пятница" in msg and "пятницу" in msg) or ("пятница" in msg and "пятницу" in msg and "пт" in msg)):
+    elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and 0 < weekdays_friday_matches < 2 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or ("пятница" in msg and "пт" in msg):
         weekdays_condition = 'ok'
-    elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and 0 < weekdays_saturday_matches < 2 and weekdays_sunday_matches == 0) or (("суббота" in msg and "сб" in msg) or ("суббота" in msg and "субботу" in msg) or ("суббота" in msg and "субботу" in msg and "сб" in msg)):
+    elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and 0 < weekdays_saturday_matches < 2 and weekdays_sunday_matches == 0) or ("суббота" in msg and "сб" in msg):
         weekdays_condition = 'ok'
     elif (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and 0 < weekdays_sunday_matches < 2) or ("воскресенье" in msg and "вс" in msg):
         weekdays_condition = 'ok'
