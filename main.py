@@ -495,9 +495,9 @@ def schedule_message(message):
 
     meme_tomorrow = datetime.datetime.replace(now + delta)
     meme_delta = meme_tomorrow - now
-    meme_last_num = 280
+    meme_last_num = 0
 
-    if time_now == time_day_beg:
+    while meme_last_num > 0:
         time.sleep(meme_delta.seconds)
         meme_last_num += 3
 
