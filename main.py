@@ -267,7 +267,7 @@ friday_tuple = 'понедельник', 'вторник', 'среда', 'чет
 saturday_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'воскресенье', 'среду', 'пятницу', 'пн', 'вт', 'ср', 'чт', 'пт', 'вс'
 sunday_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'
 exceptions_tuple = 'поза', 'после'
-commands_tuple = 'schedule', 'classes', 'meme'
+commands_tuple = 'schedule', 'classes'#, 'meme'
 messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + exceptions_tuple + commands_tuple
 
 @bot.message_handler(commands=['start'])
@@ -283,7 +283,8 @@ def start_message(message):
 
     if mct == 'private':
         if uid in first_group.keys() or uid in second_group.keys():
-            bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
+            bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
+            #bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
 
 @bot.message_handler(commands=['classes'])
 def classes_message(message):
@@ -485,17 +486,17 @@ def schedule_message(message):
                 bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
             elif uid in second_group_eng.keys():
                 bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
-"""
-@bot.message_handler(commands=['meme'])
-def meme_message(message):
-    cid = message.chat.id
-    uid = message.from_user.id
-    mct = message.chat.type
 
-    if uid in first_group.keys() or uid in second_group.keys():
-        meme_url = str('https://t.me/otchislenno/' + str(random.randint(3, 280)))
-        bot.send_photo(cid, meme_url)
-"""
+#@bot.message_handler(commands=['meme'])
+#def meme_message(message):
+#    cid = message.chat.id
+#    uid = message.from_user.id
+#    mct = message.chat.type
+#
+#    if uid in first_group.keys() or uid in second_group.keys():
+#        meme_url = str('https://t.me/otchislenno/' + str(random.randint(3, 280)))
+#        bot.send_photo(cid, meme_url)
+
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
     msg = message.text.lower()
