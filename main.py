@@ -487,24 +487,15 @@ def schedule_message(message):
                 bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
 
 @bot.message_handler(commands=['meme'])
-def schedule_message(message):
+def meme_message(message):
     mid = message.message_id
     cid = message.chat.id
     uid = message.from_user.id
     mct = message.chat.type
 
-    meme_tomorrow = datetime.datetime.replace(now + delta)
-    meme_delta = meme_tomorrow - now
-    meme_last_num = 280
-
-    while meme_last_num > 0:
-        time.sleep(meme_delta.seconds)
-        meme_last_num += 3
-
-    meme_url = str("https://t.me/otchislenno/" + str(random.randint(3, meme_last_num)))
-
     if mct == 'private':
         if uid in first_group.keys() or uid in second_group.keys():
+            meme_url = str('https://t.me/otchislenno/' + str(random.randint(3, 280)))
             bot.send_photo(message.chat.id, meme_url)
 
 @bot.message_handler(content_types=['text'])
