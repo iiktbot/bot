@@ -15,15 +15,6 @@ bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
 app = Flask(__name__)
 conn = psycopg2.connect(DATABASE, sslmode='require')
 
-cursor = conn.cursor()
-name_Table = "students"
-sqlCreateTable = "create table "+ name_Table +" (std_id int, std_name text);"
-cursor.execute(sqlCreateTable)
-conn.commit()
-sqlGetTableList = "SELECT table_schema, table_name FROM information_schema.tables where table_schema='test' ORDER BY table_schema, table_name ;"
-cursor.execute(sqlGetTableList)
-tables = cursor.fetchall()
-
 SCHEDULE_MONDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_TUESDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_WEDNESDAY_DAYOFF = 'ПАР НЕТ'
