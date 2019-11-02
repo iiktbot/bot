@@ -258,9 +258,17 @@ classes_tuple = 'пары', 'парам', 'расписание', 'распис�
 day_tuple = 'какой день', 'какой сейчас день', 'какой сегодня день'
 week_tuple = 'какая неделя', 'какая сейчас неделя', 'какая сегодня неделя'
 days_tuple = 'сегодня', 'вчера', 'завтра'
-weekdays_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'
-weekdays_sp_tuple = 'среду', 'пятницу', 'субботу'
-weekdays_sh_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
+today_tuple = 'вчера', 'завтра'
+yesterday_tuple = 'сегодня', 'завтра'
+tomorrow_tuple = 'вчера', 'сегодня'
+weekdays_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
+monday_tuple = 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
+tuesday_tuple = 'понедельник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'ср', 'чт', 'пт', 'сб', 'вс'
+wednesday_tuple = 'понедельник', 'вторник', 'четверг', 'пятница', 'суббота', 'воскресенье', 'пятницу', 'субботу', 'пн', 'вт', 'чт', 'пт', 'сб', 'вс'
+thursday_tuple = 'понедельник', 'вторник', 'среда', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'пт', 'сб', 'вс'
+friday_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'суббота', 'воскресенье', 'среду', 'субботу', 'пн', 'вт', 'ср', 'чт', 'сб', 'вс'
+saturday_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'воскресенье', 'среду', 'пятницу', 'пн', 'вт', 'ср', 'чт', 'пт', 'вс'
+sunday_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'
 exceptions_tuple = 'поза', 'после'
 commands_tuple = 'schedule', 'classes'#, 'meme'
 messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + exceptions_tuple + commands_tuple
@@ -270,14 +278,11 @@ def start_message(message):
     cid = message.chat.id
     uid = message.from_user.id
     mct = message.chat.type
-    msg = message.text.lower()
 
     if uid in first_group.keys():
         student_name = ', ' + first_group[uid].split(' ', 1)[0]
     elif uid in second_group.keys():
         student_name = ', ' + second_group[uid].split(' ', 1)[0]
-    else:
-        student_name = ''
 
     if mct == 'private':
         if uid in first_group.keys() or uid in second_group.keys():
@@ -292,169 +297,165 @@ def classes_message(message):
     
     if uid in first_group.keys():
         student_group = 'первая группа'
-        student_name = first_group[uid].split(' ', 1)[0] + ', '
+        student_name = first_group[uid] + ', '
     elif uid in second_group.keys():
         student_group = 'вторая группа'
-        student_name = second_group[uid].split(' ', 1)[0] + ', '
-    else:
-        student_group = ''
-        student_name = ''
+        student_name = second_group[uid] + ', '
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
     tomorrow_template = student_def + '\n(' + tomorrow_tag + ')'
     
-    if uid in first_group.keys() or uid in second_group.keys():
-    	if weekorder == True:
-    	    if time_day_beg <= time_now <= time_uni_end:
-    	        if uid in first_group.keys():
-    	            if date_weekday == 0:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 1:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 2:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 3:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 4:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 5:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 6:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
-    	        elif uid in second_group.keys():
-    	            if date_weekday + 1 == 7:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 1:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 2:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 3:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 4:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 5:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 6:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-    	    elif time_uni_end < time_now <= time_day_end:
-    	        if uid in first_group.keys():
-    	            if date_weekday + 1 == 7:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 1:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 2:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 3:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 4:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 5:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 6:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
-    	        elif uid in second_group.keys():
-    	            if date_weekday + 1 == 7:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 1:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 2:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 3:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 4:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 5:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 6:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-    	elif weekorder == False:
-    	    if time_day_beg <= time_now <= time_uni_end:
-    	        if uid in first_group.keys():
-    	            if date_weekday == 0:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 1:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 2:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 3:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 4:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 5:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday == 6:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
-    	        elif uid in second_group.keys():
-    	            if date_weekday + 1 == 7:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 1:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 2:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 3:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 4:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 5:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 6:
-    	                bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-    	    elif time_uni_end < time_now <= time_day_end:
-    	        if uid in first_group.keys():
-    	            if date_weekday + 1 == 7:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 1:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 2:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 3:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 4:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 5:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 6:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
-    	        elif uid in second_group.keys():
-    	            if date_weekday + 1 == 7:
-    	                if uid in first_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	                elif uid in second_group_eng.keys():
-    	                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 1:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 2:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 3:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 4:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 5:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
-    	            elif date_weekday + 1 == 6:
-    	                bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
+    if weekorder == True:
+        if time_day_beg <= time_now <= time_uni_end:
+            if uid in first_group.keys():
+                if date_weekday == 0:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday == 1:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday == 2:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday == 3:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday == 4:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday == 5:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday == 6:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
+            elif uid in second_group.keys():
+                if date_weekday + 1 == 7:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 1:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 2:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 3:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 4:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 5:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 6:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
+        elif time_uni_end < time_now <= time_day_end:
+            if uid in first_group.keys():
+                if date_weekday + 1 == 7:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 1:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 2:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 3:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 4:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 5:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 6:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
+            elif uid in second_group.keys():
+                if date_weekday + 1 == 7:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 1:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 2:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 3:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 4:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 5:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 6:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
+    elif weekorder == False:
+        if time_day_beg <= time_now <= time_uni_end:
+            if uid in first_group.keys():
+                if date_weekday == 0:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday == 1:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday == 2:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday == 3:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday == 4:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday == 5:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday == 6:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
+            elif uid in second_group.keys():
+                if date_weekday + 1 == 7:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 1:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 2:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 3:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 4:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 5:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 6:
+                    bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
+        elif time_uni_end < time_now <= time_day_end:
+            if uid in first_group.keys():
+                if date_weekday + 1 == 7:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 1:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 2:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 3:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 4:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 5:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 6:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
+            elif uid in second_group.keys():
+                if date_weekday + 1 == 7:
+                    if uid in first_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid)
+                    elif uid in second_group_eng.keys():
+                        bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 1:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 2:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 3:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 4:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 5:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
+                elif date_weekday + 1 == 6:
+                    bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 
 @bot.message_handler(commands=['schedule'])
 def schedule_message(message):
@@ -466,29 +467,28 @@ def schedule_message(message):
     elif uid in second_group.keys():
         student_group = 'вторая группа'
 
-    if uid in first_group.keys() or uid in second_group.keys():
-    	if weekorder == True:
-    	    if uid in first_group.keys():
-    	        if uid in first_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK)
-    	        elif uid in second_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK)
-    	    elif uid in second_group.keys():
-    	        if uid in first_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK)
-    	        elif uid in second_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK)
-    	elif weekorder == False:
-    	    if uid in first_group.keys():
-    	        if uid in first_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
-    	        elif uid in second_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
-    	    elif uid in second_group.keys():
-    	        if uid in first_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
-    	        elif uid in second_group_eng.keys():
-    	            bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
+    if weekorder == True:
+        if uid in first_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK)
+        elif uid in second_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK)
+    elif weekorder == False:
+        if uid in first_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK)
+        elif uid in second_group.keys():
+            if uid in first_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
+            elif uid in second_group_eng.keys():
+                bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
 
 #@bot.message_handler(commands=['meme'])
 #def meme_message(message):
@@ -509,13 +509,10 @@ def predefined_messages(message):
     
     if uid in first_group.keys():
         student_group = 'первая группа'
-        student_name = first_group[uid].split(' ', 1)[0] + ', '
+        student_name = first_group[uid] + ', '
     elif uid in second_group.keys():
         student_group = 'вторая группа'
-        student_name = second_group[uid].split(' ', 1)[0] + ', '
-    else:
-        student_group = ''
-        student_name = ''
+        student_name = second_group[uid] + ', '
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
@@ -528,11 +525,6 @@ def predefined_messages(message):
     friday_template = student_def + '\n(' + friday_tag + ')'
     saturday_template = student_def + '\n(' + saturday_tag + ')'
     sunday_template = student_def + '\n(' + sunday_tag + ')'
-
-    days_matches = sum(x in msg for x in days_tuple)
-    weekdays_matches = sum(x in msg for x in weekdays_tuple)
-    weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
-    weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
@@ -618,7 +610,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                             elif date_weekday + 1 == 6:
                                 bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif 'сегодня' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'сегодня' in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday == 0:
                             if uid in first_group_eng.keys():
@@ -655,7 +647,7 @@ def predefined_messages(message):
                             bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday == 6:
                             bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif 'вчера' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'вчера' in msg and not any(words in msg for words in yesterday_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday - 1 == 0:
                             if uid in first_group_eng.keys():
@@ -692,7 +684,7 @@ def predefined_messages(message):
                             bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday - 1 == 6:
                             bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif 'завтра' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'завтра' in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday + 1 == 7:
                             if uid in first_group_eng.keys():
@@ -729,7 +721,7 @@ def predefined_messages(message):
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday + 1 == 6:
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif weekdays_matches < 2 or weekdays_sp_matches < 2 or weekdays_sh_matches < 2 and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if 'понедельник' in msg or 'пн' in msg:
                             if uid in first_group_eng.keys():
@@ -938,7 +930,7 @@ def predefined_messages(message):
                                     bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                                 else:
                                     bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-                elif 'сегодня' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'сегодня' in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday == 0:
                             if CS18_SCHEDULE_LIGHTWEEK_1GROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
@@ -1023,7 +1015,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                             else:
                                 bot.send_message(cid, today_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-                elif 'завтра' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'завтра' in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday + 1 == 7:
                             if CS18_SCHEDULE_LIGHTWEEK_1GROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
@@ -1188,7 +1180,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                             elif date_weekday + 1 == 6:
                                 bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif 'сегодня' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'сегодня' in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday == 0:
                             if uid in first_group_eng.keys():
@@ -1225,7 +1217,7 @@ def predefined_messages(message):
                             bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday == 6:
                             bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif 'вчера' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'вчера' in msg and not any(words in msg for words in yesterday_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday - 1 == 0:
                             if uid in first_group_eng.keys():
@@ -1262,7 +1254,7 @@ def predefined_messages(message):
                             bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday - 1 == 6:
                             bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif 'завтра' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'завтра' in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday + 1 == 7:
                             if uid in first_group_eng.keys():
@@ -1299,7 +1291,7 @@ def predefined_messages(message):
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday + 1 == 6:
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif weekdays_matches < 2 or weekdays_sp_matches < 2 or weekdays_sh_matches < 2 and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if 'понедельник' in msg or 'пн' in msg:
                             if uid in first_group_eng.keys():
@@ -1508,7 +1500,7 @@ def predefined_messages(message):
                                     bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                                 else:
                                     bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-                elif 'сегодня' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'сегодня' in msg and not any(words in msg for words in today_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday == 0:
                             if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
@@ -1593,7 +1585,7 @@ def predefined_messages(message):
                                 bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
                             else:
                                 bot.send_message(cid, today_template + first_class_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-                elif 'завтра' in msg and days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif 'завтра' in msg and not any(words in msg for words in tomorrow_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if date_weekday + 1 == 7:
                             if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
