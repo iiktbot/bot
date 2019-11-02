@@ -520,8 +520,8 @@ def predefined_messages(message):
 
     days_matches = sum(x in msg for x in days_tuple)
     weekdays_matches = sum(x in msg for x in weekdays_tuple)
-    weekdays_sp_matches = sum(x in msg for x in weekdays_tuple)
-    weekdays_sh_matches = sum(x in msg for x in weekdays_tuple)
+    weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
+    weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
