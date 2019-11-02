@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import flask, apiai, json, telebot, os, requests, urllib, datetime, time, random
+import flask, apiai, json, telebot, os, requests, urllib, datetime, time, random, psycopg2
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -9,8 +9,12 @@ from dateutil.relativedelta import relativedelta, MO, TU, WE, TH, FR, SA, SU
 from random import randrange
 
 TOKEN = os.environ['TOKEN']
+DATABASE = os.environ['DATABASE_URL']
+
 bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
 app = Flask(__name__)
+conn = psycopg2.connect(DATABASE, sslmode='require')
+
 
 SCHEDULE_MONDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_TUESDAY_DAYOFF = 'ПАР НЕТ'
