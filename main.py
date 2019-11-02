@@ -259,8 +259,6 @@ day_tuple = 'какой день', 'какой сейчас день', 'како
 week_tuple = 'какая неделя', 'какая сейчас неделя', 'какая сегодня неделя'
 days_tuple = 'сегодня', 'вчера', 'завтра'
 weekdays_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
-days_matches = [a for a in days_tuple if a in msg]
-weekdays_matches = [a for a in weekdays_tuple if a in msg]
 exceptions_tuple = 'поза', 'после'
 commands_tuple = 'schedule', 'classes'#, 'meme'
 messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + exceptions_tuple + commands_tuple
@@ -270,7 +268,11 @@ def start_message(message):
     cid = message.chat.id
     uid = message.from_user.id
     mct = message.chat.type
+    msg = message.text.lower()
 
+	days_matches = [a for a in days_tuple if a in msg]
+	weekdays_matches = [a for a in weekdays_tuple if a in msg]
+	
     if uid in first_group.keys():
         student_name = ', ' + first_group[uid].split(' ', 1)[0]
     elif uid in second_group.keys():
