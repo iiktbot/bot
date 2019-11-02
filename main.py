@@ -258,9 +258,13 @@ classes_tuple = 'пары', 'парам', 'расписание', 'распис�
 day_tuple = 'какой день', 'какой сейчас день', 'какой сегодня день'
 week_tuple = 'какая неделя', 'какая сейчас неделя', 'какая сегодня неделя'
 days_tuple = 'сегодня', 'вчера', 'завтра'
-weekdays_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
-weekdays_sp_tuple = 'среду', 'пятницу', 'субботу'
-weekdays_sh_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
+weekdays_monday_tuple = 'понедельник', 'пн' 
+weekdays_tuesday_tuple = 'вторник', 'вт' 
+weekdays_wednesday_tuple = 'среда', 'среду' , 'ср' 
+weekdays_thusday_tuple = 'четверг', 'чт' 
+weekdays_friday_tuple = 'пятница', 'пятницу', 'пт' 
+weekdays_saturday_tuple = 'суббота', 'субботу' , 'сб' 
+weekdays_sunday_tuple = 'воскресенье', 'вс'
 exceptions_tuple = 'поза', 'после'
 commands_tuple = 'schedule', 'classes'#, 'meme'
 messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple
@@ -519,9 +523,30 @@ def predefined_messages(message):
     sunday_template = student_def + '\n(' + sunday_tag + ')'
 
     days_matches = sum(x in msg for x in days_tuple)
-    weekdays_matches = sum(x in msg for x in weekdays_tuple)
-    weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
-    weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
+    weekdays_monday_matches = sum(x in msg for x in weekdays_monday_tuple)
+    weekdays_tuesday_matches = sum(x in msg for x in weekdays_tuesday_tuple)
+    weekdays_wednesday_matches = sum(x in msg for x in weekdays_wednesday_tuple)
+    weekdays_thursday_matches = sum(x in msg for x in weekdays_thursday_tuple)
+    weekdays_friday_matches = sum(x in msg for x in weekdays_friday_tuple)
+    weekdays_saturday_matches = sum(x in msg for x in weekdays_saturday_tuple)
+    weekdays_sunday_matches = sum(x in msg for x in weekdays_sunday_tuple)
+
+    if 0 < weekdays_monday_matches < 2 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0:
+        weekdays_condition = 'ok'
+    elif weekdays_monday_matches == 0 and 0 < weekdays_tuesday_matches < 2 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0:
+        weekdays_condition = 'ok'
+    elif weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and 0 < weekdays_wednesday_matches < 2 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0:
+        weekdays_condition = 'ok'
+    elif weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and 0 < weekdays_thursday_matches < 2 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0:
+        weekdays_condition = 'ok'
+    elif weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and 0 < weekdays_friday_matches < 2 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0:
+        weekdays_condition = 'ok'
+    elif weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and 0 < weekdays_saturday_matches < 2 and weekdays_sunday_matches == 0:
+        weekdays_condition = 'ok'
+    elif weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and 0 < weekdays_sunday_matches < 2:
+        weekdays_condition = 'ok'
+    else:
+        weekdays_condition = 'not ok'
 
     if uid in first_group.keys() or uid in second_group.keys():
         if any(words in msg for words in week_tuple):
@@ -718,7 +743,7 @@ def predefined_messages(message):
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday + 1 == 6:
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif ((0 < weekdays_matches < 2 and weekdays_sp_matches == 0 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and 0 < weekdays_sp_matches < 2 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and weekdays_sp_matches == 0 and 0 < weekdays_sh_matches < 2)) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif weekdays_condition == "ok" and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if 'понедельник' in msg or 'пн' in msg:
                             if uid in first_group_eng.keys():
@@ -1288,7 +1313,7 @@ def predefined_messages(message):
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
                         elif date_weekday + 1 == 6:
                             bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-                elif ((0 < weekdays_matches < 2 and weekdays_sp_matches == 0 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and 0 < weekdays_sp_matches < 2 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and weekdays_sp_matches == 0 and 0 < weekdays_sh_matches < 2)) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+                elif weekdays_condition == "ok" and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
                     if uid in first_group.keys():
                         if 'понедельник' in msg or 'пн' in msg:
                             if uid in first_group_eng.keys():
