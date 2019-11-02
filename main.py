@@ -282,7 +282,7 @@ def start_message(message):
     else:
         student_name = ''
 
-    bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — получить рандомный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx')
+    bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на следующий день\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nмой создатель — @yoqwx')
 
 @bot.message_handler(commands=['classes'])
 def classes_message(message):
