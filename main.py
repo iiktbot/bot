@@ -280,8 +280,9 @@ def start_message(message):
     elif uid in second_group.keys():
         student_name = ', ' + second_group[uid].split(' ', 1)[0]
 
-    if uid in first_group.keys() or uid in second_group.keys():
-        bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
+    if mct == 'private':
+        if uid in first_group.keys() or uid in second_group.keys():
+            bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
 
 @bot.message_handler(commands=['classes'])
 def classes_message(message):
@@ -483,6 +484,21 @@ def schedule_message(message):
                 bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK)
             elif uid in second_group_eng.keys():
                 bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
+
+@bot.message_handler(commands=['meme'])
+def schedule_message(message):
+    mid = message.message_id
+    cid = message.chat.id
+    uid = message.from_user.id
+
+    meme_url = str("https://t.me/LaQeque/" + str(random.randint(5, 39946)))
+    meme_req = requests.get(meme_url)
+
+    if mct == 'private':
+        if uid in first_group.keys() or uid in second_group.keys():
+            bot.send_photo(message.chat.id, meme_url)
+            if meme_req.status_code == 400:
+                bot.send_message(message.chat.id, "error 400, try to repeat request")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
