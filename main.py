@@ -495,20 +495,17 @@ def schedule_message(message):
 
     meme_tomorrow = datetime.datetime.replace(now + delta)
     meme_delta = meme_tomorrow - now
-    meme_last_num = 60000
+    meme_last_num = 280
 
     while meme_last_num > 0:
         time.sleep(meme_delta.seconds)
         meme_last_num += 3
 
     meme_url = str("https://t.me/otchislenno/" + str(random.randint(3, meme_last_num)))
-    meme_req = requests.get(meme_url)
 
     if mct == 'private':
         if uid in first_group.keys() or uid in second_group.keys():
             bot.send_photo(message.chat.id, meme_url)
-            if not meme_req.ok:
-                bot.send_message(message.chat.id, "error 400, try to repeat request")
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
