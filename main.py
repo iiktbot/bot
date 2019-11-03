@@ -773,7 +773,7 @@ def predefined_messages(message):
 						elif 'воскресенье' in msg or 'вс' in msg:
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 			elif 'когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg) or ('на' in msg and 'который' in msg and 'час' in msg) and ('нам' in msg or 'мне' in msg or 'нам' in msg or 'пары' in msg or 'пару' in msg or 'идти' in msg or 'приходить' in msg or 'уни' in msg):
-				if days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+				if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in weekdays_sp_tuple) and not any(words in msg for words in weekdays_sh_tuple) and not any(words in msg for words in exceptions_tuple):
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
 							if date_weekday == 0:
@@ -1343,7 +1343,7 @@ def predefined_messages(message):
 						elif 'воскресенье' in msg or 'вс' in msg:
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 			elif 'когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg) or ('на' in msg and 'который' in msg and 'час' in msg) and ('нам' in msg or 'мне' in msg or 'нам' in msg or 'пары' in msg or 'пару' in msg or 'идти' in msg or 'приходить' in msg or 'уни' in msg):
-				if days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+				if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in weekdays_sp_tuple) and not any(words in msg for words in weekdays_sh_tuple) and not any(words in msg for words in exceptions_tuple):
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
 							if date_weekday == 0:
