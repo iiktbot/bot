@@ -531,12 +531,7 @@ def predefined_messages(message):
 	weekdays_sp_matches = sum(x in msg.split() for x in weekdays_sp_tuple)
 	weekdays_sh_matches = sum(x in msg.split() for x in weekdays_sh_tuple)
 
-	if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среду' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среда' in msg and 'среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятницу' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятница' in msg and 'пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('субботу' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('суббота' in msg and 'субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
-		weekdays_sp_condition = 'ok'
-	else:
-		weekdays_sp_condition = 'not ok'
-
-	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) or weekdays_sp_condition == 'ok':
+	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2):
 		weekdays_condition = 'ok'
 	else:
 		weekdays_condition = 'not ok'
