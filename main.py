@@ -254,16 +254,16 @@ friday_tag = 'пятница / ' + date_friday_format
 saturday_tag = 'суббота / ' + date_saturday_format
 sunday_tag = 'воскресенье / ' + date_sunday_format
 
-classes_tuple = 'пары', 'парам', 'расписание', 'расписанию', 'предметы', 'предметам'
-day_tuple = 'какой день', 'какой сейчас день', 'какой сегодня день'
-week_tuple = 'какая неделя', 'какая сейчас неделя', 'какая сегодня неделя'
-days_tuple = 'сегодня', 'вчера', 'завтра'
-weekdays_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
-weekdays_sp_tuple = 'среду', 'пятницу', 'субботу'
-weekdays_sh_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
-exceptions_tuple = 'поза', 'после'
-commands_tuple = 'schedule', 'classes'#, 'meme'
-messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple
+classes_tuple = ['пары', 'парам', 'расписание', 'расписанию', 'предметы', 'предметам']
+day_tuple = ['какой день', 'какой сейчас день', 'какой сегодня день']
+week_tuple = ['какая неделя', 'какая сейчас неделя', 'какая сегодня неделя']
+days_tuple = ['сегодня', 'вчера', 'завтра']
+weekdays_tuple = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
+weekdays_sp_tuple = ['среду', 'пятницу', 'субботу']
+weekdays_sh_tuple = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
+exceptions_tuple = ['поза', 'после']
+commands_tuple = ['schedule', 'classes']#, 'meme']
+messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple]
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -275,6 +275,8 @@ def start_message(message):
 		student_name = ', ' + first_group[uid].split(' ', 1)[0]
 	elif uid in second_group.keys():
 		student_name = ', ' + second_group[uid].split(' ', 1)[0]
+	else:
+		student_name = ''
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
@@ -289,10 +291,13 @@ def classes_message(message):
 	
 	if uid in first_group.keys():
 		student_group = 'первая группа'
-		student_name = first_group[uid] + ', '
+		student_name = first_group[uid].split(' ', 1)[0] + ', '
 	elif uid in second_group.keys():
 		student_group = 'вторая группа'
-		student_name = second_group[uid] + ', '
+		student_name = second_group[uid].split(' ', 1)[0] + ', '
+	else:
+		student_group = ''
+		student_name = ''
 
 	student_def = student_name + student_group
 	today_template = student_def + '\n(' + today_tag + ')'
@@ -501,10 +506,13 @@ def predefined_messages(message):
 	
 	if uid in first_group.keys():
 		student_group = 'первая группа'
-		student_name = first_group[uid] + ', '
+		student_name = first_group[uid].split(' ', 1)[0] + ', '
 	elif uid in second_group.keys():
 		student_group = 'вторая группа'
-		student_name = second_group[uid] + ', '
+		student_name = second_group[uid].split(' ', 1)[0] + ', '
+	else:
+		student_group = ''
+		student_name = ''
 
 	student_def = student_name + student_group
 	today_template = student_def + '\n(' + today_tag + ')'
