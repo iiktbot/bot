@@ -527,8 +527,8 @@ def predefined_messages(message):
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
 	days_matches = sum(x in msg for x in days_tuple)
-	weekdays_matches = sum(x in msg.split() for x in weekdays_tuple)
-	weekdays_sp_matches = sum(x in msg.split() for x in weekdays_sp_tuple)
+	weekdays_matches = sum(x in msg for x in weekdays_tuple)
+	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
 	weekdays_sh_matches = sum(x in msg.split() for x in weekdays_sh_tuple)
 
 	if (weekdays_matches > 0 and weekdays_sp_matches > 0) or (weekdays_matches > 0 and weekdays_sh_matches > 0) or (weekdays_sp_matches > 0 and weekdays_sh_matches > 0):
