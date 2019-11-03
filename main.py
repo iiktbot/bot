@@ -531,10 +531,10 @@ def predefined_messages(message):
 	weekdays_sp_matches = sum(x in msg.split() for x in weekdays_sp_tuple)
 	weekdays_sh_matches = sum(x in msg.split() for x in weekdays_sh_tuple)
 
-    if (weekdays_matches > 0 and weekdays_sp_matches > 0) or (weekdays_matches > 0 and weekdays_sh_matches > 0) or (weekdays_sp_matches > 0 and weekdays_sh_matches > 0):
-        weekdays_cross_condition = 'not ok'
-    else:
-        weekdays_cross_condition = 'ok'
+	if (weekdays_matches > 0 and weekdays_sp_matches > 0) or (weekdays_matches > 0 and weekdays_sh_matches > 0) or (weekdays_sp_matches > 0 and weekdays_sh_matches > 0):
+		weekdays_cross_condition = 'not ok'
+	else:
+		weekdays_cross_condition = 'ok'
 	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) and weekdays_cross_condition == 'ok':
 		weekdays_overall_condition = 'ok'
 	else:
