@@ -734,9 +734,9 @@ def predefined_messages(message):
 							bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
 						elif 'четверг' in msg or 'чт' in msg:
 							bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-						elif 'пятница' in msg or 'пятницу' in msg or 'пт':
+						elif 'пятница' in msg or 'пятницу' in msg or 'пт' in msg:
 							bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-						elif 'суббота' in msg or 'субботу' in msg or 'сб':
+						elif 'суббота' in msg or 'субботу' in msg or 'сб' in msg:
 							bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
 						elif 'воскресенье' in msg or 'вс' in msg:
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
@@ -752,9 +752,9 @@ def predefined_messages(message):
 							bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
 						elif 'четверг' in msg or 'чт' in msg:
 							bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-						elif 'пятница' in msg or 'пятницу' in msg or 'пт':
+						elif 'пятница' in msg or 'пятницу' in msg or 'пт' in msg:
 							bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-						elif 'суббота' in msg or 'субботу' in msg or 'сб':
+						elif 'суббота' in msg or 'субботу' in msg or 'сб' in msg:
 							bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 						elif 'воскресенье' in msg or 'вс' in msg:
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
@@ -1304,9 +1304,9 @@ def predefined_messages(message):
 							bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid)
 						elif 'четверг' in msg or 'чт' in msg:
 							bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid)
-						elif 'пятница' in msg or 'пятницу' in msg or 'пт':
+						elif 'пятница' in msg or 'пятницу' in msg or 'пт' in msg:
 							bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid)
-						elif 'суббота' in msg or 'субботу' in msg or 'сб':
+						elif 'суббота' in msg or 'субботу' in msg or 'сб' in msg:
 							bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid)
 						elif 'воскресенье' in msg or 'вс' in msg:
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid)
@@ -1322,9 +1322,9 @@ def predefined_messages(message):
 							bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid)
 						elif 'четверг' in msg or 'чт' in msg:
 							bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid)
-						elif 'пятница' in msg or 'пятницу' in msg or 'пт':
+						elif 'пятница' in msg or 'пятницу' in msg or 'пт' in msg:
 							bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid)
-						elif 'суббота' in msg or 'субботу' in msg or 'сб':
+						elif 'суббота' in msg or 'субботу' in msg or 'сб' in msg:
 							bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 						elif 'воскресенье' in msg or 'вс' in msg:
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
