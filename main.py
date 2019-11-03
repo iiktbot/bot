@@ -528,8 +528,8 @@ def predefined_messages(message):
 
 	days_matches = sum(x in msg for x in days_tuple)
 	weekdays_matches = sum(x in msg for x in weekdays_tuple)
-    weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
-    weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
+	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
+	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
 	contradiction = 'no'
 
@@ -593,8 +593,8 @@ def predefined_messages(message):
 			else:
 				contradiction = 'yes'
 
-    if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
-        contradiction = 'no'
+	if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
+		contradiction = 'no'
 
 	if uid in first_group.keys() or uid in second_group.keys():
 		if any(words in msg for words in week_tuple):
