@@ -531,13 +531,11 @@ def predefined_messages(message):
 	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
 	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
-	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) and not (0 < weekdays_matches < 2 and 0 < weekdays_sp_matches < 2 and 0 < weekdays_sh_matches < 2)
-		weekdays_status = 'ok'
-	else:
-		weekdays_status = 'not ok'
-
-	if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
-		weekdays_status = 'ok'
+	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) and not (0 < weekdays_matches < 2 and 0 < weekdays_sp_matches < 2 and 0 < weekdays_sh_matches < 2):
+		if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
+			weekdays_status = 'ok'
+		else:
+			weekdays_status = 'not ok'
 
 	if uid in first_group.keys() or uid in second_group.keys():
 		if any(words in msg for words in week_tuple):
