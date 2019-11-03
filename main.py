@@ -258,17 +258,12 @@ classes_tuple = 'пары', 'парам', 'расписание', 'распис�
 day_tuple = 'какой день', 'какой сейчас день', 'какой сегодня день'
 week_tuple = 'какая неделя', 'какая сейчас неделя', 'какая сегодня неделя'
 days_tuple = 'сегодня', 'вчера', 'завтра'
-weekdays_monday_tuple = 'понедельник', 'пн' 
-weekdays_tuesday_tuple = 'вторник', 'вт' 
-weekdays_wednesday_tuple = 'среда', 'среду', 'ср' 
-weekdays_thursday_tuple = 'четверг', 'чт' 
-weekdays_friday_tuple = 'пятница', 'пятницу', 'пт' 
-weekdays_saturday_tuple = 'суббота', 'субботу', 'сб' 
-weekdays_sunday_tuple = 'воскресенье', 'вс'
-weekdays_tuple = weekdays_monday_tuple + weekdays_tuesday_tuple + weekdays_wednesday_tuple + weekdays_thursday_tuple + weekdays_friday_tuple + weekdays_saturday_tuple + weekdays_sunday_tuple
+weekdays_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'
+weekdays_sp_tuple = 'среду', 'пятницу', 'субботу'
+weekdays_sh_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сь', 'вс'
 exceptions_tuple = 'поза', 'после'
 commands_tuple = 'schedule', 'classes'#, 'meme'
-messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + exceptions_tuple + commands_tuple
+messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -532,39 +527,15 @@ def predefined_messages(message):
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
 	days_matches = sum(x in msg for x in days_tuple)
-	weekdays_monday_matches = sum(x in msg for x in weekdays_monday_tuple)
-	weekdays_tuesday_matches = sum(x in msg for x in weekdays_tuesday_tuple)
-	weekdays_wednesday_matches = sum(x in msg for x in weekdays_wednesday_tuple)
-	weekdays_thursday_matches = sum(x in msg for x in weekdays_thursday_tuple)
-	weekdays_friday_matches = sum(x in msg for x in weekdays_friday_tuple)
-	weekdays_saturday_matches = sum(x in msg for x in weekdays_saturday_tuple)
-	weekdays_sunday_matches = sum(x in msg for x in weekdays_sunday_tuple)
+	weekdays_matches = sum(x in msg for x in weekdays_tuple)
+	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
+	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
-	if (0 < weekdays_monday_matches < 2 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or ("понедельник" in msg and "пн" in msg):
-		weekdays_condition = 'ok'
+	if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среду' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среда' in msg and 'среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятницу' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятница' in msg and 'пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('субботу' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('суббота' in msg and 'субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
+		weekdays_sp_condition = 'ok'
 	else:
-		weekdays_condition = 'not ok'
-	if (weekdays_monday_matches == 0 and 0 < weekdays_tuesday_matches < 2 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or ("вторник" in msg and "вт" in msg):
-		weekdays_condition = 'ok'
-	else:
-		weekdays_condition = 'not ok'
-	if (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and 0 < weekdays_wednesday_matches < 2 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or (("среда" in msg and "ср" in msg) or ("среда" in msg and "среду" in msg) or ("среда" in msg and "среду" in msg and "ср" in msg)):
-		weekdays_condition = 'ok'
-	else:
-		weekdays_condition = 'not ok'
-	if (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and 0 < weekdays_thursday_matches < 2 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or ("четверг" in msg and "чт" in msg):
-		weekdays_condition = 'ok'
-	else:
-		weekdays_condition = 'not ok'
-	if (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and 0 < weekdays_friday_matches < 2 and weekdays_saturday_matches == 0 and weekdays_sunday_matches == 0) or (("пятница" in msg and "пт" in msg) or ("пятница" in msg and "пятницу" in msg) or ("пятница" in msg and "пятницу" in msg and "пт" in msg)):
-		weekdays_condition = 'ok'
-	else:
-		weekdays_condition = 'not ok'
-	if (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and 0 < weekdays_saturday_matches < 2 and weekdays_sunday_matches == 0) or (("суббота" in msg and "сб" in msg) or ("суббота" in msg and "субботу" in msg) or ("суббота" in msg and "субботу" in msg and "сб" in msg)):
-		weekdays_condition = 'ok'
-	else:
-		weekdays_condition = 'not ok'
-	if (weekdays_monday_matches == 0 and weekdays_tuesday_matches == 0 and weekdays_wednesday_matches == 0 and weekdays_thursday_matches == 0 and weekdays_friday_matches == 0 and weekdays_saturday_matches == 0 and 0 < weekdays_sunday_matches < 2) or ("воскресенье" in msg and "вс" in msg):
+		weekdays_sp_condition = 'not ok'
+	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) or weekdays_sp_condition == 'ok':
 		weekdays_condition = 'ok'
 	else:
 		weekdays_condition = 'not ok'
