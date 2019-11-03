@@ -265,7 +265,7 @@ weekdays_sp_tuple = 'среду', 'пятницу', 'субботу'
 weekdays_sh_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сь', 'вс'
 exceptions_tuple = 'поза', 'после'
 commands_tuple = 'schedule', 'classes'#, 'meme'
-messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple
+#messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
