@@ -527,74 +527,25 @@ def predefined_messages(message):
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
 	days_matches = sum(x in msg for x in days_tuple)
-	weekdays_matches = sum(x in msg for x in weekdays_tuple)
-	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
-	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
 	contradiction = 'no'
-
-	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2) and not (0 < weekdays_matches < 2 and 0 < weekdays_sp_matches < 2):
+	
+	if ('понедельник' in msg or 'пн' in msg) and not (('вторник' in msg and 'вт' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
+		contradiction = 'no'
+	elif ('вторник' in msg or 'вт' in msg) and not (('понедельник' in msg or 'пн' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
+		contradiction = 'no'
+	elif (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) and not ('понедельник' in msg or 'пн' in msg) and not (('вторник' in msg and 'вт' in msg) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
+		contradiction = 'no'
+	elif ('четверг' in msg or 'чт' in msg) and not ('понедельник' in msg or 'пн' in msg) and not (('вторник' in msg and 'вт' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
+		contradiction = 'no'
+	elif (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) and not ('понедельник' in msg or 'пн' in msg) and not (('вторник' in msg and 'вт' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
+		contradiction = 'no'
+	elif (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) and not ('понедельник' in msg or 'пн' in msg) and not (('вторник' in msg and 'вт' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
+		contradiction = 'no'
+	elif ('воскресенье' in msg or 'вс' in msg) and not ('понедельник' in msg or 'пн' in msg) and not (('вторник' in msg and 'вт' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg))):
 		contradiction = 'no'
 	else:
 		contradiction = 'yes'
-
-	if any(words in msg for words in weekdays_sh_tuple):
-		if 'понедельник' in msg and 'вторник' not in msg and 'среда' not in msg and 'среду' not in msg and 'четверг' not in msg and 'пятница' not in msg and 'пятницу' not in msg and 'суббота' not in msg and 'субботу' not in msg and 'воскресенье' not in msg:
-			if 0 < weekdays_sh_matches < 2:
-				contradiction = 'no'
-			else:
-				contradiction = 'yes'
-		elif 'вторник' in msg and 'понедельник' not in msg and 'среда' not in msg and 'среду' not in msg and 'четверг' not in msg and 'пятница' not in msg and 'пятницу' not in msg and 'суббота' not in msg and 'субботу' not in msg and 'воскресенье' not in msg:
-			if 1 < weekdays_sh_matches < 3:
-				contradiction = 'no'
-			else:
-				contradiction = 'yes'
-		elif 'понедельник' not in msg and 'вторник' not in msg and 'четверг' not in msg and 'пятница' not in msg and 'пятницу' not in msg and 'суббота' not in msg and 'субботу' not in msg and 'воскресенье' not in msg:
-			if 'среда' in msg or 'среду' in msg:
-				if 1 < weekdays_sh_matches < 3:
-					contradiction = 'no'
-				else:
-					contradiction = 'yes'
-			if 'среда' in msg and 'среду' in msg:
-				if 2 < weekdays_sh_matches < 4:
-					contradiction = 'no'
-				else:
-					contradiction = 'yes'
-		elif 'четверг' in msg and 'понедельник' not in msg and 'вторник' not in msg and 'среда' not in msg and 'среду' not in msg and 'пятница' not in msg and 'пятницу' not in msg and 'суббота' not in msg and 'субботу' not in msg and 'воскресенье' not in msg:
-			if 0 < weekdays_sh_matches < 2:
-				contradiction = 'no'
-			else:
-				contradiction = 'yes'
-		elif 'понедельник' not in msg and 'вторник' not in msg and 'среда' not in msg and 'среду' not in msg and 'четверг' not in msg and 'суббота' not in msg and 'субботу' not in msg and 'воскресенье' not in msg:
-			if 'пятница' in msg or 'пятницу' in msg:
-				if 0 < weekdays_sh_matches < 2:
-					contradiction = 'no'
-				else:
-					contradiction = 'yes'
-			if 'пятница' in msg and 'пятницу' in msg:
-				if 0 < weekdays_sh_matches < 2:
-					contradiction = 'no'
-				else:
-					contradiction = 'yes'
-		elif 'понедельник' not in msg and 'вторник' not in msg and 'среда' not in msg and 'среду' not in msg and 'четверг' not in msg and 'пятница' not in msg and 'пятницу' not in msg and 'воскресенье' not in msg:
-			if 'суббота' in msg or 'субботу' in msg:
-				if 0 < weekdays_sh_matches < 2:
-					contradiction = 'no'
-				else:
-					contradiction = 'yes'
-			if 'суббота' in msg and 'субботу' in msg:
-				if 0 < weekdays_sh_matches < 2:
-					contradiction = 'no'
-				else:
-					contradiction = 'yes'
-		elif 'воскресенье' in msg and 'понедельник' not in msg and 'вторник' not in msg and 'среда' not in msg and 'среду' not in msg and 'четверг' not in msg and 'пятница' not in msg and 'пятницу' not in msg and 'суббота' not in msg and 'субботу' not in msg:
-			if 0 < weekdays_sh_matches < 2:
-				contradiction = 'no'
-			else:
-				contradiction = 'yes'
-
-	if (('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)) and not (('понедельник' in msg or 'пн' in msg) and ('вторник' in msg or 'вт' in msg) and (('среда' in msg or 'ср' in msg) or ('среда' in msg or 'среду' in msg) or ('среду' in msg or 'ср' in msg)) and ('четверг' in msg or 'чт' in msg) and (('пятница' in msg or 'пт' in msg) or ('пятница' in msg or 'пятницу' in msg) or ('пятницу' in msg or 'пт' in msg)) and (('суббота' in msg or 'сб' in msg) or ('суббота' in msg or 'субботу' in msg) or ('субботу' in msg or 'сб' in msg)) and ('воскресенье' in msg or 'вс' in msg)):
-		contradiction = 'no'
 
 	if uid in first_group.keys() or uid in second_group.keys():
 		if any(words in msg for words in week_tuple):
