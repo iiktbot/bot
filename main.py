@@ -527,9 +527,17 @@ def predefined_messages(message):
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
 	days_matches = sum(x in msg for x in days_tuple)
+	weekdays_matches = sum(x in msg for x in weekdays_tuple)
+	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
+	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
 	contradiction = 'no'
-	
+
+	if 0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2:
+		contradiction = 'no'
+	else:
+		contradiction = 'yes'
+
 	if ('понедельник' in msg or 'пн' in msg) and not (('вторник' in msg and 'вт' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
 		contradiction = 'no'
 	elif ('вторник' in msg or 'вт' in msg) and not (('понедельник' in msg or 'пн' in msg) or (('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg)) or ('четверг' in msg and 'чт' in msg) or (('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg)) or (('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) or ('воскресенье' in msg and 'вс' in msg)):
