@@ -9,11 +9,11 @@ from dateutil.relativedelta import relativedelta, MO, TU, WE, TH, FR, SA, SU
 from random import randrange
 
 TOKEN = os.environ['TOKEN']
-DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE = os.environ['DATABASE_URL']
 
 bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app = Flask(__name__)
+conn = psycopg2.connect(DATABASE, sslmode='require')
 
 SCHEDULE_MONDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_TUESDAY_DAYOFF = 'ПАР НЕТ'
