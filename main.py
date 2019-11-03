@@ -499,7 +499,7 @@ def schedule_message(message):
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-	msg = message.text.lower().split()
+	msg = message.text.lower()
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
@@ -531,12 +531,13 @@ def predefined_messages(message):
 	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
 	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
-	if ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg) and not ('понедельник' in msg and 'вторник' in msg and 'среда' in msg and 'четверг' in msg and 'пятница' in msg and 'суббота' in msg and 'воскресенье' in msg and 'среду' in msg and 'пятницу' in msg and 'субботу' in msg and 'пн' in msg and 'вт' in msg and 'ср' in msg and 'чт' in msg and 'пт' in msg and 'сб' in msg and 'вс' in msg):
-		weekdays_condition = 'ok'
-	elif ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
-		weekdays_condition = 'ok'
+	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) and not (0 < weekdays_matches < 2 and 0 < weekdays_sp_matches < 2 and 0 < weekdays_sh_matches < 2)
+		weekdays_status = 'ok'
 	else:
-		weekdays_condition = 'not ok'
+		weekdays_status = 'not ok'
+
+	if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
+		weekdays_status = 'ok'
 
 	if uid in first_group.keys() or uid in second_group.keys():
 		if any(words in msg for words in week_tuple):
@@ -733,7 +734,7 @@ def predefined_messages(message):
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 						elif date_weekday + 1 == 6:
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-				elif weekdays_condition == 'ok' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+				elif weekdays_status == 'ok' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 					if uid in first_group.keys():
 						if 'понедельник' in msg or 'пн' in msg:
 							if uid in first_group_eng.keys():
@@ -1303,7 +1304,7 @@ def predefined_messages(message):
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 						elif date_weekday + 1 == 6:
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-				elif weekdays_condition == 'ok' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+				elif weekdays_status == 'ok' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 					if uid in first_group.keys():
 						if 'понедельник' in msg or 'пн' in msg:
 							if uid in first_group_eng.keys():
