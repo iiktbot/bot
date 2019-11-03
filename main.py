@@ -567,7 +567,7 @@ def predefined_messages(message):
 				contradiction = 'yes'
 		elif 'понедельник' not in msg and 'вторник' not in msg and 'среда' not in msg and 'среду' not in msg and 'четверг' not in msg and 'суббота' not in msg and 'субботу' not in msg and 'воскресенье' not in msg:
 			if 'пятница' in msg or 'пятницу' in msg:
-				if 1 < weekdays_sh_matches < 3:
+				if 0 < weekdays_sh_matches < 2:
 					contradiction = 'no'
 				else:
 					contradiction = 'yes'
@@ -578,7 +578,7 @@ def predefined_messages(message):
 					contradiction = 'yes'
 		elif 'понедельник' not in msg and 'вторник' not in msg and 'среда' not in msg and 'среду' not in msg and 'четверг' not in msg and 'пятница' not in msg and 'пятницу' not in msg and 'воскресенье' not in msg:
 			if 'суббота' in msg or 'субботу' in msg:
-				if 1 < weekdays_sh_matches < 3:
+				if 0 < weekdays_sh_matches < 2:
 					contradiction = 'no'
 				else:
 					contradiction = 'yes'
