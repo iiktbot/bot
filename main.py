@@ -302,6 +302,7 @@ def classes_message(message):
         student_name = second_group[uid].split(' ', 1)[0] + ', '
     else:
         student_name = ''
+        student_group = ''
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
@@ -516,6 +517,7 @@ def predefined_messages(message):
         student_name = second_group[uid].split(' ', 1)[0] + ', '
     else:
         student_name = ''
+        student_group = ''
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
