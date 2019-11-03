@@ -536,7 +536,7 @@ def predefined_messages(message):
 	else:
 		weekdays_sp_condition = 'not ok'
 
-	if ((0 < weekdays_matches < 2 and weekdays_sp_matches == 0 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and 0 < weekdays_sp_matches < 2 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and weekdays_sp_matches == 0 and 0 < weekdays_sh_matches < 2)) or weekdays_sp_condition == 'ok':
+	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) or weekdays_sp_condition == 'ok':
 		weekdays_condition = 'ok'
 	else:
 		weekdays_condition = 'not ok'
