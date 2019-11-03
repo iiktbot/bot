@@ -526,10 +526,10 @@ def predefined_messages(message):
 	saturday_template = student_def + '\n(' + saturday_tag + ')'
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
-	days_matches = sum(x in msg for x in days_tuple)
-	weekdays_matches = sum(x in msg for x in weekdays_tuple)
-	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
-	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
+	days_matches = sum(x in msg for x in days_tuple.split())
+	weekdays_matches = sum(x in msg for x in weekdays_tuple.split())
+	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple.split())
+	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple.split())
 
 	if ('понедельник' in msg and 'пн' in msg) or ('вторник' in msg and 'вт' in msg) or ('среда' in msg and 'ср' in msg) or ('среду' in msg and 'ср' in msg) or ('среда' in msg and 'среду' in msg) or ('среда' in msg and 'среду' in msg and 'ср' in msg) or ('четверг' in msg and 'чт' in msg) or ('пятница' in msg and 'пт' in msg) or ('пятницу' in msg and 'пт' in msg) or ('пятница' in msg and 'пятницу' in msg) or ('пятница' in msg and 'пятницу' in msg and 'пт' in msg) or ('суббота' in msg and 'сб' in msg) or ('субботу' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('суббота' in msg and 'субботу' in msg and 'сб' in msg) or ('воскресенье' in msg and 'вс' in msg):
 		weekdays_sp_condition = 'ok'
