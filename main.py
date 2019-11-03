@@ -263,7 +263,7 @@ tomorrow_tuple = 'сегодня','завтра'
 yesterday_tuple = 'сегодня','завтра'
 weekdays_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'
 weekdays_sp_tuple = 'среду', 'пятницу', 'субботу'
-weekdays_sh_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сь', 'вс'
+weekdays_sh_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
 exceptions_tuple = 'поза', 'после'
 commands_tuple = 'schedule', 'classes'#, 'meme'
 #messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple
@@ -537,7 +537,8 @@ def predefined_messages(message):
 		weekdays_sp_condition = 'ok'
 	else:
 		weekdays_sp_condition = 'not ok'
-	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) or weekdays_sp_condition == 'ok':
+
+	if ((0 < weekdays_matches < 2 and weekdays_sp_matches == 0 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and 0 < weekdays_sp_matches < 2 and weekdays_sh_matches == 0) or (weekdays_matches == 0 and weekdays_sp_matches == 0 and 0 < weekdays_sh_matches < 2)) or weekdays_sp_condition == 'ok':
 		weekdays_condition = 'ok'
 	else:
 		weekdays_condition = 'not ok'
