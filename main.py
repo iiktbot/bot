@@ -572,7 +572,7 @@ def predefined_messages(message):
 				else:
 					contradiction = 'yes'
 			if 'пятница' in msg and 'пятницу' in msg:
-				if 2 < weekdays_sh_matches < 4:
+				if 0 < weekdays_sh_matches < 2:
 					contradiction = 'no'
 				else:
 					contradiction = 'yes'
@@ -583,7 +583,7 @@ def predefined_messages(message):
 				else:
 					contradiction = 'yes'
 			if 'суббота' in msg and 'субботу' in msg:
-				if 2 < weekdays_sh_matches < 4:
+				if 0 < weekdays_sh_matches < 2:
 					contradiction = 'no'
 				else:
 					contradiction = 'yes'
