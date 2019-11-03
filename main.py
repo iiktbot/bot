@@ -297,10 +297,10 @@ def classes_message(message):
     
     if uid in first_group.keys():
         student_group = 'первая группа'
-        student_name = first_group[uid] + ', '
+        student_name = first_group[uid].split(' ', 1)[0] + ', '
     elif uid in second_group.keys():
         student_group = 'вторая группа'
-        student_name = second_group[uid] + ', '
+        student_name = second_group[uid].split(' ', 1)[0] + ', '
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
@@ -509,10 +509,10 @@ def predefined_messages(message):
     
     if uid in first_group.keys():
         student_group = 'первая группа'
-        student_name = first_group[uid] + ', '
+        student_name = first_group[uid].split(' ', 1)[0] + ', '
     elif uid in second_group.keys():
         student_group = 'вторая группа'
-        student_name = second_group[uid] + ', '
+        student_name = second_group[uid].split(' ', 1)[0] + ', '
 
     student_def = student_name + student_group
     today_template = student_def + '\n(' + today_tag + ')'
