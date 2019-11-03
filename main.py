@@ -531,7 +531,7 @@ def predefined_messages(message):
 	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
 	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
-    contradiction = 'no'
+	contradiction = 'no'
 
 	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) and not (0 < weekdays_matches < 2 and 0 < weekdays_sp_matches < 2 and 0 < weekdays_sh_matches < 2):
 		contradiction = 'no'
