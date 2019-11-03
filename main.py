@@ -533,7 +533,7 @@ def predefined_messages(message):
 
 	contradiction = 'no'
 
-	if 0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2:
+	if (0 < weekdays_matches < 2 or 0 < weekdays_sp_matches < 2 or 0 < weekdays_sh_matches < 2) and not (0 < weekdays_matches < 2 and 0 < weekdays_sp_matches < 2 and 0 < weekdays_sh_matches < 2):
 		contradiction = 'no'
 	else:
 		contradiction = 'yes'
