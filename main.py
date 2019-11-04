@@ -265,7 +265,7 @@ exceptions_tuple = ['поза', 'после']
 commands_tuple = ['schedule', 'classes']#, 'meme']
 messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple]
 
-typing_time = float(f'{random.uniform(0.2, 0.8):.1f}')
+typing_time = float(f'{random.uniform(0.1, 0.5):.1f}')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -2978,6 +2978,7 @@ def predefined_stickers(message):
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
+			time.sleep(typing_time)
 			bot.send_sticker(cid, sid)
 
 @app.route('/'+ TOKEN, methods=['POST'])
