@@ -551,7 +551,7 @@ def predefined_messages(message):
 
 	first_class_request_match = 'yes'
 
-	if ((('когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg)) or ('на' in msg and 'который' in msg and 'час' in msg)) and ('пары' in msg or 'пару' in msg or 'идти' in msg or 'приходить' in msg or 'уни' in msg)) or (('на 8' in msg and 'пары' in msg and '?' in msg) or ('на 10' in msg and 'пары' in msg and '?' in msg) or ('на 11' in msg and 'пары' in msg and '?' in msg) or ('на 13' in msg and 'пары' in msg and '?' in msg) or ('на 14' in msg and 'пары' in msg and '?' in msg)):
+	if ('когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg) or ('на' in msg and 'который' in msg and 'час' in msg)) or (('на 8' in msg and 'пары' in msg and '?' in msg) or ('на 10' in msg and 'пары' in msg and '?' in msg) or ('на 11' in msg and 'пары' in msg and '?' in msg) or ('на 13' in msg and 'пары' in msg and '?' in msg) or ('на 14' in msg and 'пары' in msg and '?' in msg)):
 		first_class_request_match = 'yes'
 	else:
 		first_class_request_match = 'no'
