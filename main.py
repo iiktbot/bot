@@ -498,7 +498,8 @@ def schedule_message(message):
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-	msg = message.text.lower().split()
+	msg = message.text.lower()
+	msw = msg.split()
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
@@ -531,17 +532,17 @@ def predefined_messages(message):
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in msw for words in weekdays_tuple) and not any(words in msw for words in days_tuple) and not any(words in msw for words in exceptions_tuple):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
-	if 0 < days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+	if 0 < days_matches < 2 and not any(words in msw for words in weekdays_tuple) and not any(words in msw for words in exceptions_tuple):
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
 
-	if not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in msw for words in days_tuple) and not any(words in msw for words in exceptions_tuple):
 		if (('понедельник' in msg or 'пн' in msg) or ('понедельник' in msg and 'пн' in msg)) and not (('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
 			week_condition = 'ok'
 		elif (('вторник' in msg or 'вт' in msg) or ('вторник' in msg and 'вт' in msg)) and not (('понедельник' in msg or 'пн' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
@@ -562,14 +563,14 @@ def predefined_messages(message):
 		week_condition = 'not ok'
 
 	if uid in first_group.keys() or uid in second_group.keys():
-		if any(words in msg for words in week_tuple):
+		if any(words in msw for words in week_tuple):
 			if uid in first_group.keys() or uid in second_group.keys():
 				bot.send_message(cid, current_week_template, reply_to_message_id=mid)
 		if weekorder == True:
-			if any(words in msg for words in day_tuple):
+			if any(words in msw for words in day_tuple):
 				if uid in first_group.keys() or uid in second_group.keys():
 					bot.send_message(cid, light_week_template, reply_to_message_id=mid)
-			if any(words in msg for words in classes_tuple):
+			if any(words in msw for words in classes_tuple):
 				if time_condition == 'ok':
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
@@ -1181,10 +1182,10 @@ def predefined_messages(message):
 							else:
 								bot.send_message(cid, sunday_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY[0:5], reply_to_message_id=mid)
 		elif weekorder == False:
-			if any(words in msg for words in day_tuple):
+			if any(words in msw for words in day_tuple):
 				if uid in first_group.keys() or uid in second_group.keys():
 					bot.send_message(cid, dark_week_template, reply_to_message_id=mid)
-			if any(words in msg for words in classes_tuple):
+			if any(words in msw for words in classes_tuple):
 				if time_condition == 'ok':
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
