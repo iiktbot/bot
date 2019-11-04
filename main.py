@@ -688,11 +688,8 @@ def predefined_messages(message):
 	else:
 		time_condition = 'not ok'
 
-	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
-		if 0 < days_matches < 2:
-			days_condition = 'ok'
-		else:
-			days_condition = 'not ok'
+	if 0 < days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
 
@@ -1145,7 +1142,7 @@ def predefined_messages(message):
 							bot.send_chat_action(cid, 'typing')
 							time.sleep(typing_time)
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-			elif (('когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg) or ('на' in msg and 'который' in msg and 'час' in msg)) and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'уни' in msg)) or ('на 8' in msg or 'на 10' in msg or 'на 11' in msg or 'на 13' in msg or 'на 14' in msg):
+			elif ('на 8' in msg or 'на 10' in msg or 'на 11' in msg or 'на 13' in msg or 'на 14' in msg):
 				if time_condition == 'ok':
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
@@ -2242,7 +2239,7 @@ def predefined_messages(message):
 							bot.send_chat_action(cid, 'typing')
 							time.sleep(typing_time)
 							bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-			elif (('когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg) or ('на' in msg and 'который' in msg and 'час' in msg)) and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'уни' in msg)) or ('на 8' in msg or 'на 10' in msg or 'на 11' in msg or 'на 13' in msg or 'на 14' in msg):
+			elif ('на 8' in msg or 'на 10' in msg or 'на 11' in msg or 'на 13' in msg or 'на 14' in msg):
 				if time_condition == 'ok':
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
