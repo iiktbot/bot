@@ -502,7 +502,7 @@ def schedule_message(message):
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-	msg = message.text.lower().split()
+	msg = message.text.lower()
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
@@ -556,7 +556,7 @@ def predefined_messages(message):
 
 	first_class_request_match = 'yes'
 
-	if (('когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg) or ('на' in msg and 'который' in msg and 'час' in msg)) and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg)) or (('на 8' in msg and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg)) or ('на 10' in msg and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg)) or ('на 11' in msg and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg)) or ('на 13' in msg and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg)) or ('на 14' in msg and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg))):
+	if ((('когда' in msg or (('на' in msg or 'во' in msg) and 'сколько' in msg) or ('на' in msg and 'который' in msg and 'час' in msg)) and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg))) or (('на 8' in msg or 'на 10' in msg or 'на 11' in msg or 'на 13' in msg or 'на 14' in msg) and ('пары' in msg or 'пара' in msg or 'идти' in msg or 'приходить' in msg or 'в уни' in msg)):
 		first_class_request_match = 'yes'
 	else:
 		first_class_request_match = 'no'
