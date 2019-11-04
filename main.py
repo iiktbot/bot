@@ -972,7 +972,7 @@ def predefined_messages(message):
 									bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 								else:
 									bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-				elif days_condition == 'ok'
+				elif days_condition == 'ok':
 					elif 'сегодня' in msg:
 						if uid in first_group.keys():
 							if date_weekday == 0:
@@ -1587,7 +1587,7 @@ def predefined_messages(message):
 									bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 								else:
 									bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-				elif days_condition == 'ok'
+				elif days_condition == 'ok':
 					elif 'сегодня' in msg:
 						if uid in first_group.keys():
 							if date_weekday == 0:
