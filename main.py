@@ -498,8 +498,7 @@ def schedule_message(message):
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-	msg = message.text.lower()
-	msw = msg.split()
+	msg = message.text.lower().split()
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
@@ -532,12 +531,12 @@ def predefined_messages(message):
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	if not any(words in msw for words in weekdays_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
-	if 0 < days_matches < 2 and not any(words in msw for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+	if 0 < days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
