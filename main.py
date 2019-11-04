@@ -279,7 +279,7 @@ def start_message(message):
 		student_name = ''
 
 	if mct == 'private':
-		typing_time = f'{random.uniform(1, 2.5):.1f}'
+		typing_time = int(f'{random.uniform(1, 2):.1f}')
 		
 		if uid in first_group.keys() or uid in second_group.keys():
 			time.sleep(typing_time)
@@ -294,7 +294,7 @@ def classes_message(message):
 	mct = message.chat.type
 	
 	if mct == 'private':
-		typing_time = f'{random.uniform(1, 2.5):.1f}'
+		typing_time = int(f'{random.uniform(1, 2):.1f}')
 	else:
 		typing_time = 0
 
@@ -534,7 +534,7 @@ def schedule_message(message):
 	mct = message.chat.type
 
 	if mct == 'private':
-		typing_time = f'{random.uniform(1, 2.5):.1f}'
+		typing_time = int(f'{random.uniform(1, 2):.1f}')
 	else:
 		typing_time = 0
 
@@ -583,7 +583,7 @@ def schedule_message(message):
 #	mct = message.chat.type
 #
 #	if mct == 'private':
-#		typing_time = f'{random.uniform(1, 2.5):.1f}'
+#		typing_time = int(f'{random.uniform(1, 2):.1f}')
 #	else:
 #		typing_time = 0
 #
@@ -601,7 +601,7 @@ def predefined_messages(message):
 	mct = message.chat.type
 	
 	if mct == 'private':
-		typing_time = f'{random.uniform(1, 2.5):.1f}'
+		typing_time = int(f'{random.uniform(1, 2):.1f}')
 	else:
 		typing_time = 0
 
@@ -2391,7 +2391,7 @@ def predefined_stickers(message):
 	mct = message.chat.type
 
 	if mct == 'private':
-		typing_time = f'{random.uniform(1, 2.5):.1f}'
+		typing_time = int(f'{random.uniform(1, 2):.1f}')
 	else:
 		typing_time = 0
 
