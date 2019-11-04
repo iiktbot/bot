@@ -258,10 +258,12 @@ classes_tuple = ['пары', 'парам', 'расписание', 'распис
 day_tuple = ['какой день', 'какой сейчас день', 'какой сегодня день']
 week_tuple = ['какая неделя', 'какая сейчас неделя', 'какая сегодня неделя']
 days_tuple = ['сегодня', 'вчера', 'завтра']
-weekdays_tuple = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
+weekdays_tuple = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье']
+weekdays_sp_tuple = ['среду', 'пятницу', 'субботу']
+weekdays_sh_tuple = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
 exceptions_tuple = ['поза', 'после']
 commands_tuple = ['schedule', 'classes']#, 'meme']
-messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + exceptions_tuple + commands_tuple]
+messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple]
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -532,12 +534,12 @@ def predefined_messages(message):
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in weekdays_sp_tuple) and not any(words in mws for words in weekdays_sh_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
-	if 0 < days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+	if 0 < days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in weekdays_sp_tuple) and not any(words in mws for words in weekdays_sh_tuple) and not any(words in msg for words in exceptions_tuple):
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
@@ -647,7 +649,7 @@ def predefined_messages(message):
 							elif date_weekday + 1 == 6:
 								bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 				elif days_condition == 'ok':
-					if 'сегодня' in mws:
+					if 'сегодня' in msg:
 						if uid in first_group.keys():
 							if date_weekday == 0:
 								if uid in first_group_eng.keys():
@@ -684,7 +686,7 @@ def predefined_messages(message):
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 							elif date_weekday == 6:
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-					elif 'вчера' in mws:
+					elif 'вчера' in msg:
 						if uid in first_group.keys():
 							if date_weekday - 1 == 0:
 								if uid in first_group_eng.keys():
@@ -721,7 +723,7 @@ def predefined_messages(message):
 								bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 							elif date_weekday - 1 == 6:
 								bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-					elif 'завтра' in mws:
+					elif 'завтра' in msg:
 						if uid in first_group.keys():
 							if date_weekday + 1 == 7:
 								if uid in first_group_eng.keys():
@@ -968,7 +970,7 @@ def predefined_messages(message):
 								else:
 									bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
 				elif days_condition == 'ok':
-					if 'сегодня' in mws:
+					if 'сегодня' in msg:
 						if uid in first_group.keys():
 							if date_weekday == 0:
 								if CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
@@ -1053,7 +1055,7 @@ def predefined_messages(message):
 									bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 								else:
 									bot.send_message(cid, today_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-					elif 'завтра' in mws:
+					elif 'завтра' in msg:
 						if uid in first_group.keys():
 							if date_weekday + 1 == 7:
 								if CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
@@ -1262,7 +1264,7 @@ def predefined_messages(message):
 							elif date_weekday + 1 == 6:
 								bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 				elif days_condition == 'ok':
-					if 'сегодня' in mws:
+					if 'сегодня' in msg:
 						if uid in first_group.keys():
 							if date_weekday == 0:
 								if uid in first_group_eng.keys():
@@ -1299,7 +1301,7 @@ def predefined_messages(message):
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 							elif date_weekday == 6:
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-					elif 'вчера' in mws:
+					elif 'вчера' in msg:
 						if uid in first_group.keys():
 							if date_weekday - 1 == 0:
 								if uid in first_group_eng.keys():
@@ -1336,7 +1338,7 @@ def predefined_messages(message):
 								bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 							elif date_weekday - 1 == 6:
 								bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-					elif 'завтра' in mws:
+					elif 'завтра' in msg:
 						if uid in first_group.keys():
 							if date_weekday + 1 == 7:
 								if uid in first_group_eng.keys():
@@ -1583,7 +1585,7 @@ def predefined_messages(message):
 								else:
 									bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
 				elif days_condition == 'ok':
-					if 'сегодня' in mws:
+					if 'сегодня' in msg:
 						if uid in first_group.keys():
 							if date_weekday == 0:
 								if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
@@ -1668,7 +1670,7 @@ def predefined_messages(message):
 									bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 								else:
 									bot.send_message(cid, today_template + first_class_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-					elif 'завтра' in mws:
+					elif 'завтра' in msg:
 						if uid in first_group.keys():
 							if date_weekday + 1 == 7:
 								if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
