@@ -529,11 +529,10 @@ def predefined_messages(message):
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
 	days_matches = sum(x in msg for x in days_tuple)
-	exceptions_matches = sum(x in msg for x in exceptions_tuple)
 
 	contradiction = 'no'
 
-	if not (days_matches > 0 or days_matches > 0):
+	if not any(words in msg for words in days_tuple):
 		contradiction = 'no'
 	elif (('понедельник' in msg or 'пн' in msg) or ('понедельник' in msg and 'пн' in msg)) and not (('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
 		contradiction = 'no'
