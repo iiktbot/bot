@@ -498,7 +498,8 @@ def schedule_message(message):
 
 @bot.message_handler(content_types=['text'])
 def predefined_messages(message):
-	msg = message.text.lower().split()
+	msg = message.text.lower()
+	mws = msg.split()
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
