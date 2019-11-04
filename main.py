@@ -463,6 +463,8 @@ def schedule_message(message):
 		student_group = 'первая группа'
 	elif uid in second_group.keys():
 		student_group = 'вторая группа'
+	else:
+		student_group = ''
 
 	if weekorder == True:
 		if uid in first_group.keys():
