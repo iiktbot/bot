@@ -683,7 +683,7 @@ def predefined_messages(message):
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 							elif date_weekday == 6:
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-					elif 'вчера' in msg 0 < days_matches < 2:
+					elif 'вчера' in msg and 0 < days_matches < 2:
 						if uid in first_group.keys():
 							if date_weekday - 1 == 0:
 								if uid in first_group_eng.keys():
@@ -1298,7 +1298,7 @@ def predefined_messages(message):
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 							elif date_weekday == 6:
 								bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-					elif 'вчера' in msg 0 < days_matches < 2:
+					elif 'вчера' in msg and 0 < days_matches < 2:
 						if uid in first_group.keys():
 							if date_weekday - 1 == 0:
 								if uid in first_group_eng.keys():
