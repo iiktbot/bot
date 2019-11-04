@@ -258,12 +258,10 @@ classes_tuple = ['пары', 'парам', 'расписание', 'распис
 day_tuple = ['какой день', 'какой сейчас день', 'какой сегодня день']
 week_tuple = ['какая неделя', 'какая сейчас неделя', 'какая сегодня неделя']
 days_tuple = ['сегодня', 'вчера', 'завтра']
-weekdays_tuple = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье']
-weekdays_sp_tuple = ['среду', 'пятницу', 'субботу']
-weekdays_sh_tuple = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
+weekdays_tuple = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
 exceptions_tuple = ['поза', 'после']
 commands_tuple = ['schedule', 'classes']#, 'meme']
-messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple]
+messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + exceptions_tuple + commands_tuple]
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -534,12 +532,12 @@ def predefined_messages(message):
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in weekdays_sp_tuple) and not any(words in mws for words in weekdays_sh_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
-	if 0 < days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in weekdays_sp_tuple) and not any(words in mws for words in weekdays_sh_tuple) and not any(words in msg for words in exceptions_tuple):
+	if 0 < days_matches < 2 and not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
