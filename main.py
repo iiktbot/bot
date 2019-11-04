@@ -532,9 +532,7 @@ def predefined_messages(message):
 
 	contradiction = 'no'
 
-	if not any(words in msg for words in days_tuple):
-		contradiction = 'no'
-	elif (('понедельник' in msg or 'пн' in msg) or ('понедельник' in msg and 'пн' in msg)) and not (('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
+	if (('понедельник' in msg or 'пн' in msg) or ('понедельник' in msg and 'пн' in msg)) and not (('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
 		contradiction = 'no'
 	elif (('вторник' in msg or 'вт' in msg) or ('вторник' in msg and 'вт' in msg)) and not (('понедельник' in msg or 'пн' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
 		contradiction = 'no'
@@ -753,7 +751,7 @@ def predefined_messages(message):
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 						elif date_weekday + 1 == 6:
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-				elif contradiction == 'no':
+				elif contradiction == 'no' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 					if uid in first_group.keys():
 						if 'понедельник' in msg or 'пн' in msg:
 							if uid in first_group_eng.keys():
@@ -1132,7 +1130,7 @@ def predefined_messages(message):
 								bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 							else:
 								bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-				elif contradiction == 'no':
+				elif contradiction == 'no' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 					if uid in first_group.keys():
 						if 'понедельник' in msg or 'пн' in msg:
 							if CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
@@ -1385,7 +1383,7 @@ def predefined_messages(message):
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid)
 						elif date_weekday + 1 == 6:
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
-				elif contradiction == 'no':
+				elif contradiction == 'no' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 					if uid in first_group.keys():
 						if 'понедельник' in msg or 'пн' in msg:
 							if uid in first_group_eng.keys():
@@ -1764,7 +1762,7 @@ def predefined_messages(message):
 								bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 							else:
 								bot.send_message(cid, tomorrow_template + first_class_template + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY[0:5], reply_to_message_id=mid)
-				elif contradiction == 'no':
+				elif contradiction == 'no' and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
 					if uid in first_group.keys():
 						if 'понедельник' in msg or 'пн' in msg:
 							if CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF or CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY == SCHEDULE_MONDAY_DAYOFF:
