@@ -527,9 +527,6 @@ def predefined_messages(message):
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
 	days_matches = sum(x in msg for x in days_tuple)
-	weekdays_matches = sum(x in msg for x in weekdays_tuple)
-	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_tuple)
-	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_tuple)
 
 	contradiction = 'no'
 
