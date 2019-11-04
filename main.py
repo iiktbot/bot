@@ -526,36 +526,36 @@ def predefined_messages(message):
 	saturday_template = student_def + '\n(' + saturday_tag + ')'
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
-	days_matches = sum(x in msg for x in days_tuple)
+	days_matches = sum(x in mws for x in days_tuple)
 
 	time_condition = 'ok'
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	if not any(words in mws for words in weekdays_tuple) and not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in mws for words in weekdays_tuple) and not any(words in mws for words in days_tuple) and not any(words in mws for words in exceptions_tuple):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
-	if 0 < days_matches < 2 and not any(words in mws for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+	if 0 < days_matches < 2 and not any(words in mws for words in weekdays_tuple) and not any(words in mws for words in exceptions_tuple):
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
 
-	if not any(words in msg for words in days_tuple) and not any(words in msg for words in exceptions_tuple):
-		if (('понедельник' in msg or 'пн' in msg) or ('понедельник' in msg and 'пн' in msg)) and not (('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
+	if not any(words in mws for words in days_tuple) and not any(words in mws for words in exceptions_tuple):
+		if (('понедельник' in mws or 'пн' in mws) or ('понедельник' in mws and 'пн' in mws)) and not (('вторник' in mws or 'вт' in mws) or ('среда' in mws or 'ср' in mws or 'среду' in mws) or ('четверг' in mws or 'чт' in mws) or ('пятница' in mws or 'пт' in mws or 'пятницу' in mws) or ('суббота' in mws or 'сб' in mws or 'субботу' in mws) or ('воскресенье' in mws or 'вс' in mws)):
 			week_condition = 'ok'
-		elif (('вторник' in msg or 'вт' in msg) or ('вторник' in msg and 'вт' in msg)) and not (('понедельник' in msg or 'пн' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
+		elif (('вторник' in mws or 'вт' in mws) or ('вторник' in mws and 'вт' in mws)) and not (('понедельник' in mws or 'пн' in mws) or ('среда' in mws or 'ср' in mws or 'среду' in mws) or ('четверг' in mws or 'чт' in mws) or ('пятница' in mws or 'пт' in mws or 'пятницу' in mws) or ('суббота' in mws or 'сб' in mws or 'субботу' in mws) or ('воскресенье' in mws or 'вс' in mws)):
 			week_condition = 'ok'
-		elif (('среда' in msg or 'ср' in msg or 'среду' in msg) or ('среда' in msg and 'ср') or ('среда' in msg and 'среду') or ('среду' in msg and 'ср')) and not (('понедельник' in msg or 'пн' in msg) or ('вторник' in msg or 'вт' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
+		elif (('среда' in mws or 'ср' in mws or 'среду' in mws) or ('среда' in mws and 'ср') or ('среда' in mws and 'среду') or ('среду' in mws and 'ср')) and not (('понедельник' in mws or 'пн' in mws) or ('вторник' in mws or 'вт' in mws) or ('четверг' in mws or 'чт' in mws) or ('пятница' in mws or 'пт' in mws or 'пятницу' in mws) or ('суббота' in mws or 'сб' in mws or 'субботу' in mws) or ('воскресенье' in mws or 'вс' in mws)):
 			week_condition = 'ok'
-		elif (('четверг' in msg or 'чт' in msg) or ('четверг' in msg and 'чт' in msg)) and not (('понедельник' in msg or 'пн' in msg) or ('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
+		elif (('четверг' in mws or 'чт' in mws) or ('четверг' in mws and 'чт' in mws)) and not (('понедельник' in mws or 'пн' in mws) or ('вторник' in mws or 'вт' in mws) or ('среда' in mws or 'ср' in mws or 'среду' in mws) or ('пятница' in mws or 'пт' in mws or 'пятницу' in mws) or ('суббота' in mws or 'сб' in mws or 'субботу' in mws) or ('воскресенье' in mws or 'вс' in mws)):
 			week_condition = 'ok'
-		elif (('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('пятница' in msg and 'пт') or ('пятница' in msg and 'пятницу') or ('пятницу' in msg and 'пт')) and not (('понедельник' in msg or 'пн' in msg) or ('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
+		elif (('пятница' in mws or 'пт' in mws or 'пятницу' in mws) or ('пятница' in mws and 'пт') or ('пятница' in mws and 'пятницу') or ('пятницу' in mws and 'пт')) and not (('понедельник' in mws or 'пн' in mws) or ('вторник' in mws or 'вт' in mws) or ('среда' in mws or 'ср' in mws or 'среду' in mws) or ('четверг' in mws or 'чт' in mws) or ('суббота' in mws or 'сб' in mws or 'субботу' in mws) or ('воскресенье' in mws or 'вс' in mws)):
 			week_condition = 'ok'
-		elif (('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('суббота' in msg and 'сб' in msg) or ('суббота' in msg and 'субботу' in msg) or ('субботу' in msg and 'сб' in msg)) and not (('понедельник' in msg or 'пн' in msg) or ('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
+		elif (('суббота' in mws or 'сб' in mws or 'субботу' in mws) or ('суббота' in mws and 'сб' in mws) or ('суббота' in mws and 'субботу' in mws) or ('субботу' in mws and 'сб' in mws)) and not (('понедельник' in mws or 'пн' in mws) or ('вторник' in mws or 'вт' in mws) or ('среда' in mws or 'ср' in mws or 'среду' in mws) or ('четверг' in mws or 'чт' in mws) or ('пятница' in mws or 'пт' in mws or 'пятницу' in mws) or ('воскресенье' in mws or 'вс' in mws)):
 			week_condition = 'ok'
-		elif (('воскресенье' in msg or 'вс' in msg) or ('воскресенье' in msg and 'вс' in msg)) and not (('понедельник' in msg or 'пн' in msg) or ('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg)):
+		elif (('воскресенье' in mws or 'вс' in mws) or ('воскресенье' in mws and 'вс' in mws)) and not (('понедельник' in mws or 'пн' in mws) or ('вторник' in mws or 'вт' in mws) or ('среда' in mws or 'ср' in mws or 'среду' in mws) or ('четверг' in mws or 'чт' in mws) or ('пятница' in mws or 'пт' in mws or 'пятницу' in mws) or ('суббота' in mws or 'сб' in mws or 'субботу' in mws)):
 			week_condition = 'ok'
 		else:
 			week_condition = 'not ok'
