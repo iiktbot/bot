@@ -254,17 +254,17 @@ friday_tag = 'пятница / ' + date_friday_format
 saturday_tag = 'суббота / ' + date_saturday_format
 sunday_tag = 'воскресенье / ' + date_sunday_format
 
-classes_tuple = ['пары', 'парам', 'расписание', 'расписанию', 'предметы', 'предметам']
-day_tuple = ['какой день', 'какой сейчас день', 'какой сегодня день']
-week_tuple = ['какая неделя', 'какая сейчас неделя', 'какая сегодня неделя']
-days_tuple = ['сегодня', 'вчера', 'завтра']
-weekdays_usual_tuple = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
-weekdays_special_tuple = ['среду', 'пятницу', 'субботу']
-weekdays_short_tuple = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
+classes_tuple = 'пары', 'парам', 'расписание', 'расписанию', 'предметы', 'предметам'
+day_tuple = 'какой день', 'какой сейчас день', 'какой сегодня день'
+week_tuple = 'какая неделя', 'какая сейчас неделя', 'какая сегодня неделя'
+days_tuple = 'сегодня', 'вчера', 'завтра'
+weekdays_usual_tuple = 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
+weekdays_special_tuple = 'среду', 'пятницу', 'субботу'
+weekdays_short_tuple = 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'
 weekdays_all_tuple = weekdays_usual_tuple + weekdays_special_tuple + weekdays_short_tuple
-exceptions_tuple = ['поза', 'после']
-commands_tuple = ['schedule', 'classes']#, 'meme']
-messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_all_tuple + exceptions_tuple + commands_tuple]
+exceptions_tuple = 'поза', 'после'
+commands_tuple = 'schedule', 'classes'#, 'meme'
+messages_tuple = classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_all_tuple + exceptions_tuple + commands_tuple
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
