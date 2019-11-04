@@ -265,7 +265,7 @@ exceptions_tuple = ['поза', 'после']
 commands_tuple = ['schedule', 'classes']#, 'meme']
 messages_tuple = [classes_tuple + day_tuple + week_tuple + days_tuple + weekdays_tuple + weekdays_sp_tuple + weekdays_sh_tuple + exceptions_tuple + commands_tuple]
 
-typing_time = float(f'{random.uniform(1, 2):.1f}')
+typing_time = float(f'{random.uniform(0.2, 0.8):.1f}')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -281,8 +281,6 @@ def start_message(message):
 		student_name = ''
 
 	if mct == 'private':
-		typing_time = float(f'{random.uniform(1, 2):.1f}')
-
 		if uid in first_group.keys() or uid in second_group.keys():
 			bot.send_chat_action(cid, 'typing')
 			time.sleep(typing_time)
@@ -643,11 +641,6 @@ def schedule_message(message):
 #def meme_message(message):
 #	cid = message.chat.id
 #	uid = message.from_user.id
-#
-#	if mct == 'private':
-#		typing_time = float(f'{random.uniform(1, 2):.1f}')
-#	else:
-#		typing_time = 0
 #
 #	if uid in first_group.keys() or uid in second_group.keys():
 #		meme_url = str('https://t.me/otchislenno/' + str(random.randint(3, 280)))
