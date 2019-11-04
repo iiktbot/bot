@@ -72,7 +72,7 @@ CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
 first_group = {
-	405299021: 'Виталий',
+	123123123: 'Виталий',
 	393708492: 'Юля',
 	416924459: 'Андрей',
 	613759219: 'Влад',
@@ -99,7 +99,7 @@ second_group = {
 	780853105: 'Денис'
 }
 first_group_eng = {
-	405299021: 'Виталий',
+	123123123: 'Виталий',
 	643705130: 'Влад',
 	416924459: 'Андрей',
 	542413243: 'Денис',
