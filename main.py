@@ -570,7 +570,7 @@ def predefined_messages(message):
 				if uid in first_group.keys() or uid in second_group.keys():
 					bot.send_message(cid, light_week_template, reply_to_message_id=mid)
 			if any(words in msg for words in classes_tuple):
-				if days_matches == 0 weekdays_all_matches == 0 and exceptions_matches == 0:
+				if days_matches == 0 and weekdays_all_matches == 0 and exceptions_matches == 0:
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
 							if date_weekday == 0:
@@ -1202,7 +1202,7 @@ def predefined_messages(message):
 				if uid in first_group.keys() or uid in second_group.keys():
 					bot.send_message(cid, dark_week_template, reply_to_message_id=mid)
 			if any(words in msg for words in classes_tuple):
-				if days_matches == 0 weekdays_all_matches == 0 and exceptions_matches == 0:
+				if days_matches == 0 and weekdays_all_matches == 0 and exceptions_matches == 0:
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
 							if date_weekday == 0:
