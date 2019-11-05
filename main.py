@@ -15,8 +15,6 @@ bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app = Flask(__name__)
 
-date_weekday = 0
-
 SCHEDULE_MONDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_TUESDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_WEDNESDAY_DAYOFF = 'ПАР НЕТ'
@@ -130,7 +128,7 @@ second_group_eng = {
 
 date_today = datetime.date.today()
 date_week = date_today.isocalendar()[1]
-date_weekday = date_today.weekday()
+date_weekday = 0
 
 now = datetime.datetime.now()
 delta = datetime.timedelta(days=1)
