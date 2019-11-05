@@ -526,6 +526,7 @@ def predefined_messages(message):
 	sunday_template = student_def + '\n(' + sunday_tag + ')'
 
 	days_matches = sum(x in msg for x in days_tuple)
+	weekdays_matches = sum(x in msg for x in weekdays_tuple)
 
 	time_condition = 'ok'
 	days_condition = 'ok'
@@ -536,7 +537,9 @@ def predefined_messages(message):
 	else:
 		time_condition = 'not ok'
 
-	if not any(words in msg.split() for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in msg for words in weekdays_tuple) and 0 < days_matches < 2 and not any(words in msg for words in exceptions_tuple):
+		days_condition = 'ok'
+	elif 'завтра' in msg and 'вт' in msg:
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
