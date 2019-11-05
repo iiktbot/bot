@@ -571,6 +571,8 @@ def predefined_messages(message):
 			else:
 				days_condition = 'not ok'
 		elif 'завтра' in msg:
+			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
+				days_condition = 'ok'
 			if date_weekday == 0 and ('вторник' in msg or 'вт' in msg) and not ('понедельник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
 				days_condition = 'ok'
 			elif date_weekday == 1 and ('среда' in msg or 'ср' in msg or 'среду' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
