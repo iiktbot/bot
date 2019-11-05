@@ -557,8 +557,6 @@ def predefined_messages(message):
 	tomorrow_unnecessary_list = [word for word in weekdays_list if word not in tomorrow_list]
 	yesterday_unnecessary_list = [word for word in weekdays_list if word not in yesterday_list]
 
-	tomorrow_unnecessary_matches = sum(x in msg for x in tomorrow_unnecessary_list)
-
 	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		time_condition = 'ok'
 	else:
@@ -572,10 +570,8 @@ def predefined_messages(message):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
-		elif 'завтра' in msg:
-			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
-				days_condition = 'ok'
-			elif any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list):
+		if 'завтра' in msg:
+			if any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
