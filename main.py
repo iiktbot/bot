@@ -128,7 +128,7 @@ second_group_eng = {
 
 date_today = datetime.date.today()
 date_week = date_today.isocalendar()[1]
-date_weekday = 0
+date_weekday = date_today.weekday()
 
 now = datetime.datetime.now()
 delta = datetime.timedelta(days=1)
