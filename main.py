@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import flask, apiai, json, telebot, os, requests, urllib, datetime, time, random, psycopg2
+import flask, telebot, os, requests, datetime, time, random, psycopg2
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
@@ -207,7 +207,7 @@ if (date_week % 2) == 0:
 else:
 	weekorder = False
 	week = 'тёмная'
-
+date_weekday = 1
 if date_weekday == 0:
 	today = 'понедельник'
 	today_list = ['понедельник', 'пн']
