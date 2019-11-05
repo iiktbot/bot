@@ -15,6 +15,8 @@ bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app = Flask(__name__)
 
+date_weekday = 0
+
 SCHEDULE_MONDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_TUESDAY_DAYOFF = 'ПАР НЕТ'
 SCHEDULE_WEDNESDAY_DAYOFF = 'ПАР НЕТ'
@@ -208,7 +210,6 @@ else:
 	weekorder = False
 	week = 'тёмная'
 
-date_weekday = 0
 if date_weekday == 0:
 	today = 'понедельник'
 	today_list = ['понедельник', 'пн']
