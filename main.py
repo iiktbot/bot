@@ -570,7 +570,7 @@ def predefined_messages(message):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
-		if 'завтра' in msg:
+		elif 'завтра' in msg:
 			if any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list):
 				days_condition = 'ok'
 			else:
