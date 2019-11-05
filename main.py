@@ -207,7 +207,7 @@ if (date_week % 2) == 0:
 else:
 	weekorder = False
 	week = 'тёмная'
-date_weekday = 1
+date_weekday = 0
 if date_weekday == 0:
 	today = 'понедельник'
 	today_list = ['понедельник', 'пн']
