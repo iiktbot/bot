@@ -575,13 +575,8 @@ def predefined_messages(message):
 		elif 'завтра' in msg:
 			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
 				days_condition = 'ok'
-			elif any(word in msg for word in tomorrow_list):
-				if 'вт' in msg and 0 < tomorrow_unnecessary_matches < 2:
-					days_condition = 'ok'
-				elif not 'вт' in msg and not any(word in msg for word in tomorrow_unnecessary_list):
-					days_condition = 'ok'
-				else:
-					days_condition = 'not ok'
+			elif any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list) and msg.count('вт') >= 1:
+				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
 		elif 'вчера' in msg:
