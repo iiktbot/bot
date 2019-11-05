@@ -207,7 +207,7 @@ if (date_week % 2) == 0:
 else:
 	weekorder = False
 	week = 'тёмная'
-
+date_weekday = 0
 if date_weekday == 0:
 	today = 'понедельник'
 	today_list = ['понедельник', 'пн']
@@ -573,8 +573,15 @@ def predefined_messages(message):
 			else:
 				days_condition = 'not ok'
 		elif 'завтра' in msg:
-			if msg.count('вт') >= 1 and any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list):
+			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
 				days_condition = 'ok'
+			elif any(word in msg for word in tomorrow_list):
+				if msg.count('вт') == 1 and 0 < tomorrow_unnecessary_matches < 2:
+					days_condition = 'ok'
+				elif msg.count('вт') >= 2 and not any(word in msg for word in tomorrow_unnecessary_list):
+					days_condition = 'ok'
+				else:
+					days_condition = 'not ok'
 			else:
 				days_condition = 'not ok'
 		elif 'вчера' in msg:
