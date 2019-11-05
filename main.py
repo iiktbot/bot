@@ -553,9 +553,9 @@ def predefined_messages(message):
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	today_unnecessary_list = str([word for word in weekdays_list if word not in today_list])
-	tomorrow_unnecessary_list = str([word for word in weekdays_list if word not in tomorrow_list])
-	yesterday_unnecessary_list = str([word for word in weekdays_list if word not in yesterday_list])
+	today_unnecessary_list = [word for word in weekdays_list if word not in today_list]
+	tomorrow_unnecessary_list = [word for word in weekdays_list if word not in tomorrow_list]
+	yesterday_unnecessary_list = [word for word in weekdays_list if word not in yesterday_list]
 
 	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		time_condition = 'ok'
