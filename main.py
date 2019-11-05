@@ -282,7 +282,7 @@ days_list = ['сегодня', 'вчера', 'завтра']
 weekdays_list = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
 exceptions_list = ['поза', 'после']
 commands_list = ['schedule', 'classes']#, 'meme']
-messages_list = [classes_list + day_list + week_list + days_list + weekdays_list + exceptions_list + commands_list]
+messages_list = [*classes_list, *day_list, *week_list, *days_list, *weekdays_list, *exceptions_list, *commands_list]
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
