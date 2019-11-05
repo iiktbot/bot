@@ -608,6 +608,9 @@ def predefined_messages(message):
 		week_condition = 'not ok'
 
 	if uid in first_group.keys() or uid in second_group.keys():
+		if msg == '2174597210859'
+			bot.send_message(cid, tomorrow_list + ' ' + tomorrow_unnecessary_list, reply_to_message_id=mid)
+	if uid in first_group.keys() or uid in second_group.keys():
 		if any(word in msg for word in week_list):
 			if uid in first_group.keys() or uid in second_group.keys():
 				bot.send_message(cid, current_week_template, reply_to_message_id=mid)
