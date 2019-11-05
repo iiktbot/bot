@@ -537,9 +537,7 @@ def predefined_messages(message):
 	else:
 		time_condition = 'not ok'
 
-	if not any(words in msg for words in weekdays_tuple) and 0 < days_matches < 2 and not any(words in msg for words in exceptions_tuple):
-		days_condition = 'ok'
-	elif 'завтра' in msg and 'вт' in msg:
+	if 0 < days_matches < 2 and (not any(words in msg for words in weekdays_tuple) or ('вт' in msg and 0 < weekdays_matches < 2)) and not any(words in msg for words in exceptions_tuple):
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
