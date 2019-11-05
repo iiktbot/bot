@@ -208,6 +208,7 @@ else:
 	weekorder = False
 	week = 'тёмная'
 
+date_weekday = 0
 if date_weekday == 0:
 	today = 'понедельник'
 	today_list = ['понедельник', 'пн']
@@ -556,8 +557,6 @@ def predefined_messages(message):
 	today_unnecessary_list = [word for word in today_list if word not in weekdays_list]
 	tomorrow_unnecessary_list = [word for word in tomorrow_list if word not in weekdays_list]
 	yesterday_unnecessary_list = [word for word in yesterday_list if word not in weekdays_list]
-
-	tomorrow_unnecessary_matches = sum(x in msg for x in tomorrow_unnecessary_list)
 
 	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		time_condition = 'ok'
