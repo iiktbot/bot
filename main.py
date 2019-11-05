@@ -280,8 +280,6 @@ day_list = ['какой день', 'какой сейчас день', 'како
 week_list = ['какая неделя', 'какая сейчас неделя', 'какая сегодня неделя']
 days_list = ['сегодня', 'вчера', 'завтра']
 weekdays_list = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
-weekdays_sp_list = ['среду', 'пятницу', 'субботу']
-weekdays_sh_list = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
 exceptions_list = ['поза', 'после']
 commands_list = ['schedule', 'classes']#, 'meme']
 messages_list = [classes_list + day_list + week_list + days_list + weekdays_list + exceptions_list + commands_list]
@@ -550,51 +548,41 @@ def predefined_messages(message):
 
 	days_matches = sum(x in msg for x in days_list)
 	weekdays_matches = sum(x in msg for x in weekdays_list)
-	weekdays_sp_matches = sum(x in msg for x in weekdays_sp_list)
-	weekdays_sh_matches = sum(x in msg for x in weekdays_sh_list)
 
 	time_condition = 'ok'
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	today_unnecessary_weekdays_list = [word for word in weekdays_list if word not in today_list]
-	tomorrow_unnecessary_weekdays_list = [word for word in weekdays_list if word not in tomorrow_list]
-	yesterday_unnecessary_weekdays_list = [word for word in weekdays_list if word not in yesterday_list]
+	today_unnecessary_list = [word for word in today_list if word not in weekdays_list]
+	tomorrow_unnecessary_list = [word for word in tomorrow_list if word not in weekdays_list]
+	yesterday_unnecessary_list = [word for word in yesterday_list if word not in weekdays_list]
 
-	today_unnecessary_weekdays_sp_list = [word for word in weekdays_sp_list if word not in today_list]
-	tomorrow_unnecessary_weekdays_sp_list = [word for word in weekdays_sp_list if word not in tomorrow_list]
-	yesterday_unnecessary_weekdays_sp_list = [word for word in weekdays_sp_list if word not in yesterday_list]
+	tomorrow_unnecessary_matches = sum(x in msg for x in tomorrow_unnecessary_list)
 
-	today_unnecessary_weekdays_sh_list = [word for word in weekdays_sh_list if word not in today_list]
-	tomorrow_unnecessary_weekdays_sh_list = [word for word in weekdays_sh_list if word not in tomorrow_list]
-	yesterday_unnecessary_weekdays_sh_list = [word for word in weekdays_sh_list if word not in yesterday_list]
-
-	tomorrow_unnecessary_weekdays_sh_matches = sum(x in msg for x in tomorrow_unnecessary_weekdays_sh_list)
-
-	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in weekdays_sp_list) and not any(word in msg for word in weekdays_sh_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
+	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
 	if 0 < days_matches < 2 and not any(word in msg for word in exceptions_list):
 		if 'сегодня' in msg:
-			if not any(word in msg for word in weekdays_list) and not any(word in msg for word in weekdays_sp_list) and not any(word in msg for word in weekdays_sh_list):
+			if not any(word in msg for word in weekdays_list):
 				days_condition = 'ok'
-			elif any(word in msg for word in today_list) and not any(word in msg for word in today_unnecessary_weekdays_list) and not any(word in msg for word in today_unnecessary_weekdays_sp_list) and not any(word in msg for word in today_unnecessary_weekdays_sh_list):
+			elif any(word in msg for word in today_list) and not any(word in msg for word in today_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
 		elif 'завтра' in msg:
-			if not any(word in msg for word in weekdays_list) and not any(word in msg for word in weekdays_sp_list) and not any(word in msg for word in weekdays_sh_list):
+			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
 				days_condition = 'ok'
-			elif any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_weekdays_list) and not any(word in msg for word in tomorrow_unnecessary_weekdays_sp_list) and 0 < tomorrow_unnecessary_weekdays_sh_matches < 2:
+			elif any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
 		elif 'вчера' in msg:
-			if not any(word in msg for word in weekdays_list) and not any(word in msg for word in weekdays_sp_list) and not any(word in msg for word in weekdays_sh_list):
+			if not any(word in msg for word in weekdays_list):
 				days_condition = 'ok'
-			elif any(word in msg for word in yesterday_list) and not any(word in msg for word in yesterday_unnecessary_weekdays_list) and not any(word in msg for word in yesterday_unnecessary_weekdays_sp_list) and not any(word in msg for word in yesterday_unnecessary_weekdays_sh_list):
+			elif any(word in msg for word in yesterday_list) and not any(word in msg for word in yesterday_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
