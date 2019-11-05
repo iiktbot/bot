@@ -553,9 +553,9 @@ def predefined_messages(message):
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	today_unnecessary_list = [word for word in weekdays_list if word not in today_list]
-	tomorrow_unnecessary_list = [word for word in weekdays_list if word not in tomorrow_list]
-	yesterday_unnecessary_list = [word for word in weekdays_list if word not in yesterday_list]
+	today_unnecessary_list = str([word for word in weekdays_list if word not in today_list])
+	tomorrow_unnecessary_list = str([word for word in weekdays_list if word not in tomorrow_list])
+	yesterday_unnecessary_list = str([word for word in weekdays_list if word not in yesterday_list])
 
 	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		time_condition = 'ok'
@@ -608,7 +608,7 @@ def predefined_messages(message):
 		week_condition = 'not ok'
 
 	if uid in first_group.keys() or uid in second_group.keys():
-		if msg == '2174597210859'
+		if msg == '2174597210859':
 			bot.send_message(cid, tomorrow_list + ' ' + tomorrow_unnecessary_list, reply_to_message_id=mid)
 	if uid in first_group.keys() or uid in second_group.keys():
 		if any(word in msg for word in week_list):
