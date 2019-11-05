@@ -128,7 +128,7 @@ second_group_eng = {
 
 date_today = datetime.date.today()
 date_week = date_today.isocalendar()[1]
-date_weekday = 0
+date_weekday = date_today.weekday()
 
 now = datetime.datetime.now()
 delta = datetime.timedelta(days=1)
@@ -574,7 +574,10 @@ def predefined_messages(message):
 			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
 				days_condition = 'ok'
 			elif any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list):
-				days_condition = 'ok'
+				if weekday == 0 and not ('понедельник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
+					days_condition = 'ok'
+				else:
+					days_condition = 'not ok'
 			else:
 				days_condition = 'not ok'
 		elif 'вчера' in msg:
