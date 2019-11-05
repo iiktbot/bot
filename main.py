@@ -210,53 +210,53 @@ else:
 
 if date_weekday == 0:
 	today = 'понедельник'
-	today_list = 'понедельник', 'пн'
+	today_list = ['понедельник', 'пн']
 	tomorrow = 'вторник'
-	tomorrow_list = 'вторник', 'вт'
+	tomorrow_list = ['вторник', 'вт']
 	yesterday = 'воскресенье'
-	yesterday_list = 'воскресенье', 'вс'
+	yesterday_list = ['воскресенье', 'вс']
 elif date_weekday == 1:
 	today = 'вторник'
-	today_list = 'вторник', 'вт'
+	today_list = ['вторник', 'вт']
 	tomorrow = 'среда'
-	tomorrow_list = 'среда', 'ср', 'среду'
+	tomorrow_list = ['среда', 'ср', 'среду']
 	yesterday = 'понедельник'
-	yesterday_list = 'понедельник', 'пн'
+	yesterday_list = ['понедельник', 'пн']
 elif date_weekday == 2:
 	today = 'среда'
-	today_list = 'среда', 'ср', 'среду'
+	today_list = ['среда', 'ср', 'среду']
 	tomorrow = 'четверг'
-	tomorrow_list = 'четверг', 'чт'
+	tomorrow_list = ['четверг', 'чт']
 	yesterday = 'вторник'
-	yesterday_list = 'вторник', 'вт'
+	yesterday_list = ['вторник', 'вт']
 elif date_weekday == 3:
 	today = 'четверг'
-	today_list = 'четверг', 'чт'
+	today_list = ['четверг', 'чт']
 	tomorrow = 'пятница'
-	tomorrow_list = 'пятница', 'пт', 'пятницу'
+	tomorrow_list = ['пятница', 'пт', 'пятницу']
 	yesterday = 'среда'
-	yesterday_list = 'среда', 'ср', 'среду'
+	yesterday_list = ['среда', 'ср', 'среду']
 elif date_weekday == 4:
 	today = 'пятница'
-	today_list = 'пятница', 'пт', 'пятницу'
+	today_list = ['пятница', 'пт', 'пятницу']
 	tomorrow = 'суббота'
-	tomorrow_list = 'суббота', 'сб', 'субботу'
+	tomorrow_list = ['суббота', 'сб', 'субботу']
 	yesterday = 'четверг'
-	yesterday_list = 'четверг', 'чт'
+	yesterday_list = ['четверг', 'чт']
 elif date_weekday == 5:
 	today = 'суббота'
-	today_list = 'суббота', 'сб', 'субботу'
+	today_list = ['суббота', 'сб', 'субботу']
 	tomorrow = 'воскресенье'
-	tomorrow_list = 'воскресенье', 'вс'
+	tomorrow_list = ['воскресенье', 'вс']
 	yesterday = 'пятница'
-	yesterday_list = 'пятница', 'пт', 'пятницу'
+	yesterday_list = ['пятница', 'пт', 'пятницу']
 elif date_weekday == 6:
 	today = 'воскресенье'
-	today_list = 'воскресенье', 'вс'
+	today_list = ['воскресенье', 'вс']
 	tomorrow = 'понедельник'
-	tomorrow_list = 'понедельник', 'пн'
+	tomorrow_list = ['понедельник', 'пн']
 	yesterday = 'суббота'
-	yesterday_list = 'суббота', 'сб', 'субботу'
+	yesterday_list = ['суббота', 'сб', 'субботу']
 
 week_template = '\n' + week + ' неделя'
 current_week_template = 'сейчас ' + week + ' неделя'
