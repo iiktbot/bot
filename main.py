@@ -566,17 +566,28 @@ def predefined_messages(message):
 
 	if 0 < days_matches < 2 and not any(word in msg for word in exceptions_list):
 		if 'сегодня' in msg:
-			if not any(word in msg for word in weekdays_list) or (any(word in msg for word in today_list) and not any(word in msg for word in today_unnecessary_list)):
+			if not any(word in msg for word in weekdays_list):
+				days_condition = 'ok'
+			elif any(word in msg for word in today_list) and not any(word in msg for word in today_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
 		elif 'завтра' in msg:
-			if (0 < weekdays_matches < 2 and msg.count('вт') == 1) or (any(word in msg for word in tomorrow_list) and ('вт' in msg and 0 < tomorrow_unnecessary_matches < 2) or not ('вт' in msg and any(word in msg for word in tomorrow_unnecessary_list))):
+			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
 				days_condition = 'ok'
+			elif any(word in msg for word in tomorrow_list):
+				if 'вт' in msg and 0 < tomorrow_unnecessary_matches < 2:
+					days_condition = 'ok'
+				elif not 'вт' in msg and not any(word in msg for word in tomorrow_unnecessary_list):
+					days_condition = 'ok'
+				else:
+					days_condition = 'not ok'
 			else:
 				days_condition = 'not ok'
 		elif 'вчера' in msg:
-			if not any(word in msg for word in weekdays_list) or (any(word in msg for word in today_list) and not any(word in msg for word in yesterday_unnecessary_list)):
+			if not any(word in msg for word in weekdays_list):
+				days_condition = 'ok'
+			elif any(word in msg for word in yesterday_list) and not any(word in msg for word in yesterday_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
