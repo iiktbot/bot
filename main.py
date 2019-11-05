@@ -573,19 +573,19 @@ def predefined_messages(message):
 		elif 'завтра' in msg:
 			if 0 < weekdays_matches < 2 and msg.count('вт') == 1:
 				days_condition = 'ok'
-			elif weekday == 0 and not ('вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
+			elif date_weekday == 0 and ('понедельник' in msg or 'пн' in msg) and not ('вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
 				days_condition = 'ok'
-			elif weekday == 1 and not ('понедельник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
+			elif date_weekday == 1 and ('вторник' in msg or 'вт' in msg) and not ('понедельник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
 				days_condition = 'ok'
-			elif weekday == 2 and not ('понедельник' in msg or 'вторник' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
+			elif date_weekday == 2 and ('среда' in msg or 'ср' in msg or 'среду' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
 				days_condition = 'ok'
-			elif weekday == 3 and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
+			elif date_weekday == 3 and ('четверг' in msg or 'чт' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
 				days_condition = 'ok'
-			elif weekday == 4 and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'сб' in msg or 'вс' in msg):
+			elif date_weekday == 4 and ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'сб' in msg or 'вс' in msg):
 				days_condition = 'ok'
-			elif weekday == 5 and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'вс' in msg):
+			elif date_weekday == 5 and ('суббота' in msg or 'сб' in msg or 'субботу' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'вс' in msg):
 				days_condition = 'ok'
-			elif weekday == 6 and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg):
+			elif date_weekday == 6 and ('воскресенье' in msg or 'вс' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
