@@ -536,7 +536,7 @@ def predefined_messages(message):
 	else:
 		time_condition = 'not ok'
 
-	if not any(words in msg for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
+	if not any(words in msg.split() for words in weekdays_tuple) and not any(words in msg for words in exceptions_tuple):
 		days_condition = 'ok'
 	else:
 		days_condition = 'not ok'
