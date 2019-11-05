@@ -553,27 +553,27 @@ def predefined_messages(message):
 	days_condition = 'ok'
 	week_condition = 'ok'
 
-	today_unnecessary_list = [x1 - x2 for (x1, x2) in zip(weekdays_list, today_list)]
-	tomorrow_unnecessary_list = [x1 - x2 for (x1, x2) in zip(weekdays_list, tomorrow_list)]
-	yesterday_unnecessary_list = [x1 - x2 for (x1, x2) in zip(weekdays_list, yesterday_list)]
+	today_unnecessary_list = [word for word in weekdays_list if word not in today_list]
+	tomorrow_unnecessary_list = [word for word in weekdays_list if word not in tomorrow_list]
+	yesterday_unnecessary_list = [word for word in weekdays_list if word not in yesterday_list]
 
-	if not any(words in msg for words in weekdays_list) and not any(words in msg for words in days_list) and not any(words in msg for words in exceptions_list):
+	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
-	if 0 < days_matches < 2 and not any(words in msg for words in exceptions_list):
+	if 0 < days_matches < 2 and not any(word in msg for word in exceptions_list):
 		if 'сегодня' in msg:
-			if not any(words in msg for words in weekdays_list):
+			if not any(word in msg for word in weekdays_list):
 				days_condition = 'ok'
-			elif any(words in msg for words in today_list) and not any(words in msg for words in today_unnecessary_list):
+			elif any(word in msg for word in today_list) and not any(word in msg for word in today_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
 		elif 'завтра' in msg:
-			if not any(words in msg for words in weekdays_list):
+			if not any(word in msg for word in weekdays_list):
 				days_condition = 'ok'
-			elif any(words in msg for words in tomorrow_list) and not any(words in msg for words in tomorrow_unnecessary_list):
+			elif any(word in msg for word in tomorrow_list) and not any(word in msg for word in tomorrow_unnecessary_list):
 				if not 'вт' in tomorrow_list:
 					if msg.count('вт') == 1:
 						days_condition = 'ok'
@@ -582,16 +582,16 @@ def predefined_messages(message):
 			else:
 				days_condition = 'not ok'
 		elif 'вчера' in msg:
-			if not any(words in msg for words in weekdays_list):
+			if not any(word in msg for word in weekdays_list):
 				days_condition = 'ok'
-			elif any(words in msg for words in yesterday_list) and not any(words in msg for words in yesterday_unnecessary_list):
+			elif any(word in msg for word in yesterday_list) and not any(word in msg for word in yesterday_unnecessary_list):
 				days_condition = 'ok'
 			else:
 				days_condition = 'not ok'
 	else:
 		days_condition = 'not ok'
 
-	if not any(words in msg for words in days_list) and not any(words in msg for words in exceptions_list):
+	if not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		if (('понедельник' in msg or 'пн' in msg) or ('понедельник' in msg and 'пн' in msg)) and not (('вторник' in msg or 'вт' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
 			week_condition = 'ok'
 		elif (('вторник' in msg or 'вт' in msg) or ('вторник' in msg and 'вт' in msg)) and not (('понедельник' in msg or 'пн' in msg) or ('среда' in msg or 'ср' in msg or 'среду' in msg) or ('четверг' in msg or 'чт' in msg) or ('пятница' in msg or 'пт' in msg or 'пятницу' in msg) or ('суббота' in msg or 'сб' in msg or 'субботу' in msg) or ('воскресенье' in msg or 'вс' in msg)):
@@ -612,14 +612,14 @@ def predefined_messages(message):
 		week_condition = 'not ok'
 
 	if uid in first_group.keys() or uid in second_group.keys():
-		if any(words in msg for words in week_list):
+		if any(word in msg for word in week_list):
 			if uid in first_group.keys() or uid in second_group.keys():
 				bot.send_message(cid, current_week_template, reply_to_message_id=mid)
 		if weekorder == True:
-			if any(words in msg for words in day_list):
+			if any(word in msg for word in day_list):
 				if uid in first_group.keys() or uid in second_group.keys():
 					bot.send_message(cid, light_week_template, reply_to_message_id=mid)
-			if any(words in msg for words in classes_list):
+			if any(word in msg for word in classes_list):
 				if time_condition == 'ok':
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
@@ -1231,10 +1231,10 @@ def predefined_messages(message):
 							else:
 								bot.send_message(cid, sunday_template + first_class_template + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY[0:5], reply_to_message_id=mid)
 		elif weekorder == False:
-			if any(words in msg for words in day_list):
+			if any(word in msg for word in day_list):
 				if uid in first_group.keys() or uid in second_group.keys():
 					bot.send_message(cid, dark_week_template, reply_to_message_id=mid)
-			if any(words in msg for words in classes_list):
+			if any(word in msg for word in classes_list):
 				if time_condition == 'ok':
 					if time_day_beg <= time_now <= time_uni_end:
 						if uid in first_group.keys():
