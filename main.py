@@ -406,7 +406,7 @@ def predefined_messages(message):
 		elif ('суббота' in msg or 'сб' in msg or 'субботу' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'вс' in msg):
 			week_condition = 'ok'
 		elif ('воскресенье' in msg or 'вс' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg):
-			if 'всю' not in msg:
+			if 'вся' not in msg and 'всю' not in msg:
 				week_condition = 'ok'
 			else:
 				week_condition = 'not ok'
