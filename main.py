@@ -27,8 +27,8 @@ CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK = 'понедельник\n08:
 CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_FULLWEEK = 'понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\n10:00-11:20 — КОМП. СХЕМ.\n13:05-14:25 — КОМП. СХЕМ.'
 CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK = 'понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП'
 CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_FULLWEEK = 'понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП'
-CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK = 'понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ'
-CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = 'понедельник\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ'
+CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK = 'понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ'
+CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_FULLWEEK = 'понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n11:40-13:00 — ООП\n13:05-14:25 — ООП\n\nпятница\nПАР НЕТ'
 CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK = 'понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n11:40-13:00 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП'
 CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK = 'понедельник\n08:30-09:50 — ВЫЧИСЛ. МАТ.\n10:00-11:20 — ВЫЧИСЛ. МАТ.\n13:05-14:25 — АНГЛ. ЯЗ.\n\nвторник\nПАР НЕТ\n\nсреда\n11:40-13:00 — ТЕОР. ВЕР.\n13:05-14:25 — ТЕОР. ВЕР.\n\nчетверг\n13:05-14:25 — ООП\n\nпятница\n13:05-14:25 — ООП\n14:30-15:50 — ООП'
 
@@ -280,12 +280,13 @@ day_list = ['какой день', 'какой сейчас день', 'како
 week_list = ['какая неделя', 'какая сейчас неделя', 'какая сегодня неделя']
 days_list = ['сегодня', 'вчера', 'завтра']
 weekdays_list = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
+fullweek_list = ['неделе', 'неделю']
 exceptions_list = ['поза', 'после']
 commands_list = ['schedule', 'classes']#, 'meme']
 messages_list = [*classes_list, *day_list, *week_list, *days_list, *weekdays_list, *exceptions_list, *commands_list]
 
 @bot.message_handler(commands=['start'])
-def start_message(message):
+def start_command(message):
 	cid = message.chat.id
 	uid = message.from_user.id
 	mct = message.chat.type
@@ -303,7 +304,7 @@ def start_message(message):
 			#bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n/meme — случайный мем\n\nили можешь просто спросить ;)\n\nсоздатель — @yoqwx')
 
 @bot.message_handler(commands=['classes'])
-def classes_message(message):
+def classes_command(message):
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
@@ -474,7 +475,7 @@ def classes_message(message):
 					bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid)
 
 @bot.message_handler(commands=['schedule'])
-def schedule_message(message):
+def schedule_command(message):
 	cid = message.chat.id
 	uid = message.from_user.id
 
@@ -509,7 +510,7 @@ def schedule_message(message):
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_FULLWEEK)
 
 #@bot.message_handler(commands=['meme'])
-#def meme_message(message):
+#def meme_command(message):
 #	cid = message.chat.id
 #	uid = message.from_user.id
 #
@@ -552,9 +553,9 @@ def predefined_messages(message):
 	time_condition = 'ok'
 	days_condition = 'ok'
 	week_condition = 'ok'
+	full_condition = 'ok'
 
 	today_unnecessary_list = [word for word in today_list if word not in weekdays_list]
-	tomorrow_unnecessary_list = [word for word in tomorrow_list if word not in weekdays_list]
 	yesterday_unnecessary_list = [word for word in yesterday_list if word not in weekdays_list]
 
 	if not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
@@ -618,6 +619,16 @@ def predefined_messages(message):
 			week_condition = 'not ok'
 	else:
 		week_condition = 'not ok'
+
+	if any(word in msg for word in fullweek_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
+		if not any(word in msg for word in weekdays_list):
+			full_condition = 'ok'
+		elif 'всю' in msg and 0 < weekdays_matches < 2:
+			full_condition = 'ok'
+		else:
+			full_condition = 'not ok'
+	else:
+		full_condition = 'not ok'
 
 	if uid in first_group.keys() or uid in second_group.keys():
 		if any(word in msg for word in week_list):
