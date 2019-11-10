@@ -579,6 +579,7 @@ def predefined_messages(message):
 				error_msg = bot.send_message(cid, msg + ' - бред')
 				bot.register_next_step_handler(error_msg, predefined_messages)
 	elif weekorder == False:
+		if uid in first_group.keys():
 			if days_condition == 'ok':
 				if 'вчера' in msg:
 					if date_weekday == 0:
