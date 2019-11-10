@@ -300,6 +300,15 @@ def start_message(message):
 @bot.message_handler(commands=['classes'])
 def classes_command(message):
 	cid = message.chat.id
+	uid = message.from_user.id
+	mct = message.chat.type
+
+	if uid in first_group.keys():
+		student_name = ', ' + first_group[uid].split(' ', 1)[0]
+	elif uid in second_group.keys():
+		student_name = ', ' + second_group[uid].split(' ', 1)[0]
+	else:
+		student_name = ''
 
 	board_add = types.ReplyKeyboardMarkup(resize_keyboard=True)
 	board_add.row(types.KeyboardButton('вчера'), types.KeyboardButton('сегодня'), types.KeyboardButton('завтра'))
