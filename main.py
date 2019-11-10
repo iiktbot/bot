@@ -542,7 +542,7 @@ def predefined_messages(message):
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			else:
 				echo_wrong_msg = bot.send_message(cid, msg + ' - бред')
-				bot.register_next_step_handler(msg, predefined_messages)
+				bot.register_next_step_handler(echo_wrong_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if time_condition == 'ok':
 				if time_day_beg <= time_now <= time_uni_end:
@@ -888,7 +888,7 @@ def predefined_messages(message):
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			else:
 				echo_wrong_msg = bot.send_message(cid, msg + ' - бред')
-				bot.register_next_step_handler(msg, predefined_messages)
+				bot.register_next_step_handler(echo_wrong_msg, predefined_messages)
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
