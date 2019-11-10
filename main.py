@@ -587,8 +587,9 @@ def predefined_messages(message):
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			if days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				error_msg = bot.send_message(cid, 'бред')
-				bot.register_next_step_handler(error_msg, predefined_messages)
+				try:
+					error_msg = bot.send_message(cid, 'бред')
+					bot.register_next_step_handler(error_msg, predefined_messages)
 	elif weekorder == False:
 		if uid in first_group.keys():
 			if days_condition == 'ok':
@@ -745,8 +746,9 @@ def predefined_messages(message):
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			if days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				error_msg = bot.send_message(cid, 'бред')
-				bot.register_next_step_handler(error_msg, predefined_messages)
+				try:
+					error_msg = bot.send_message(cid, 'бред')
+					bot.register_next_step_handler(error_msg, predefined_messages)
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
