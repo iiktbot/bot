@@ -590,6 +590,8 @@ def predefined_messages(message):
 				try:
 					error_msg = bot.send_message(cid, 'бред')
 					bot.register_next_step_handler(error_msg, predefined_messages)
+				except Exception as e:
+					bot.reply_to(message, 'oooops')
 	elif weekorder == False:
 		if uid in first_group.keys():
 			if days_condition == 'ok':
@@ -749,6 +751,8 @@ def predefined_messages(message):
 				try:
 					error_msg = bot.send_message(cid, 'бред')
 					bot.register_next_step_handler(error_msg, predefined_messages)
+				except Exception as e:
+					bot.reply_to(message, 'oooops')
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
