@@ -306,8 +306,10 @@ def classes_command(message):
 	board_add.row(types.KeyboardButton('пн'), types.KeyboardButton('вт'), types.KeyboardButton('ср'), types.KeyboardButton('чт'), types.KeyboardButton('пт'), types.KeyboardButton('сб'), types.KeyboardButton('вс'))
 	board_add.row(types.KeyboardButton('вся неделя'))
 
-	board_options = bot.send_message(cid, 'выбери день', reply_markup=board_add)
-	bot.register_next_step_handler(board_options, predefined_messages)
+	if mct == 'private':
+		if uid in first_group.keys() or uid in second_group.keys():
+			board_options = bot.reply_to(message, 'выбери день', reply_markup=board_add)
+			bot.register_next_step_handler(board_options, predefined_messages)
 
 def predefined_messages(message):
 	msg = message.text.lower()
@@ -578,7 +580,6 @@ def predefined_messages(message):
 			if days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
 				error_msg = bot.send_message(cid, 'бред')
 				bot.register_next_step_handler(error_msg, predefined_messages)
-				return
 	elif weekorder == False:
 		if uid in first_group.keys():
 			if days_condition == 'ok':
@@ -737,7 +738,6 @@ def predefined_messages(message):
 			if days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
 				error_msg = bot.send_message(cid, 'бред')
 				bot.register_next_step_handler(error_msg, predefined_messages)
-				return
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
