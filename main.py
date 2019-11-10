@@ -298,7 +298,7 @@ def start_command(message):
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
-			bot.send_message(cid, 'привет' + student_name + '!' + '\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто обратиться ко мне, например "бот, дай расписание на понедельник" ;)\n\nсоздатель — @yoqwx')
+			bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'бот, какие пары в среду?' ;)\n\nсоздатель — @yoqwx")
 
 @bot.message_handler(commands=['classes'])
 def classes_command(message):
@@ -621,7 +621,8 @@ def predefined_messages(message):
 	else:
 		full_condition = 'not ok'
 
-	if msg.startswith('бот'):
+	if 'бот' in msg:
+		types.ReplyKeyboardRemove()
 		if any(word in msg for word in week_list):
 			if uid in first_group.keys() or uid in second_group.keys():
 				bot.send_message(cid, current_week_template, reply_to_message_id=mid)
