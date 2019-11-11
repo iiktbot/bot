@@ -291,16 +291,9 @@ def start_command(message):
 
 	if mct == 'private':
 		if uid in first_group.keys():
-			student_name = first_group[uid].split(' ', 1)[0] + ', '
+			student_name = first_group[uid].split(' ', 1)[0]
 		elif uid in second_group.keys():
-			student_name = second_group[uid].split(' ', 1)[0] + ', '
-	else:
-		if uid in first_group.keys():
-			student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
-		elif uid in second_group.keys():
-			student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
-
-	if mct == 'private':
+			student_name = second_group[uid].split(' ', 1)[0]
 		if uid in first_group.keys() or uid in second_group.keys():
 			bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'бот, какие пары в среду?' ;)\n\nсоздатель — @yoqwx")
 
@@ -314,19 +307,25 @@ def classes_command(message):
 	if mct == 'private':
 		if uid in first_group.keys():
 			student_group = 'первая группа'
-			student_name = first_group[uid].split(' ', 1)[0] + ', '
+			student_name = first_group[uid].split(' ', 1)[0]
 		elif uid in second_group.keys():
 			student_group = 'вторая группа'
-			student_name = second_group[uid].split(' ', 1)[0] + ', '
+			student_name = second_group[uid].split(' ', 1)[0]
+		else:
+			student_group = ''
+			student_name = ''
 	else:
 		if uid in first_group.keys():
 			student_group = 'первая группа'
-			student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
+			student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')'
 		elif uid in second_group.keys():
 			student_group = 'вторая группа'
-			student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
+			student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')'
+		else:
+			student_group = ''
+			student_name = ''
 
-	student_def = student_name + student_group
+	student_def = student_name + ', ' + student_group
 	today_template = student_def + '\n(' + today_tag + ')'
 	tomorrow_template = student_def + '\n(' + tomorrow_tag + ')'
 
@@ -525,15 +524,15 @@ def predefined_messages(message):
 	
 	if uid in first_group.keys():
 		student_group = 'первая группа'
-		student_name = first_group[uid].split(' ', 1)[0] + ', '
+		student_name = first_group[uid].split(' ', 1)[0]
 	elif uid in second_group.keys():
 		student_group = 'вторая группа'
-		student_name = second_group[uid].split(' ', 1)[0] + ', '
+		student_name = second_group[uid].split(' ', 1)[0]
 	else:
 		student_group = ''
 		student_name = ''
 
-	student_def = student_name + student_group
+	student_def = student_name + ', ' + student_group
 	today_template = student_def + '\n(' + today_tag + ')'
 	yesterday_template = student_def + '\n(' + yesterday_tag + ')'
 	tomorrow_template = student_def + '\n(' + tomorrow_tag + ')'
