@@ -314,11 +314,12 @@ def classes_command(message):
 	board_add = types.ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
 	board_add.row(types.KeyboardButton('вчера'), types.KeyboardButton('сегодня'), types.KeyboardButton('завтра'))
 	board_add.row(types.KeyboardButton('пн'), types.KeyboardButton('вт'), types.KeyboardButton('ср'), types.KeyboardButton('чт'), types.KeyboardButton('пт'), types.KeyboardButton('сб'), types.KeyboardButton('вс'))
-	board_add.row(types.KeyboardButton('неделя'), types.KeyboardButton('назад'))
+	board_add.row(types.KeyboardButton('вся неделя'), types.KeyboardButton('назад'))
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
-			bot.register_next_step_handler(msg, predefined_messages)
+			board_options = bot.reply_to(message, 'выбери день', reply_markup=board_add)
+			bot.register_next_step_handler(board_options, predefined_messages)
 
 def predefined_messages(message):
 	msg = message.text.lower()
@@ -515,9 +516,10 @@ def predefined_messages(message):
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			elif cancel_condition == 'ok':
-				types.ReplyKeyboardRemove()
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(msg, predefined_messages)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
+				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
 				if 'вчера' in msg:
@@ -596,9 +598,10 @@ def predefined_messages(message):
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			elif cancel_condition == 'ok':
-				types.ReplyKeyboardRemove()
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(msg, predefined_messages)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
+				bot.register_next_step_handler(error_msg, predefined_messages)
 	elif weekorder == False:
 		if uid in first_group.keys():
 			if days_condition == 'ok':
@@ -678,9 +681,10 @@ def predefined_messages(message):
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			elif cancel_condition == 'ok':
-				types.ReplyKeyboardRemove()
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(msg, predefined_messages)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
+				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
 				if 'вчера' in msg:
@@ -759,9 +763,10 @@ def predefined_messages(message):
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
 			elif cancel_condition == 'ok':
-				types.ReplyKeyboardRemove()
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(msg, predefined_messages)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
+				bot.register_next_step_handler(error_msg, predefined_messages)
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
