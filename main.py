@@ -329,7 +329,7 @@ def predefined_messages(message):
 		elif uid in second_group.keys():
 			student_group = 'вторая группа'
 			student_name = second_group[uid].split(' ', 1)[0] + ', '
-	elif mct == 'group':
+	else:
 		if uid in first_group.keys():
 			student_group = 'первая группа'
 			student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
@@ -439,7 +439,7 @@ def predefined_messages(message):
 	if weekorder == True:
 		if uid in first_group.keys():
 			if days_condition == 'ok':
-				if 'вчера' in msg:
+				if 'вчера' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -457,7 +457,7 @@ def predefined_messages(message):
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'сегодня' in msg:
+				elif 'сегодня' in msg.split():
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
@@ -475,7 +475,7 @@ def predefined_messages(message):
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'завтра' in msg:
+				elif 'завтра' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -494,22 +494,22 @@ def predefined_messages(message):
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif week_condition == 'ok':
-				if 'понедельник' in msg or 'пн' in msg:
+				if 'понедельник' in msg.split() or 'пн' in msg.split():
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'вторник' in msg or 'вт' in msg:
+				elif 'вторник' in msg.split() or 'вт' in msg.split():
 					bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
+				elif 'среда' in msg.split() or 'ср' in msg.split() or 'среду' in msg.split():
 					bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'четверг' in msg or 'чт' in msg:
+				elif 'четверг' in msg.split() or 'чт' in msg.split():
 					bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
+				elif 'пятница' in msg.split() or 'пт' in msg.split() or 'пятницу' in msg.split():
 					bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
+				elif 'суббота' in msg.split() or 'сб' in msg.split() or 'субботу' in msg.split():
 					bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'воскресенье' in msg or 'вс' in msg:
+				elif 'воскресенье' in msg.split() or 'вс' in msg.split():
 					bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide, parse_mode='Markdown')
@@ -520,7 +520,7 @@ def predefined_messages(message):
 				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
-				if 'вчера' in msg:
+				if 'вчера' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -538,7 +538,7 @@ def predefined_messages(message):
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'сегодня' in msg:
+				elif 'сегодня' in msg.split():
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
@@ -556,7 +556,7 @@ def predefined_messages(message):
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'завтра' in msg:
+				elif 'завтра' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -575,22 +575,22 @@ def predefined_messages(message):
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif week_condition == 'ok':
-				if 'понедельник' in msg or 'пн' in msg:
+				if 'понедельник' in msg.split() or 'пн' in msg.split():
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'вторник' in msg or 'вт' in msg:
+				elif 'вторник' in msg.split() or 'вт' in msg.split():
 					bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
+				elif 'среда' in msg.split() or 'ср' in msg.split() or 'среду' in msg.split():
 					bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'четверг' in msg or 'чт' in msg:
+				elif 'четверг' in msg.split() or 'чт' in msg.split():
 					bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
+				elif 'пятница' in msg.split() or 'пт' in msg.split() or 'пятницу' in msg.split():
 					bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
+				elif 'суббота' in msg.split() or 'сб' in msg.split() or 'субботу' in msg.split():
 					bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'воскресенье' in msg or 'вс' in msg:
+				elif 'воскресенье' in msg.split() or 'вс' in msg.split():
 					bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide, parse_mode='Markdown')
@@ -602,7 +602,7 @@ def predefined_messages(message):
 	elif weekorder == False:
 		if uid in first_group.keys():
 			if days_condition == 'ok':
-				if 'вчера' in msg:
+				if 'вчера' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -620,7 +620,7 @@ def predefined_messages(message):
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'сегодня' in msg:
+				elif 'сегодня' in msg.split():
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
@@ -638,7 +638,7 @@ def predefined_messages(message):
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'завтра' in msg:
+				elif 'завтра' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -657,22 +657,22 @@ def predefined_messages(message):
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif week_condition == 'ok':
-				if 'понедельник' in msg or 'пн' in msg:
+				if 'понедельник' in msg.split() or 'пн' in msg.split():
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'вторник' in msg or 'вт' in msg:
+				elif 'вторник' in msg.split() or 'вт' in msg.split():
 					bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
+				elif 'среда' in msg.split() or 'ср' in msg.split() or 'среду' in msg.split():
 					bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'четверг' in msg or 'чт' in msg:
+				elif 'четверг' in msg.split() or 'чт' in msg.split():
 					bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
+				elif 'пятница' in msg.split() or 'пт' in msg.split() or 'пятницу' in msg.split():
 					bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
+				elif 'суббота' in msg.split() or 'сб' in msg.split() or 'субботу' in msg.split():
 					bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'воскресенье' in msg or 'вс' in msg:
+				elif 'воскресенье' in msg.split() or 'вс' in msg.split():
 					bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide, parse_mode='Markdown')
@@ -683,7 +683,7 @@ def predefined_messages(message):
 				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
-				if 'вчера' in msg:
+				if 'вчера' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -701,7 +701,7 @@ def predefined_messages(message):
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'сегодня' in msg:
+				elif 'сегодня' in msg.split():
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
@@ -719,7 +719,7 @@ def predefined_messages(message):
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'завтра' in msg:
+				elif 'завтра' in msg.split():
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif date_weekday == 1:
@@ -738,22 +738,22 @@ def predefined_messages(message):
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif week_condition == 'ok':
-				if 'понедельник' in msg or 'пн' in msg:
+				if 'понедельник' in msg.split() or 'пн' in msg.split():
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'вторник' in msg or 'вт' in msg:
+				elif 'вторник' in msg.split() or 'вт' in msg.split():
 					bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
+				elif 'среда' in msg.split() or 'ср' in msg.split() or 'среду' in msg.split():
 					bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'четверг' in msg or 'чт' in msg:
+				elif 'четверг' in msg.split() or 'чт' in msg.split():
 					bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
+				elif 'пятница' in msg.split() or 'пт' in msg.split() or 'пятницу' in msg.split():
 					bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
+				elif 'суббота' in msg.split() or 'сб' in msg.split() or 'субботу' in msg.split():
 					bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_markup=board_hide, parse_mode='Markdown')
-				elif 'воскресенье' in msg or 'вс' in msg:
+				elif 'воскресенье' in msg.split() or 'вс' in msg.split():
 					bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_markup=board_hide, parse_mode='Markdown')
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide, parse_mode='Markdown')
