@@ -309,6 +309,7 @@ def classes_command(message):
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
+	mct = message.chat.type
 
 	if mct == 'private':
 		if uid in first_group.keys():
