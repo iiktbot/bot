@@ -319,7 +319,7 @@ def classes_command(message):
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
-			board_options = bot.send_message(cid, 'выбери день', reply_to_message_id=mid)
+			board_options = bot.send_message(cid, 'выбери день', reply_to_message_id=mid, reply_markup=board_add)
 			bot.register_next_step_handler(board_options, predefined_messages)
 
 def predefined_messages(message):
