@@ -302,17 +302,15 @@ def classes_command(message):
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
-	mct = message.chat.type
 
 	board_add = types.ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
 	board_add.row(types.KeyboardButton('вчера'), types.KeyboardButton('сегодня'), types.KeyboardButton('завтра'))
 	board_add.row(types.KeyboardButton('пн'), types.KeyboardButton('вт'), types.KeyboardButton('ср'), types.KeyboardButton('чт'), types.KeyboardButton('пт'), types.KeyboardButton('сб'), types.KeyboardButton('вс'))
 	board_add.row(types.KeyboardButton('вся неделя'), types.KeyboardButton('назад'))
 
-	if mct == 'private':
-		if uid in first_group.keys() or uid in second_group.keys():
-			board_options = bot.send_message(cid, 'выбери день', reply_markup=board_add)
-			bot.register_next_step_handler(board_options, predefined_messages)
+	if uid in first_group.keys() or uid in second_group.keys():
+		board_options = bot.send_message(cid, 'выбери день', reply_markup=board_add)
+		bot.register_next_step_handler(board_options, predefined_messages)
 
 def predefined_messages(message):
 	msg = message.text.lower()
