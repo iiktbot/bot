@@ -443,81 +443,213 @@ def predefined_messages(message):
 				if 'вчера' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'сегодня' in msg:
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'завтра' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 			elif week_condition == 'ok':
 				if 'понедельник' in msg or 'пн' in msg:
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'вторник' in msg or 'вт' in msg:
 					if uid in first_group.keys():
 						bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
 						bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'четверг' in msg or 'чт' in msg:
 						bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
 						bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
 						bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'воскресенье' in msg or 'вс' in msg:
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+				time.sleep(1)
+				bot.delete_message(cid, mid)
+				bot.delete_message(cid, mid - 1)
+				bot.delete_message(cid, mid - 2)
 			elif cancel_condition == 'ok':
-				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
-				time.sleep(3)
+				bot.send_messa
+				bot.delete_message(cid, mid + 1)
 				bot.delete_message(cid, mid)
 				bot.delete_message(cid, mid - 1)
 				bot.delete_message(cid, mid - 2)
@@ -529,81 +661,214 @@ def predefined_messages(message):
 				if 'вчера' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'сегодня' in msg:
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'завтра' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 			elif week_condition == 'ok':
 				if 'понедельник' in msg or 'пн' in msg:
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'вторник' in msg or 'вт' in msg:
 					if uid in first_group.keys():
 						bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
 						bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'четверг' in msg or 'чт' in msg:
 						bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
 						bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
 						bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'воскресенье' in msg or 'вс' in msg:
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+				time.sleep(1)
+				bot.delete_message(cid, mid)
+				bot.delete_message(cid, mid - 1)
+				bot.delete_message(cid, mid - 2)
 			elif cancel_condition == 'ok':
 				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
-				time.sleep(3)
+				time.sleep(1)
+				bot.delete_message(cid, mid + 1)
 				bot.delete_message(cid, mid)
 				bot.delete_message(cid, mid - 1)
 				bot.delete_message(cid, mid - 2)
@@ -616,81 +881,214 @@ def predefined_messages(message):
 				if 'вчера' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'сегодня' in msg:
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'завтра' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 			elif week_condition == 'ok':
 				if 'понедельник' in msg or 'пн' in msg:
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'вторник' in msg or 'вт' in msg:
 					if uid in first_group.keys():
 						bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
 						bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'четверг' in msg or 'чт' in msg:
 						bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
 						bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
 						bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'воскресенье' in msg or 'вс' in msg:
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+				time.sleep(1)
+				bot.delete_message(cid, mid)
+				bot.delete_message(cid, mid - 1)
+				bot.delete_message(cid, mid - 2)
 			elif cancel_condition == 'ok':
 				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
-				time.sleep(3)
+				time.sleep(1)
+				bot.delete_message(cid, mid + 1)
 				bot.delete_message(cid, mid)
 				bot.delete_message(cid, mid - 1)
 				bot.delete_message(cid, mid - 2)
@@ -702,81 +1100,214 @@ def predefined_messages(message):
 				if 'вчера' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, yesterday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'сегодня' in msg:
 					if date_weekday == 0:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						bot.send_message(cid, today_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'завтра' in msg:
 					if date_weekday == 0:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 1:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 2:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 3:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 4:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 5:
 						bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif date_weekday == 6:
 						if uid in first_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 						elif uid in second_group_eng.keys():
 							bot.send_message(cid, tomorrow_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+							time.sleep(1)
+							bot.delete_message(cid, mid)
+							bot.delete_message(cid, mid - 1)
+							bot.delete_message(cid, mid - 2)
 			elif week_condition == 'ok':
 				if 'понедельник' in msg or 'пн' in msg:
 					if uid in first_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 					elif uid in second_group_eng.keys():
 						bot.send_message(cid, monday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_2SUBGROUP_MONDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'вторник' in msg or 'вт' in msg:
 					if uid in first_group.keys():
 						bot.send_message(cid, tuesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_TUESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'среда' in msg or 'ср' in msg or 'среду' in msg:
 						bot.send_message(cid, wednesday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_WEDNESDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'четверг' in msg or 'чт' in msg:
 						bot.send_message(cid, thursday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_THURSDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'пятница' in msg or 'пт' in msg or 'пятницу' in msg:
 						bot.send_message(cid, friday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_FRIDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'суббота' in msg or 'сб' in msg or 'субботу' in msg:
 						bot.send_message(cid, saturday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SATURDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 				elif 'воскресенье' in msg or 'вс' in msg:
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
+						time.sleep(1)
+						bot.delete_message(cid, mid)
+						bot.delete_message(cid, mid - 1)
+						bot.delete_message(cid, mid - 2)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+				time.sleep(1)
+				bot.delete_message(cid, mid)
+				bot.delete_message(cid, mid - 1)
+				bot.delete_message(cid, mid - 2)
 			elif cancel_condition == 'ok':
 				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
-				time.sleep(3)
+				time.sleep(1)
+				bot.delete_message(cid, mid + 1)
 				bot.delete_message(cid, mid)
 				bot.delete_message(cid, mid - 1)
 				bot.delete_message(cid, mid - 2)
