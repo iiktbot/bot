@@ -287,14 +287,13 @@ def start_message(message):
 	uid = message.from_user.id
 	mct = message.chat.type
 
-	if uid in first_group.keys():
-		student_name = ', ' + first_group[uid].split(' ', 1)[0]
-	elif uid in second_group.keys():
-		student_name = ', ' + second_group[uid].split(' ', 1)[0]
-	else:
-		student_name = ''
+	student_name = ''
 
 	if mct == 'private':
+		if uid in first_group.keys():
+			student_name = ', ' + first_group[uid].split(' ', 1)[0]
+		elif uid in second_group.keys():
+			student_name = ', ' + second_group[uid].split(' ', 1)[0]
 		if uid in first_group.keys() or uid in second_group.keys():
 			bot.send_message(cid, 'привет' + student_name + '!' + '\n\nиспользуй комманду /classes, что бы получить расписание\n\nсоздатель — @yoqwx')
 
@@ -322,15 +321,23 @@ def predefined_messages(message):
 	uid = message.from_user.id
 	mct = message.chat.type
 	
-	if uid in first_group.keys():
-		student_group = 'первая группа'
-		student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
-	elif uid in second_group.keys():
-		student_group = 'вторая группа'
-		student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
-	else:
-		student_group = ''
-		student_name = ''
+	student_group = ''
+	student_name = ''
+
+	if mct == 'private':
+		if uid in first_group.keys():
+			student_group = 'первая группа'
+			student_name = first_group[uid].split(' ', 1)[0] + ', '
+		elif uid in second_group.keys():
+			student_group = 'вторая группа'
+			student_name = second_group[uid].split(' ', 1)[0] + ', '
+	elif mct == 'group':
+		if uid in first_group.keys():
+			student_group = 'первая группа'
+			student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
+		elif uid in second_group.keys():
+			student_group = 'вторая группа'
+			student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
 
 	student_def = student_name + student_group
 	today_template = student_def + '\n(' + today_tag + ')'
