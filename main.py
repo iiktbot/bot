@@ -435,7 +435,7 @@ def predefined_messages(message):
 		condition_elements = ['сегодня', 'вчера', 'завтра', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс', 'неделя', 'неделе', 'неделю', 'поза', 'после']
 		no_condition_list = []
 		for x in condition_elements:
-			if re.search(x, msg.split()):
+			if re.search(x, msg):
 				no_condition_list.append(x)
 
 	if weekorder == True:
