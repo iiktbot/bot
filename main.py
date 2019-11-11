@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import flask, telebot, os, requests, datetime, time, random, psycopg2
+import flask, telebot, os, requests, datetime, time, random, re, psycopg2
 from flask import Flask, request
 from telebot import types
 from datetime import date, timedelta
