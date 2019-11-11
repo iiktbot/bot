@@ -277,7 +277,7 @@ week_list = ['какая неделя', 'какая сейчас неделя', 
 days_list = ['сегодня', 'вчера', 'завтра']
 weekdays_list = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
 fullweek_list = ['неделя', 'неделе', 'неделю']
-cancel_list = ['отмена', 'назад', 'выйти', 'выход']
+cancel_list = ['назад', 'отмена', 'выйти', 'выход']
 exceptions_list = ['поза', 'после']
 commands_list = ['schedule', 'classes']
 
@@ -315,6 +315,7 @@ def classes_command(message):
 	board_add.row(types.KeyboardButton('вчера'), types.KeyboardButton('сегодня'), types.KeyboardButton('завтра'))
 	board_add.row(types.KeyboardButton('пн'), types.KeyboardButton('вт'), types.KeyboardButton('ср'), types.KeyboardButton('чт'), types.KeyboardButton('пт'), types.KeyboardButton('сб'), types.KeyboardButton('вс'))
 	board_add.row(types.KeyboardButton('вся неделя'))
+	board_add.row(types.KeyboardButton('назад'))
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
