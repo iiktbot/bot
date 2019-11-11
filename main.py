@@ -288,9 +288,9 @@ def start_message(message):
 	mct = message.chat.type
 
 	if uid in first_group.keys():
-		student_name = ', ' + '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')'
+		student_name = ', ' + first_group[uid].split(' ', 1)[0]
 	elif uid in second_group.keys():
-		student_name = ', ' + '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')'
+		student_name = ', ' + second_group[uid].split(' ', 1)[0]
 	else:
 		student_name = ''
 
