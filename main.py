@@ -656,6 +656,9 @@ def predefined_messages(message):
 				bot.delete_message(cid, mid - 2)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
 				error_msg = bot.send_message(cid, '?')
+				time.sleep(1)
+				bot.delete_message(cid, mid + 1)
+				bot.delete_message(cid, mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
@@ -875,6 +878,9 @@ def predefined_messages(message):
 				bot.delete_message(cid, mid - 2)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
 				error_msg = bot.send_message(cid, '?')
+				time.sleep(1)
+				bot.delete_message(cid, mid + 1)
+				bot.delete_message(cid, mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 	elif weekorder == False:
 		if uid in first_group.keys():
@@ -1095,6 +1101,9 @@ def predefined_messages(message):
 				bot.delete_message(cid, mid - 2)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
 				error_msg = bot.send_message(cid, '?')
+				time.sleep(1)
+				bot.delete_message(cid, mid + 1)
+				bot.delete_message(cid, mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
@@ -1314,6 +1323,9 @@ def predefined_messages(message):
 				bot.delete_message(cid, mid - 2)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
 				error_msg = bot.send_message(cid, '?')
+				time.sleep(1)
+				bot.delete_message(cid, mid + 1)
+				bot.delete_message(cid, mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 
 @bot.message_handler(content_types=['sticker'])
