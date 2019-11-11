@@ -314,7 +314,7 @@ def classes_command(message):
 	board_add = types.ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
 	board_add.row(types.KeyboardButton('вчера'), types.KeyboardButton('сегодня'), types.KeyboardButton('завтра'))
 	board_add.row(types.KeyboardButton('пн'), types.KeyboardButton('вт'), types.KeyboardButton('ср'), types.KeyboardButton('чт'), types.KeyboardButton('пт'), types.KeyboardButton('сб'), types.KeyboardButton('вс'))
-	board_add.row(types.KeyboardButton('вся неделя'), types.KeyboardButton('назад'))
+	board_add.row(types.KeyboardButton('неделя'), types.KeyboardButton('назад'))
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
