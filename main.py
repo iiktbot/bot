@@ -331,10 +331,10 @@ def predefined_messages(message):
 	
 	if uid in first_group.keys():
 		student_group = 'первая группа'
-		student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + uid + ')' + ', '
+		student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
 	elif uid in second_group.keys():
 		student_group = 'вторая группа'
-		student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + uid + ')' + ', '
+		student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
 	else:
 		student_group = ''
 		student_name = ''
