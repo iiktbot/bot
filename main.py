@@ -277,6 +277,7 @@ week_list = ['какая неделя', 'какая сейчас неделя', 
 days_list = ['сегодня', 'вчера', 'завтра']
 weekdays_list = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
 fullweek_list = ['неделя', 'неделе', 'неделю']
+cancel_list = ['отмена', 'назад', 'выйти', 'выход']
 exceptions_list = ['поза', 'после']
 commands_list = ['schedule', 'classes']
 
@@ -361,7 +362,7 @@ def predefined_messages(message):
 
 	board_hide = types.ReplyKeyboardRemove()
 
-	if 0 < days_matches < 2 and not any(word in msg for word in exceptions_list):
+	if 0 < days_matches < 2 and not any(word in msg for word in cancel_list) and not any(word in msg for word in exceptions_list):
 		if 'сегодня' in msg:
 			if not any(word in msg for word in weekdays_list):
 				days_condition = 'ok'
@@ -398,7 +399,7 @@ def predefined_messages(message):
 	else:
 		days_condition = 'not ok'
 
-	if not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
+	if not any(word in msg for word in days_list) and not any(word in msg for word in cancel_list) and not any(word in msg for word in exceptions_list):
 		if ('понедельник' in msg or 'пн' in msg) and not ('вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
 			week_condition = 'ok'
 		elif ('вторник' in msg or 'вт' in msg) and not ('понедельник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
@@ -421,7 +422,7 @@ def predefined_messages(message):
 	else:
 		week_condition = 'not ok'
 
-	if any(word in msg for word in fullweek_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
+	if any(word in msg for word in fullweek_list) and not any(word in msg for word in days_list) and not any(word in msg for word in cancel_list) and not any(word in msg for word in exceptions_list):
 		if not any(word in msg for word in weekdays_list):
 			full_condition = 'ok'
 		elif ('вся' in msg or 'всю' in msg) and 0 < weekdays_matches < 2:
@@ -431,12 +432,10 @@ def predefined_messages(message):
 	else:
 		full_condition = 'not ok'
 
-	if days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-		condition_elements = ['сегодня', 'вчера', 'завтра', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье', 'среду', 'пятницу', 'субботу', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс', 'неделя', 'неделе', 'неделю', 'поза', 'после']
-		no_condition_list = []
-		for x in condition_elements:
-			if re.search(x, msg):
-				no_condition_list.append(x)
+	if any(word in msg for word in cancel_list) and not any(word in msg for word in days_list) and not any(word in msg for word in weekdays_list) and not any(word in msg for word in fullweek_list) and not any(word in msg for word in exceptions_list):
+		cancel_condition = 'ok'
+	else:
+		cancel_condition = 'not ok'
 
 	if weekorder == True:
 		if uid in first_group.keys():
@@ -516,8 +515,10 @@ def predefined_messages(message):
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+			elif cancel_condition == 'ok':
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				error_msg = bot.send_message(cid, str(no_condition_list) + '?', reply_to_message_id=mid)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
@@ -596,8 +597,10 @@ def predefined_messages(message):
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_LIGHTWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+			elif cancel_condition == 'ok':
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				error_msg = bot.send_message(cid, str(no_condition_list) + '?', reply_to_message_id=mid)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 	elif weekorder == False:
 		if uid in first_group.keys():
@@ -677,8 +680,10 @@ def predefined_messages(message):
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_1GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+			elif cancel_condition == 'ok':
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				error_msg = bot.send_message(cid, str(no_condition_list) + '?', reply_to_message_id=mid)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
@@ -757,8 +762,10 @@ def predefined_messages(message):
 						bot.send_message(cid, sunday_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY, reply_to_message_id=mid, reply_markup=board_hide)
 			elif full_condition == 'ok':
 				bot.send_message(cid, student_group + week_template + '\n\n' + CS18_SCHEDULE_DARKWEEK_2GROUP_1SUBGROUP_FULLWEEK, reply_markup=board_hide)
+			elif cancel_condition == 'ok':
+				bot.send_message(cid, 'хорошо', reply_to_message_id=mid, reply_markup=board_hide)
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				error_msg = bot.send_message(cid, str(no_condition_list) + '?', reply_to_message_id=mid)
+				error_msg = bot.send_message(cid, '?', reply_to_message_id=mid)
 				bot.register_next_step_handler(error_msg, predefined_messages)
 
 @bot.message_handler(content_types=['sticker'])
