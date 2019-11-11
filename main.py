@@ -288,9 +288,9 @@ def start_message(message):
 	mct = message.chat.type
 
 	if uid in first_group.keys():
-		student_name = ', ' + str('[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')')
+		student_name = ', ' + first_group[uid].split(' ', 1)[0]
 	elif uid in second_group.keys():
-		student_name = ', ' + str('[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')')
+		student_name = ', ' + second_group[uid].split(' ', 1)[0]
 	else:
 		student_name = ''
 
@@ -324,10 +324,10 @@ def predefined_messages(message):
 	
 	if uid in first_group.keys():
 		student_group = 'первая группа'
-		student_name = str('[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')') + ', '
+		student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
 	elif uid in second_group.keys():
 		student_group = 'вторая группа'
-		student_name = str('[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')') + ', '
+		student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')' + ', '
 	else:
 		student_group = ''
 		student_name = ''
