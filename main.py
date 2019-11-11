@@ -291,9 +291,12 @@ def start_command(message):
 
 	if mct == 'private':
 		if uid in first_group.keys():
-			student_name = first_group[uid].split(' ', 1)[0]
+			student_name = ', ' + first_group[uid].split(' ', 1)[0]
 		elif uid in second_group.keys():
-			student_name = second_group[uid].split(' ', 1)[0]
+			student_name = ', ' + second_group[uid].split(' ', 1)[0]
+		else:
+			student_name = ''
+
 		if uid in first_group.keys() or uid in second_group.keys():
 			bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'бот, какие пары в среду?' ;)\n\nсоздатель — @yoqwx")
 
@@ -304,26 +307,15 @@ def classes_command(message):
 	uid = message.from_user.id
 	mct = message.chat.type
 
-	if mct == 'private':
-		if uid in first_group.keys():
-			student_group = 'первая группа'
-			student_name = first_group[uid].split(' ', 1)[0]
-		elif uid in second_group.keys():
-			student_group = 'вторая группа'
-			student_name = second_group[uid].split(' ', 1)[0]
-		else:
-			student_group = ''
-			student_name = ''
+	if uid in first_group.keys():
+		student_group = 'первая группа'
+		student_name = first_group[uid].split(' ', 1)[0]
+	elif uid in second_group.keys():
+		student_group = 'вторая группа'
+		student_name = second_group[uid].split(' ', 1)[0]
 	else:
-		if uid in first_group.keys():
-			student_group = 'первая группа'
-			student_name = '[' + first_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')'
-		elif uid in second_group.keys():
-			student_group = 'вторая группа'
-			student_name = '[' + second_group[uid].split(' ', 1)[0] + '](tg://user?id=' + str(uid) + ')'
-		else:
-			student_group = ''
-			student_name = ''
+		student_group = ''
+		student_name = ''
 
 	student_def = student_name + ', ' + student_group
 	today_template = student_def + '\n(' + today_tag + ')'
@@ -521,7 +513,7 @@ def predefined_messages(message):
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
-	
+
 	if uid in first_group.keys():
 		student_group = 'первая группа'
 		student_name = first_group[uid].split(' ', 1)[0]
