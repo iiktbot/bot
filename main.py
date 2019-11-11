@@ -303,7 +303,7 @@ def classes_command(message):
 	cid = message.chat.id
 	uid = message.from_user.id
 
-	board_add = types.ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
+	board_add = types.ReplyKeyboardMarkup(resize_keyboard=True)
 	board_add.row(types.KeyboardButton('вчера'), types.KeyboardButton('сегодня'), types.KeyboardButton('завтра'))
 	board_add.row(types.KeyboardButton('пн'), types.KeyboardButton('вт'), types.KeyboardButton('ср'), types.KeyboardButton('чт'), types.KeyboardButton('пт'), types.KeyboardButton('сб'), types.KeyboardButton('вс'))
 	board_add.row(types.KeyboardButton('вся неделя'), types.KeyboardButton('назад'))
