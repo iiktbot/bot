@@ -318,7 +318,7 @@ def classes_command(message):
 
 	if mct == 'private':
 		if uid in first_group.keys() or uid in second_group.keys():
-			bot.register_next_step_handler(message, predefined_messages)
+			bot.register_next_step_handler(msg, predefined_messages)
 
 def predefined_messages(message):
 	msg = message.text.lower()
@@ -517,7 +517,7 @@ def predefined_messages(message):
 			elif cancel_condition == 'ok':
 				types.ReplyKeyboardRemove()
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(message, predefined_messages)
+				bot.register_next_step_handler(msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
 				if 'вчера' in msg:
@@ -598,7 +598,7 @@ def predefined_messages(message):
 			elif cancel_condition == 'ok':
 				types.ReplyKeyboardRemove()
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(message, predefined_messages)
+				bot.register_next_step_handler(msg, predefined_messages)
 	elif weekorder == False:
 		if uid in first_group.keys():
 			if days_condition == 'ok':
@@ -680,7 +680,7 @@ def predefined_messages(message):
 			elif cancel_condition == 'ok':
 				types.ReplyKeyboardRemove()
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(message, predefined_messages)
+				bot.register_next_step_handler(msg, predefined_messages)
 		elif uid in second_group.keys():
 			if days_condition == 'ok':
 				if 'вчера' in msg:
@@ -761,7 +761,7 @@ def predefined_messages(message):
 			elif cancel_condition == 'ok':
 				types.ReplyKeyboardRemove()
 			elif days_condition == 'not ok' or week_condition == 'not ok' or full_condition == 'not ok':
-				bot.register_next_step_handler(message, predefined_messages)
+				bot.register_next_step_handler(msg, predefined_messages)
 
 @bot.message_handler(content_types=['sticker'])
 def predefined_stickers(message):
