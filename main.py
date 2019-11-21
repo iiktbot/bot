@@ -628,7 +628,7 @@ def predefined_messages(message):
 	if any(word in msg for word in fullweek_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		if not any(word in msg for word in weekdays_list):
 			full_condition = 'ok'
-		elif ('вся' in msg or 'всю' in msg or 'всей' in msg) and 0 < weekdays_matches < 2:
+		elif ('вся' in msg or 'всю' in msg or 'всей' in msg) and 'весь' in msg and 0 < weekdays_matches < 2:
 			full_condition = 'ok'
 		else:
 			full_condition = 'not ok'
