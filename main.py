@@ -72,7 +72,7 @@ CS18_SCHEDULE_DARKWEEK_1GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 CS18_SCHEDULE_DARKWEEK_2GROUP_SUNDAY = SCHEDULE_SUNDAY_DAYOFF
 
 first_group = {
-	405299022: 'Виталий',
+	405299021: 'Виталий',
 	393708492: 'Юля',
 	416924459: 'Андрей',
 	613759219: 'Влад',
@@ -99,7 +99,7 @@ second_group = {
 	780853105: 'Денис'
 }
 first_group_eng = {
-	405299022: 'Виталий',
+	405299021: 'Виталий',
 	643705130: 'Влад',
 	416924459: 'Андрей',
 	542413243: 'Денис',
@@ -291,14 +291,14 @@ def start_command(message):
 
 	if mct == 'private':
 		if uid in first_group.keys():
-			student_name = ', ' + first_group[uid].split(' ', 1)[0]
+			student_name = first_group[uid].split(' ', 1)[0]
 		elif uid in second_group.keys():
-			student_name = ', ' + second_group[uid].split(' ', 1)[0]
+			student_name = second_group[uid].split(' ', 1)[0]
 		else:
 			student_name = ''
 
 		if uid in first_group.keys() or uid in second_group.keys():
-			bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'какие пары во вторник?'\n\nдля групповых чатов используй\nслово 'бот', например\n'бот, какие пары в среду?'\n\nсоздатель — @yoqwx")
+			bot.send_message(cid, 'привет, ' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'какие пары во вторник?'\n\nдля групповых чатов используй\nслово 'бот', например\n'бот, какие пары в среду?'\n\nсоздатель — @yoqwx")
 		else:
 			bot.send_message(cid, ':(', reply_to_message_id=mid)
 
@@ -309,14 +309,14 @@ def start_command(message):
 	uid = message.from_user.id
 
 	if uid in first_group.keys():
-		student_name = ', ' + first_group[uid].split(' ', 1)[0]
+		student_name = first_group[uid].split(' ', 1)[0]
 	elif uid in second_group.keys():
-		student_name = ', ' + second_group[uid].split(' ', 1)[0]
+		student_name = second_group[uid].split(' ', 1)[0]
 	else:
 		student_name = ''
 
 	if uid in first_group.keys() or uid in second_group.keys():
-		bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'какие пары во вторник?'\n\nдля групповых чатов используй\nслово 'бот', например\n'бот, какие пары в среду?'\n\nсоздатель — @yoqwx")
+		bot.send_message(cid, 'привет, ' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'какие пары во вторник?'\n\nдля групповых чатов используй\nслово 'бот', например\n'бот, какие пары в среду?'\n\nсоздатель — @yoqwx")
 	else:
 		bot.send_message(cid, ':(', reply_to_message_id=mid)
 
