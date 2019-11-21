@@ -298,7 +298,22 @@ def start_command(message):
 			student_name = ''
 
 		if uid in first_group.keys() or uid in second_group.keys():
-			bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'бот, какие пары в среду?' ;)\n\nсоздатель — @yoqwx")
+			bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'какие пары во вторник?'\nдля групповых чатов используй\nслово 'бот', например\n'бот, какие пары в среду?'\n\nсоздатель — @yoqwx")
+
+@bot.message_handler(commands=['help'])
+def start_command(message):
+	cid = message.chat.id
+	uid = message.from_user.id
+
+	if uid in first_group.keys():
+		student_name = ', ' + first_group[uid].split(' ', 1)[0]
+	elif uid in second_group.keys():
+		student_name = ', ' + second_group[uid].split(' ', 1)[0]
+	else:
+		student_name = ''
+
+	if uid in first_group.keys() or uid in second_group.keys():
+		bot.send_message(cid, 'привет' + student_name + '!' + "\n\nдля общения используй комманды:\n/classes — расписание на завтра\n/schedule — расписание на неделю\n\nили можешь просто ко мне\nобратиться, например\n'какие пары во вторник?'\nдля групповых чатов используй\nслово 'бот', например\n'бот, какие пары в среду?'\n\nсоздатель — @yoqwx")
 
 @bot.message_handler(commands=['classes'])
 def classes_command(message):
