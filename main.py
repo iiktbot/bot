@@ -513,6 +513,7 @@ def predefined_messages(message):
 	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
+	mct = message.chat.type
 
 	if uid in first_group.keys():
 		student_group = 'первая группа'
