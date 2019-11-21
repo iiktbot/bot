@@ -502,6 +502,7 @@ def classes_command(message):
 
 @bot.message_handler(commands=['schedule'])
 def schedule_command(message):
+	mid = message.message_id
 	cid = message.chat.id
 	uid = message.from_user.id
 
