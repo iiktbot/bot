@@ -563,12 +563,12 @@ def predefined_messages(message):
 	week_condition = 'ok'
 	full_condition = 'ok'
 
-	if any(word in msg for word in classes_list) and not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
+	if any(word in msg for word in classes_list) and not any(word in msg for word in fullweek_list) and not any(word in msg for word in weekdays_list) and not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
 		time_condition = 'ok'
 	else:
 		time_condition = 'not ok'
 
-	if 0 < days_matches < 2 and not any(word in msg for word in exceptions_list):
+	if 0 < days_matches < 2 and not any(word in msg for word in fullweek_list) and not any(word in msg for word in exceptions_list):
 		if 'сегодня' in msg:
 			if not any(word in msg for word in weekdays_list):
 				days_condition = 'ok'
@@ -605,7 +605,7 @@ def predefined_messages(message):
 	else:
 		days_condition = 'not ok'
 
-	if not any(word in msg for word in days_list) and not any(word in msg for word in exceptions_list):
+	if not any(word in msg for word in days_list) and not any(word in msg for word in fullweek_list) and not any(word in msg for word in exceptions_list):
 		if ('понедельник' in msg or 'пн' in msg) and not ('вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
 			week_condition = 'ok'
 		elif ('вторник' in msg or 'вт' in msg) and not ('понедельник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg or 'вс' in msg):
@@ -619,10 +619,7 @@ def predefined_messages(message):
 		elif ('суббота' in msg or 'сб' in msg or 'субботу' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'воскресенье' in msg or 'среду' in msg or 'пятницу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'вс' in msg):
 			week_condition = 'ok'
 		elif ('воскресенье' in msg or 'вс' in msg) and not ('понедельник' in msg or 'вторник' in msg or 'среда' in msg or 'четверг' in msg or 'пятница' in msg or 'суббота' in msg or 'среду' in msg or 'пятницу' in msg or 'субботу' in msg or 'пн' in msg or 'вт' in msg or 'ср' in msg or 'чт' in msg or 'пт' in msg or 'сб' in msg):
-			if 'вся' not in msg and 'всю' not in msg:
-				week_condition = 'ok'
-			else:
-				week_condition = 'not ok'
+			week_condition = 'ok'
 		else:
 			week_condition = 'not ok'
 	else:
