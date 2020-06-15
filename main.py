@@ -11,7 +11,6 @@ from random import randrange
 TOKEN = os.environ['TOKEN']
 
 bot = telebot.TeleBot(TOKEN, skip_pending=True, threaded=False)
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app = Flask(__name__)
 
 SCHEDULE_MONDAY_DAYOFF = 'ПАР НЕТ'
