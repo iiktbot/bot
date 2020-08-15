@@ -42,7 +42,7 @@ def process_webhook():
 def main():
     start_cmd_handler = CommandHandler('start', start_cmd)
     dp.add_handler(start_cmd_handler)
-    bot.setWebhook(webhook_url='https://%s:%s/%s' % (HOST, PORT, TOKEN))
+    bot.setWebhook(webhook_url='{0}:{1}/{2}'.format(URL, PORT, TOKEN))
 
 if __name__ == "__main__":
     main()
