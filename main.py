@@ -28,21 +28,22 @@ def start_cmd(update, context):
 
 @app.route('/', methods=['GET', 'HEAD'])
 def index():
-    return '!'
+    return 'ok'
 
 
-@app.route('/' + TOKEN, methods=['GET', 'POST'])
+@app.route('/' + TOKEN, methods=['POST'])
 def process_webhook():
-    if request.method == 'POST':
-        update = telegram.update.Update.de_json(request.get_json(force=True), bot)
-        dp.process_update(update)
-    return '!'
+    update = telegram.update.Update.de_json(request.get_json(force=True), bot)
+    dp.process_update(update)
+    return 'ok'
 
 
 def main():
     start_cmd_handler = CommandHandler('start', start_cmd)
     dp.add_handler(start_cmd_handler)
-    bot.setWebhook(webhook_url='{0}:{1}/{2}'.format(URL, PORT, TOKEN))
+    updater.start_webhook(listen=HOST, port=PORT, url_path=TOKEN)
+    updater.bot.set_webhook(URL + TOKEN)
+    updater.idle()
 
 if __name__ == "__main__":
     main()
