@@ -34,16 +34,17 @@ def main():
     updater.idle()
 
 
-@app.route('/', methods=['GET', 'HEAD'])
+@app.route('/')
 def index():
-    return "<p>that's ok</p>"
+    return "tysobot (c) yoqwx, 2020"
 
 
-@app.route('/' + TOKEN, methods=['POST'])
+@app.route('/' + TOKEN, methods=['GET', 'POST'])
 def process_webhook():
-    update = telegram.update.Update.de_json(request.get_json(force=True), bot)
-    dp.process_update(update)
-    return "<p>that's ok</p>"
+    if request.method == 'POST':
+        update = telegram.update.Update.de_json(request.get_json(force=True), bot)
+        dp.process_update(update)
+    return "tysobot (c) yoqwx, 2020"
 
 
 if __name__ == "__main__":
