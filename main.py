@@ -26,17 +26,9 @@ def start_cmd(update, context):
     context.bot.send_message(user_id, 'started')
 
 
-def main():
-    start_cmd_handler = CommandHandler('start', start_cmd)
-    dp.add_handler(start_cmd_handler)
-    updater.start_webhook(listen=HOST, port=PORT, url_path=TOKEN)
-    updater.bot.set_webhook(URL + TOKEN)
-    updater.idle()
-
-
-@app.route('/')
+@app.route('/', methods=['GET', 'HEAD'])
 def index():
-    return "tysobot (c) yoqwx, 2020"
+    return '!'
 
 
 @app.route('/' + TOKEN, methods=['GET', 'POST'])
@@ -44,8 +36,13 @@ def process_webhook():
     if request.method == 'POST':
         update = telegram.update.Update.de_json(request.get_json(force=True), bot)
         dp.process_update(update)
-    return "tysobot (c) yoqwx, 2020"
+    return '!'
 
+
+def main():
+    start_cmd_handler = CommandHandler('start', start_cmd)
+    dp.add_handler(start_cmd_handler)
+    bot.setWebhook(webhook_url='https://%s:%s/%s' % (HOST, PORT, TOKEN))
 
 if __name__ == "__main__":
     main()
