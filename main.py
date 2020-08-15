@@ -32,7 +32,7 @@ def main():
     updater.idle()
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'HEAD'])
 def index():
     return "<p>that's ok</p>"
 
