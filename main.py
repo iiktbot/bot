@@ -3,8 +3,7 @@ import telegram
 import os
 from flask import Flask, request
 from telegram import Update
-from telegram.ext import (Updater, CommandHandler)
-from telegram.ext.dispatcher import run_async
+from telegram.ext import Updater, CommandHandler
 
 TOKEN = os.environ['TOKEN']
 HOST = os.environ['HOST']
@@ -33,8 +32,13 @@ def main():
     updater.idle()
 
 
+@app.route('/', methods=['POST'])
+def index():
+    return "<p>that's ok</p>"
+
+
 @app.route('/' + TOKEN, methods=['POST'])
-def webhook():
+def process_webhook():
     update = telegram.update.Update.de_json(request.get_json(force=True), bot)
     print(update)
     return 'ok'
@@ -42,4 +46,4 @@ def webhook():
 
 if __name__ == "__main__":
     main()
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 443), debug=True))
+    app.run(host=HOST, port=PORT, debug=True)
